@@ -1,0 +1,211 @@
+
+/* ==> GENERAL STYLES <== */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: 2vh;
+}
+
+body{
+    background: #ffffff;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    text-align: center;
+}
+.container{
+    margin: 0 10%;
+    display: grid;
+
+    grid-template-rows: 15vh 70vh 85vh 85vh 85vh 85vh 85vh;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: " header header"
+                         " section1 section1"
+                         " section2 section2"
+                         " section3 section3"
+                         " section4 section4"
+                         " section5 section5"
+                         " section6 section6";
+
+    background: #7f8c8d;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* ==> HEADER <== */
+
+header{
+    grid-area: header;
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "logo lista";
+    
+    background: #55efc4;
+}
+
+header h3{
+    grid-area: logo;
+    margin: 10px;
+}
+
+header ul{
+    grid-area: lista;
+    margin: 10px;
+    justify-self: end;
+}
+
+header ul li{
+    display: inline-block;
+    padding: 0 5px;
+    height: 1.2vh;
+}
+
+/* ==> HEADER END <== */
+/* ==> SECTIONS <== */
+
+section{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.secStyle1{
+    background: #81ecec;
+}
+
+.secStyle2{
+    background: #74b9ff;
+}
+
+.secStyle2 ul{
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#sec1{
+    grid-area: section1 ;
+}
+
+#sec2{
+    grid-area: section2 ;
+}
+#sec2 img{
+    width: 100px;
+}
+
+#sec3{
+    grid-area: section3 ;
+}
+#sec3 img{
+    width: 400px;
+}
+
+#sec4{
+    grid-area: section4 ;
+}
+
+#sec5{
+    grid-area: section5 ;
+}
+
+#sec6{
+    grid-area: section6 ;
+    display: grid;
+
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "mapa formulario";
+}
+
+#sec6 .map{
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+#sec6 .map img{
+    width: 100%;
+}
+
+#sec6 .formBox{
+    padding: 150px;
+    width: 100%;
+    height: 100%;
+}
+
+#sec6 form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+
+#sec6 form button{
+    margin: 20px 0;
+    width: 100px;
+    height: 48px;
+}
+
+.formBox input{
+    margin: 20px 0;
+    width: 100%;
+    height: 24px;
+}
+
+.formBox textarea{
+    width: 100%;
+    height: 300px;
+}
+/* ==> SECTIONS END <== */
+/* ==> FOOTER <== */
+
+footer{
+    grid-area: footer;
+    width: 100%;
+    height: 15vh;
+
+    background: #a29bfe;
+}
+
+footer ul{
+    height: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* ==> FOOTER END <== */
+/* ==> RESPONSIVE UWU? <== */
+
+@media(max-width:450px){
+    .secStyle2   ul{
+        flex-direction: column;
+    }
+}
