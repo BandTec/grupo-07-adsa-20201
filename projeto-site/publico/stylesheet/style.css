@@ -9,9 +9,9 @@
 }
 
 body{
-    background:url();
+    background:url(/bgBody1.jpg);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size:cover;
 }
 
 a{
@@ -32,6 +32,7 @@ button{
     border: 1px solid steelblue;
     background: #ffffff;
     transition-duration: 300ms;
+    cursor: pointer;
 }
 button:hover{
     transform: scale(1.1);
@@ -56,12 +57,64 @@ button:hover{
                          " section5 section5"
                          " section6 section6";
 
-    background:;
+    grid-gap:20px;
+}
+/* ==>  POP-UP <== */
 
-    grid-gap: 25px;
+.popupBg{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
 }
 
-/* ==> HEADER <== */
+.popup{
+    padding: 0 50px;
+    position: fixed;
+    top: 32.5vh;
+    left: 40vw;
+    width: 20vw;
+    height: 35vh;
+    align-items: center;
+    justify-items: center;
+    background: turquoise;
+}
+
+.popup .popupContent{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+}
+
+.popup .popupContent .remember{
+    display: flex;
+    flex-flow: row;
+}
+
+.popup .popupContent .remember .createAccount{
+    margin: 0 0 0 30px;
+    cursor: pointer;
+}
+
+.popup .popupContent .remember .ckbox{
+    margin:3px 2px 0 0;
+    width: max-content;
+}
+
+.popup .popupContent h1{
+    margin: 10px 0;
+}
+.popup .popupContent input{
+    width: 100%;
+    margin: 10px 0;
+}
+
+.popup .popupContent button{
+    margin: 30px 0;
+}
+
+/* ==> POP-UP FIM <== */
 
 header{
     grid-area: header;
@@ -105,8 +158,8 @@ section{
     justify-content: space-around;
     align-items: center;
 
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-    border-radius:25px;
+    background: #ffffff;
+    border-radius:0;
 }
 
 .leftAbove{
@@ -131,7 +184,8 @@ section{
 }
 
 .secStyle1{
-    
+    background: rgba(0, 0, 0, 0.4);
+    color: #ffffff;
 }
 
 .secStyle2{

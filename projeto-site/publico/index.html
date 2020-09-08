@@ -11,6 +11,38 @@
 
 <body>
 
+    <div class="popupBg" id="popupbg">
+        <div class="popup" id="login">
+            <div class="popupContent">
+                <form action="">
+                    <h1>Login</h1>
+                    <h4>Email address</h4>
+                    <input type="text" placeholder="E-mail">
+                    <h4>Password</h4>
+                    <input type="password" placeholder="Password">
+                    <div class="remember"><input class="ckbox" type="checkbox"> Remeber me <div class="createAccount" onclick="showRegister()" href="">dont have a
+                            account</div></div>
+                    <button>Login</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup" id="register" style="display: none;">
+            <div class="popupContent">
+                <form action="">
+                    <h1>Register</h1>
+                    <h4>Email address</h4>
+                    <input type="text">
+                    <h4>Password</h4>
+                    <input type="password">
+                    <h4>Confirm your password</h4>
+                    <input type="password">
+                    <button>Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <header>
             <h3 class="logo">Telemon!</h3>
@@ -19,7 +51,7 @@
                 <li> <a href=""> Pricing </a> </li>
                 <li> <a href=""> Solutions </a> </li>
                 <li> <a href=""> About Us </a> </li>
-                <li> <button> Login </button> </li>
+                <li> <button onclick="showLogin()"> Login </button> </li>
             </ul>
 
         </header>
@@ -155,11 +187,27 @@
 </html>
 
 <script>
+
+    popupbg.style.display = "none";
+    login.style.display = "none";
+    register.style.display = "none";
+
     funcionario2.style.display = "none";
     funcionario3.style.display = "none";
     funcionario4.style.display = "none";
     funcionario5.style.display = "none";
     funcionario6.style.display = "none";
+
+    function showLogin() {
+        document.getElementById("popupbg").style.display = "";
+        document.getElementById("login").style.display = "";
+    }
+
+    function showRegister() {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("popupbg").style.display = "";
+        document.getElementById("register").style.display = "";
+    }
 
     let funcionarioNumber = 1;
 
