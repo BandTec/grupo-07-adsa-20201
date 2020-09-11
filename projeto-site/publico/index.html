@@ -44,7 +44,7 @@
     </div>
 
     <header>
-        <h3 class="logo">Telemon!</h3>
+        <a  class="logo" href="index.html"><img src="logo2.png">
 
         <ul>
             <li> <a href=""> Pricing </a> </li>
@@ -103,7 +103,7 @@
 
         <section id="sec5" class="secStyle1">
             <div class="funcionarios">
-                <img src="seta-esquerda.png" onclick="rollLeft()">
+                <img id="arrow1" class="arrows" src="leftArrow.png" onclick="rollLeft()">
                 <div class="equipeBox">
                     <div class="funcionario" id="funcionario1">
                         <img src="">
@@ -137,14 +137,14 @@
                         <p>Aqui uma descrição ou uma frase de cada um.</p>
                     </div>
                 </div>
-                <img src="seta-apontando-para-a-direita.png" onclick="rollRigth()">
+                <img class="arrows" src="leftRigth.png" onclick="rollRigth()">
             </div>
 
             <ul>
                 <li><img src="fb_icon.png"></li>
                 <li><img src="instagram.png"></li>
                 <li><img src="linkedin.png"></li>
-                <li><img src="git.png"> </li>
+                <li><img src="github.png"> </li>
             </ul>
         </section>
 
@@ -158,9 +158,9 @@
                     tabindex="0"></iframe>
             </div>
             <div class="rigthBellow">
-                <form action="">
-                    <input placeholder="e-mail">
-                    <input placeholder="e-mail">
+                <form class="formulario" action="">
+                    <input placeholder="Nome">
+                    <input placeholder="E-mail">
                     <textarea name="mensagem" id="formMsg" cols="30" rows="10" placeholder="Conte-nos..."></textarea>
                     <button>Enviar</button>
                 </form>
