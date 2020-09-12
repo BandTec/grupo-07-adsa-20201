@@ -265,14 +265,15 @@ section{
     grid-area: section4 ;
 }
 
+
+
 #sec5{
     grid-area: section5 ;
 }
 #sec5 .funcionario h4{
-    color: #3498db;
+    color: yellow;
 }
 #sec5 #arrow1{
-    margin-left: 37%;
 }
 
 #sec5 .arrows{
@@ -298,12 +299,30 @@ section{
 }
 
 .funcionarios{
+    margin-top: 35px;
     display: flex;
-    
     width: 100%;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
 }
+
+.funcionario{
+    display: flex;
+    align-items: center;
+    margin: 10px 80px;
+}
+
+.funcionario img{
+    border-radius: 50%;
+    height: 150px;
+    margin-right: 10px;
+}
+
+.funcionario p{
+    width: 250px;
+}
+
+
 
 #sec6{
     padding: 50px;
