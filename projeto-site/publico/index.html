@@ -5,7 +5,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telemon!</title>
+    <title>Telemon</title>
     <link rel="stylesheet" href="stylesheet/style.css">
     <link rel="shortcut icon" href="" type="image/x-icon">
     
@@ -14,7 +14,9 @@
 <body>
 
     <div class="popupBg" id="popupbg" >
+        
         <div class="popup" id="login">
+            <img src="./img/close.png" alt="fechar" onclick="closePopupContent()">
             <div class="popupContent">
                 <form action="">
                     <h1>Login</h1>
@@ -68,12 +70,12 @@
                 <div class="leftContent">
                     <h1 class="logo">Telemon!</h1>
                     <div>Monitoramento pensado para as suas necessidades.</div>
-                    <button>Sing Up!</button>
+                    <button onclick="showLogin()">Sing Up!</button>
                 </div>
 
             </div>
             <div class="rigthBellow">
-                <img src="./img/software-app.png" alt="">
+                <img src="./img/dashboard.png" alt="">
             </div>
         </section>
 
@@ -81,18 +83,18 @@
             <h3>Solução</h3>
             <ul>
                 <li><img src="./img/description-1.png">
-                    <p>Desafio: Facilitar o monitoramento da máquina de funcionários dentro de uma empresa de telemarketing</p>
+                    <h5>Desafio: Facilitar o monitoramento da máquina de funcionários dentro de uma empresa de telemarketing</h5>
                 </li>
                 <li><img src="./img/description-2.png">
-                    <p>Temos como solução um software que realiza o monitoramento de máquinas,
-                        visando a entrega de informações através de relatórios e gráficos de forma mais simples e rápida</p>
+                    <h5>Temos como solução um software que realiza o monitoramento de máquinas,
+                        visando a entrega de informações através de relatórios e gráficos de forma mais simples e rápida</h5>
                 </li>
                 <li><img src="./img/description-3.png">
-                    <p>Agilidade no suporte 
+                    <h5>Agilidade no suporte 
                         Segurança de dados 
                         Prevenção ao uso indevido da máquina 
                         Facilidade à gestão
-                    </p>
+                    </h5>
                 </li>
             </ul>
         </section>
@@ -130,7 +132,7 @@
 
         <section id="sec5" class="secStyle1">
             <div class="funcionarios">
-                <img id="arrow1" class="arrows" src="./img/setaesquerda.png" onclick="rollLeft()">
+                <img id="arrow1" class="arrows" src="./img/seta-esquerda (2).png" onclick="rollLeft()">
                 <div class="equipeBox">
                     <div class="funcionario" id="funcionario1">
                         
@@ -183,12 +185,12 @@
                         
                     </div>
                 </div>
-                <img class="arrows" src="./img/setadireita.png" onclick="rollRigth()">
+                <img class="arrows" src="./img/right - Copia.png" onclick="rollRigth()">
             </div>
 
             <ul>
-                <li> <a href=""> <img src="./img/fb_icon.png"> </a> </li>
-                <li> <a href=""> <img src="./img/instagram.png"> </a> </li>
+                <li> <a href=""> <img src="./img/facebook.png"> </a> </li>
+                <li> <a href=""> <img src="./img/instagram-sketched.png"> </a> </li>
                 <li> <a href=""> <img src="./img/linkedin.png"> </a> </li>
                 <li> <a href="https://github.com/BandTec/grupo-07-adsa-20201"> <img src="./img/github.png"> </a> </li>
             </ul>

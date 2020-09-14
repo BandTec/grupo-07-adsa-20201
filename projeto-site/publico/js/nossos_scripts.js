@@ -19,6 +19,11 @@ function showRegister() {
     document.getElementById("register").style.display = "";
 }
 
+function closePopupContent(){
+    document.getElementById("popupbg").style.display = "none";
+    document.getElementById("login").style.display = "none";
+}
+
 let funcionarioNumber = 1;
 
 function rollRigth() {
@@ -27,6 +32,7 @@ function rollRigth() {
 
         document.getElementById(`funcionario${funcionarioNumber}`).style.display = "none"
         document.getElementById(`funcionario${funcionarioNumber + 1}`).style.display = ""
+    
 
         funcionarioNumber++;
     }
