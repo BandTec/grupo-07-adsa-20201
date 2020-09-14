@@ -11,6 +11,8 @@ funcionario6.style.display = "none";
 function showLogin() {
     document.getElementById("popupbg").style.display = "";
     document.getElementById("login").style.display = "";
+    document.getElementById("register").style.display = "none";
+
 }
 
 function showRegister() {
