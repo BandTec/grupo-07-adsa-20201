@@ -456,6 +456,10 @@ footer{
     box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.5);
 }
 
+footer a {
+    color: #6f2232;
+    padding-top: 20px;
+}
 footer ul{
     height: 100%;
     display: flex;
