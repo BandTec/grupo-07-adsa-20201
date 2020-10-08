@@ -28,12 +28,19 @@ public class Something {
     private GlobalMemory mem = haw.getMemory();
     private long[] cpuUsage = cpu.getSystemCpuLoadTicks();
     
+    //=>Initialize<=//
+    public void Telemon(){
+        System.out.println("-------------------------------");
+        System.out.println("----------> Telemon <----------");
+        System.out.println("-------------------------------");
+    }
+    
     //=>Gets<=//
     public void getCpuUsage() { 
         try {
             while (true) {
-                Double cpuUsage = cpu.getSystemCpuLoadBetweenTicks(this.cpuUsage);
-                System.out.printf("CPU usage: %.2f gHz \n",cpuUsage);
+                Double cpuUsage = (cpu.getSystemCpuLoadBetweenTicks(this.cpuUsage)) * 100;
+                System.out.printf("CPU usage: %.2f %s \n", cpuUsage, "%");
                 Thread.sleep(1000);
             }
         } catch (InterruptedException ex) {
@@ -49,7 +56,7 @@ public class Something {
                 Thread.sleep(1000);
             }
         } catch (InterruptedException ex) {
-            System.out.println("A Captura de RAM acabou.");
+            System.out.printf("A Captura de RAM acabou. %s", ex);
         }
     }
     
@@ -80,7 +87,7 @@ public class Something {
     public void getOsProcesses() {
         try {
             while (true) {
-                List<OSProcess> osProcesses = os.getProcesses(20, OperatingSystem.ProcessSort.CPU);
+                List<OSProcess> osProcesses = os.getProcesses();
                 System.out.println(osProcesses);
                 Thread.sleep(1000);
             }
