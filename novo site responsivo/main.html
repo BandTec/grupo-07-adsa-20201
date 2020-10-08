@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Links Bootstrap & CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheet/estilo.css">
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Telemon</title>
+
+</head>
+
+
+
+<body>
+
+    <div class="popupBg" id="popupbg">
+
+        <div class="popup" id="login">
+            <img src="./img/close.png" alt="fechar" onclick="closePopupContent()">
+            <div class="popupContent">
+                <form action="">
+                    <h1>Login</h1>
+                    <h4>Endereço de e-mail</h4>
+                    <input type="text" placeholder="E-mail">
+                    <h4>Senha</h4>
+                    <input type="password" placeholder="Senha">
+                    <div class="remember"><input class="ckbox" type="checkbox"> Lembre-me!
+                        <div class="createAccount" onclick="showRegister()" href="">
+                            Não tem conta?
+                        </div>
+                    </div>
+                    <button>Login</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="popup" id="register" style="display: none;">
+            <img src="./img/back.png" alt="voltar" onclick="showLogin()">
+            <div class="popupContent">
+                <form action="">
+                    <h1>Registrar</h1>
+                    <h4>Endereço de e-mail</h4>
+                    <input type="text">
+                    <h4>Senha</h4>
+                    <input type="password">
+                    <h4>Confirme sua senha</h4>
+                    <input type="password">
+                    <button>Registrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Entrar -->
+    <div class="modal fade" id="ModalEntrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">E-mail</label>
+                            <input type="email" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email-text" class="col-form-label">Senha</label>
+                            <input type="password" class="form-control" id="email-text">
+                        </div>
+                        <div class="remember"><input class="ckbox" type="checkbox"> Lembre-me!
+                            <div class="createAccount" data-dismiss="modal" data-toggle="modal" data-target="#ModalRegistrar" href="">
+                                Não tem conta?
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Entrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Registrar -->
+    <div class="modal fade" id="ModalRegistrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registre-se</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">E-mail</label>
+                            <input type="email" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="senha-text" class="col-form-label">Senha</label>
+                            <input type="password" class="form-control" id="senha-text">
+                        </div>
+                        <div class="form-group">
+                            <label for="senhar-text" class="col-form-label">Cofnirme sua senha</label>
+                            <input type="password" class="form-control" id="senhar-text">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#ModalEntrar" data-dismiss="modal">Voltar</button>
+                    <button type="button" class="btn btn-danger">Registrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <a class="navbar-brand" href="#sec1">
+            <img class="logo" src="./img/logo2.png " " alt="" loading="lazy">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#sec2">Soluções</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#sec4">Sobre nós</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#sec6">Contato</a>
+                </li>
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#ModalEntrar">Login</button>
+
+            </ul>
+
+        </div>
+    </nav>
+
+
+
+    <br>
+    <br>
+
+    <div class="container">
+
+
+        <section id="sec1" class=" secStyle1">
+            <div class="row leftAbove">
+                <div class="col-sm">
+                    <br>
+                    <h1 class="display-6">Telemon</h1>
+                    <p class="lead">Monitoramento pensado para as suas necessidades.</p>
+                    <hr class="my-4">
+                    <p style="font-size: 20px;">Quem Somos?</p>
+                    <p>A Telemon é uma empresa criada no ano de 2020 nas dependencias da faculdade Bandtec, e é especializada em monitoramento de Call Center, sempre visando a satisfação e buscando a resolução do jeito que o cliente espera.</p>
+                    <a class="btn btn-danger btn-lg" href="#" role="button">Começar agora</a>
+                    <br>
+                    <br>
+                </div>
+                <div class="col-sm">
+                    <img class="img-fluid img-home" src="./img/dashboard.png" alt="">
+                </div>
+            </div>
+        </section>
+        <br>
+
+        <section id="sec2" class="secStyle2">
+            <br>
+            <h3>Solução</h3>
+            <br>
+            <ul>
+                <li>
+                    <img src="./img/description-1.png" alt="desafio" class="img-fluid ">
+                    <h5>Desafio: Facilitar o monitoramento da máquina de funcionários dentro de uma empresa de telemarketing.</h5>
+                </li>
+                <li>
+                    <img src="./img/description-2.png" alt="solução" class="img-fluid ">
+                    <h5>Temos como solução um software que realiza o monitoramento de máquinas, visando a entrega de informações através de relatórios e gráficos de forma mais simples e rápida.</h5>
+                </li>
+                <li>
+                    <img src="./img/description-3.png" alt="agilidade" class="img-fluid ">
+                    <h5>Agilidade no suporte Segurança de dados Prevenção ao uso indevido da máquina Facilidade à gestão.</h5>
+                </li>
+            </ul>
+        </section>
+
+        <br>
+
+
+        <section id="sec3" class="secStyle1">
+            <br>
+            <h3>Dashboard</h3>
+            <img src="./img/dash.svg" alt="dashboard" class="img-fluid ">
+            <br>
+        </section>
+        <br>
+
+
+        <section id="sec4" class="secStyle2">
+            <br>
+            <h3>Valores</h3>
+            <br>
+            <ul>
+                <li>
+                    <img src="./img/seguranca.png" alt="" class="img-fluid">
+                    <h5>Levamos segurança aos nossos clientes através do nosso produto e suporte especializado.</h5>
+
+                </li>
+                <li>
+                    <img src=" ./img/responsabilidade.png " alt=" " class="img-fluid">
+                    <h5>Obtemos responsabilidade para com aqueles que adquirem nossa solução, pois sabemos a grande importância da segurança e monitoramento das informações das máquinas dos nossos clientes;
+
+                    </h5>
+
+                </li>
+                <li>
+                    <img src="./img/comodidade.png" alt="" class="img-fluid">
+                    <h5>Levamos comodidade com o nosso produto, possibilitando uma visão ampla e completa através de gráficos e relatórios que facilitam a vida dos gestores. </h5>
+
+                </li>
+            </ul>
+        </section>
+        <br>
+        <section id="sec5" class="secStyle1">
+            <h3>Nossa equipe</h3><br>
+            <div class="funcionarios">
+                <span class="carousel-control-prev-icon" aria-hidden="true" onclick="rollLeft()" style="cursor: pointer;"></span>
+
+                <div class="equipeBox">
+
+                    <div class="funcionario" id="funcionario1">
+
+                        <div class="row leftAbove">
+                            <div class="col-sm">
+                                <img class="img-fluid" src="./img/Cerval.jpg" alt="">
+                            </div>
+                            <div class="col-sm">
+                                <br>
+                                <p class="h3">Gabriel Cerval - Programador</p>
+                                <p class="lead">"A dor é temporária, mas a glória é eterna."</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="funcionario" id="funcionario2">
+                        <div class="row leftAbove">
+                            <div class="col-sm">
+                                <img class="img-fluid" src="./img/Lazaro.jpg" alt="">
+                            </div>
+                            <div class="col-sm">
+                                <br>
+                                <p class="h3">Gabriel Lazaro - Programador</p>
+                                <p class="lead">"Quanto mais escura a noite, mais brilhantes são as estrelas."</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="funcionario" id="funcionario3">
+                        <div class="row leftAbove">
+                            <div class="col-sm">
+                                <img class="img-fluid" src="./img/Gui.jpg" alt="">
+                            </div>
+                            <div class="col-sm">
+                                <br>
+                                <p class="h3">Guilherme Silva - Programador</p>
+                                <p class="lead h5">"Não importa quanto tempo você tem, mas como você o usa."</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="funcionario" id="funcionario4">
+                        <div class="row leftAbove">
+                            <div class="col-sm">
+                                <img class="img-fluid" src="./img/Lari.jpg" alt="">
+                            </div>
+                            <div class="col-sm">
+                                <br>
+                                <p class="h3">Larissa Custodio - Scrum Master</p>
+                                <p class="lead">"O otimismo é a fé que leva à realização. Nada pode ser feito sem esperança ou confiança."</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="funcionario" id="funcionario5">
+                        <div class="row leftAbove">
+                            <div class="col-sm">
+                                <img class="img-fluid" src="./img/Marcelo.jpg" alt="">
+                            </div>
+                            <div class="col-sm">
+                                <br>
+                                <p class="h3">Marcelo Whitehead - Programador</p>
+                                <p class="lead">"O maior valor da vida não é o que você obtém. O maior valor da vida é o que você se torna.".</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="funcionario" id="funcionario6">
+                        <div class="row leftAbove">
+                            <div class="col-sm">
+                                <img class="img-fluid" src="./img/Vitor.jpg" alt="">
+                            </div>
+                            <div class="col-sm">
+                                <br>
+                                <p class="h3">Vitor Marques - Programador</p>
+                                <p class="lead">"Um tesouro nem sempre é um amigo, mas um amigo sempre é um tesouro."</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <span class="carousel-control-next-icon" aria-hidden="true" onclick="rollRigth()" style="cursor: pointer;"></span>
+            </div>
+
+            <ul>
+                <li>
+                    <a href=""> <img src="./img/facebook.png" class="img-fluid"> </a>
+                </li>
+                <li>
+                    <a href=""> <img src="./img/instagram-sketched.png" class="img-fluid"> </a>
+                </li>
+                <li>
+                    <a href=""> <img src="./img/linkedin.png" class="img-fluid"> </a>
+                </li>
+                <li>
+                    <a href="https://github.com/BandTec/grupo-07-adsa-20201"> <img src="./img/github.png" class="img-fluid"> </a>
+                </li>
+            </ul>
+        </section>
+
+        <br>
+
+        <section id="sec6" class="secStyle2">
+            <div class="row leftAbove">
+                <div class="col-sm">
+                    <h2>Localize-nos</h2>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.
+                    2873451596224!2d-46.66380268559891!3d-23.558121284684553!2m3!1f0!2f0!3f0
+                    !3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59d2b063f663%3A0xc567c0d16d0bc582!
+                    2sBandtec%20Digital%20School!5e0!3m2!1spt-BR!2sbr!4v1599423909820!5m2!1spt-BR!2sbr" width="100%" height="300px" frameborder="0" style="border:0; border-radius: 10px;" allowfullscreen="true" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+                <div class="col-sm">
+
+                    <h2>Entre em contato conosco</h2>
+                    <form class="formulario" action="">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputName">Nome</label>
+                                <input type="text" class="form-control" id="exampleInputName">
+
+                                <label for="exampleInputPassword1">Email</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1">
+                                <small id="emailHelp" class="form-text text-muted">Nunca compartilharemos seu e-mail com mais ninguém.</small>
+
+                                <br>
+                                <label for="exampleFormControlTextarea1">Example textarea</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-danger">Enviar</button>
+                        </form>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+
+        <br>
+
+
+    </div>
+
+    <a class="back-to-top" href="#"></a>
+
+    <footer class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="h4">Horários</p>
+                    <p class="h3">segunda à sexta : 9:00 - 21:30</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>&copy Todos direitos reservados - Telemon 2020</p>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="h4">Links importantes:</p>
+                    <br> <a href="https://github.com/BandTec/grupo-07-adsa-20201">Repositório Telemon</a>
+                    <a href=""> <br></a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- JavaScript -->
+    <script type=" text/javascript " src="js/nossos_scripts.js "></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js " integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js " integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV " crossorigin="anonymous "></script>
+</body>
+
+</html>
