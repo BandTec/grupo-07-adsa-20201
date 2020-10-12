@@ -1,0 +1,265 @@
+/* Required height of parents of the Half Page Carousel for proper displaying carousel itself */
+
+html,
+body,
+.view {
+    height: 100%;
+}
+
+@media (max-width: 740px) {
+    .full-page-intro {
+        height: 800px;
+    }
+}
+
+
+/* Adjustment for mobile devices*/
+
+
+/* Navbar animation */
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav-main {
+    background-color: white;
+    border-bottom: 2px solid red;
+}
+
+.top-nav-collapse {
+    background-color: white!important;
+}
+
+.top-nav-collapse {
+    background-color: #1C2331;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav-item li:not(:last-child) {
+    margin-right: 20px;
+}
+
+.nav-item a {
+    display: block;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    padding: 7px 15px;
+}
+
+.nav-item a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: red;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.nav-item a:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+
+/* Adding color to the Navbar on mobile */
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: white;
+    }
+}
+
+h1::after {
+    content: '|';
+    margin-left: 5px;
+    opacity: 1;
+    animation: pisca .7s infinite;
+}
+
+@keyframes pisca {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Footer color for sake of consistency with Navbar */
+
+.page-footer {
+    background-color: #1C2331;
+}
+
+.linha-home {
+    height: 300px;
+    border-right: 1px solid red;
+}
+
+@media only screen and (max-width: 768px) {
+    .linha-home {
+        display: none;
+    }
+    .linha-home-hori {
+        width: 300px;
+        border-bottom: 1px solid red;
+    }
+    .full-page-intro {
+        margin-top: 8%;
+    }
+    .ondas {
+        display: none;
+    }
+    .footer-width {
+        width: 108%;
+    }
+}
+
+
+/*    WAVES        */
+
+.inner-header {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.flex {
+    /*Flexbox for containers*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.waves {
+    position: relative;
+    width: 100%;
+    height: 10vh;
+    margin-bottom: -7px;
+    /*Fix for safari gap*/
+    min-height: 100px;
+    max-height: 150px;
+}
+
+
+/* Animation */
+
+.parallax>use {
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.parallax>use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 10s;
+}
+
+.parallax>use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 40s;
+}
+
+.parallax>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 10s;
+}
+
+.parallax>use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 5s;
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+
+/*Shrinking for mobile*/
+
+@media (max-width: 768px) {
+    .waves {
+        height: 40px;
+        min-height: 40px;
+    }
+    .content {
+        height: 30vh;
+    }
+    h1 {
+        font-size: 24px;
+    }
+}
+
+
+/* END WAVES */
+
+
+/*    About Us     */
+
+.img-security {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid red;
+    position: relative;
+}
+
+.img-security img {
+    width: 70%;
+    margin: 0;
+    top: -20%;
+    left: -20%;
+    margin-right: -20%;
+    transform: translate(20%, 20%);
+}
+
+.img-security:hover {
+    cursor: pointer;
+}
+
+.text-solutions p {
+    text-align: center;
+}
+
+.num-solutions {
+    font-size: 50px;
+    font-weight: bolder;
+    color: rgb(194, 23, 23);
+}
+
+.card {
+    margin-left: 30px;
+}
+
+@media only screen and(max-widht: 768px) {
+    .col-sm {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
