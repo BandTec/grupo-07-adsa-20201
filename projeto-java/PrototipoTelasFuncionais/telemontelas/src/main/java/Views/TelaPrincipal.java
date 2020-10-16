@@ -53,6 +53,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaRedeMaquina = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -88,7 +89,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, true, true
+                false, false, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -96,6 +97,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         tabelaRedeMaquina.setRowHeight(50);
+        tabelaRedeMaquina.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabelaRedeMaquina);
         if (tabelaRedeMaquina.getColumnModel().getColumnCount() > 0) {
             tabelaRedeMaquina.getColumnModel().getColumn(0).setResizable(false);
@@ -104,7 +106,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
             tabelaRedeMaquina.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 760, 380));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 760, 380));
+
+        jButton1.setText("Fechar");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -160,6 +165,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaRedeMaquina;
