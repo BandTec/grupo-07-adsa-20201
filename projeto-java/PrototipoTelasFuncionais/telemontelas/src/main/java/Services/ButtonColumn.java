@@ -64,7 +64,7 @@ implements TableCellRenderer, TableCellEditor, ActionListener{
             //renderButton.setBackground(UIManager.getColor("Button.background"));
         }
 
-        renderButton.setText( (value == null) ? "Ver mais" : value.toString() );
+        renderButton.setText( (value == null) ? "Detalhes" : value.toString() );
         
         return renderButton;
     }
@@ -72,7 +72,7 @@ implements TableCellRenderer, TableCellEditor, ActionListener{
         public Component getTableCellEditorComponent(
         JTable table, Object value, boolean isSelected, int row, int column)
     {
-        text = (value == null) ? "Ver mais" : value.toString();
+        text = (value == null) ? "Detalhes" : value.toString();
         editButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         editButton.setText( text );
         return editButton;

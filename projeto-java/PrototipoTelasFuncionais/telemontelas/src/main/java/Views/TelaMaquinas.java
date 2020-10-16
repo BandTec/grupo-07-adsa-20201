@@ -19,32 +19,13 @@ import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 
 public class TelaMaquinas extends javax.swing.JFrame {
-    ArrayList<Chamado> chamados = new ArrayList();
-        Maquina maquina1 = new Maquina(1, "DESK-LARISSA");
-        Maquina maquina2 = new Maquina(2, "DESK-GABLAZARO");
-        Maquina maquina3 = new Maquina(3, "DESK-VITOR");
-        Maquina maquina4 = new Maquina(4, "DESK-CERVAL");
-        Maquina maquina5 = new Maquina(5, "DESK-GUILHERME");
-        Maquina maquina6 = new Maquina(6, "DESK-MARCELO");
-         
-        Chamado chamado1 = new Chamado(1,"Problemas na rede", maquina1, "Urgente");
-        Chamado chamado2 = new Chamado(2,"Falha na memória", maquina2, "Urgente");
-        Chamado chamado3 = new Chamado(3,"Persistência de erro", maquina3, "Urgente");
-        Chamado chamado4 = new Chamado(4,"Verificar logs", maquina4, "Urgente");
-        Chamado chamado5 = new Chamado(5,"Problemas de inicialização", maquina5, "Urgente");
-        Chamado chamado6 = new Chamado(6,"CPU com problemas", maquina6, "Urgente");
+
         
     
     public TelaMaquinas() {
         
         initComponents();
 
-        chamados.add(chamado1);
-        chamados.add(chamado2);
-        chamados.add(chamado3);
-        chamados.add(chamado4);
-        chamados.add(chamado5);  
-        chamados.add(chamado6); 
         
     }
       /**
@@ -57,15 +38,26 @@ public class TelaMaquinas extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelaChamado = new javax.swing.JTable();
+        jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jList1);
+
         setBackground(new java.awt.Color(255, 255, 255));
+        setEnabled(false);
+        setLocation(new java.awt.Point(340, 280));
         setUndecorated(true);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -76,17 +68,9 @@ public class TelaMaquinas extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 153, 153), new java.awt.Color(153, 153, 153), new java.awt.Color(153, 153, 153), new java.awt.Color(153, 153, 153)));
-
-        jLabel1.setText("sair");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 36)); // NOI18N
-        jLabel4.setText("Chamados");
+        jPanel1.setAlignmentX(400.0F);
+        jPanel1.setAlignmentY(350.0F);
+        jPanel1.setPreferredSize(new java.awt.Dimension(1330, 610));
 
         TabelaChamado.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
         TabelaChamado.setModel(new javax.swing.table.DefaultTableModel(
@@ -94,7 +78,7 @@ public class TelaMaquinas extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Máquina", "Descrição", "Prioridade", "null"
+                "ID", "MÁQUINA", "STATUS", "ÚLTIMO ACESSO", "AÇÕES"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -115,30 +99,39 @@ public class TelaMaquinas extends javax.swing.JFrame {
             TabelaChamado.getColumnModel().getColumn(4).setPreferredWidth(1);
         }
 
+        jTextField1.setText("jTextField1");
+
+        jButton1.setText("Pesquisar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
+                .addGap(66, 66, 66)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1194, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(1201, 1201, 1201)
-                        .addComponent(jLabel1))
-                    .addComponent(jLabel4)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel4)
+                .addGap(72, 72, 72)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField1)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -149,31 +142,22 @@ public class TelaMaquinas extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 26, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_jLabel1MouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        DefaultTableModel tableModel = (DefaultTableModel) TabelaChamado.getModel();
-        
-            for(Chamado c: chamados){
-                 Object[] chama = {c.getCodigo(),c.getMaquina().getNome(), c.getDescricao(), c.getPrioridade()};
-                 tableModel.addRow(chama);
-                 
-                 ButtonColumn bc;
-                 bc = new ButtonColumn(TabelaChamado, 4) {
-                 };
-            }
+
     }//GEN-LAST:event_formWindowOpened
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,11 +197,13 @@ public class TelaMaquinas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TabelaChamado;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
 

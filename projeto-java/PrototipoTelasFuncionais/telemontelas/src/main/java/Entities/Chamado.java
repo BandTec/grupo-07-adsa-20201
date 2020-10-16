@@ -15,7 +15,7 @@ public class Chamado {
     private String descricao = "";
     private Integer codigo = 0;
     private Maquina maquina;
-    private String prioridade = "";
+    private String visto = "";
 
     public Maquina getMaquina() {
         return maquina;
@@ -30,15 +30,15 @@ public class Chamado {
         this.codigo = codigo;
         this.descricao = descricao;
         this.maquina = maquina;
-        this.prioridade = prioridade;
+        this.visto = visto;
     }
     
     public String getPrioridade() {
-        return prioridade;
+        return visto;
     }
 
-    public void setPrioridade(String prioridade) {
-        this.prioridade = prioridade;
+    public void setPrioridade(String visto) {
+        this.visto = visto;
     }
     
 
