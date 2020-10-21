@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelas\src\main\java\Classes\Processos.java
 C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelas\src\main\java\telas\TelaMaquinas.java
 C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelas\src\main\java\Classes\Maquina.java
@@ -6,3 +7,12 @@ C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais
 C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelas\src\main\java\Classes\Chamado.java
 C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelas\src\main\java\Classes\Usuario.java
 C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelas\src\main\java\telas\TelaPrincipal.java
+=======
+C:\Users\Larissa\Desktop\Faculdade\Segundo Semestre\PI\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelas\src\main\java\Entities\Chamado.java
+C:\Users\Larissa\Desktop\Faculdade\Segundo Semestre\PI\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelas\src\main\java\Entities\Usuario.java
+C:\Users\Larissa\Desktop\Faculdade\Segundo Semestre\PI\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelas\src\main\java\Views\TelaPrincipal.java
+C:\Users\Larissa\Desktop\Faculdade\Segundo Semestre\PI\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelas\src\main\java\Services\ButtonColumn.java
+C:\Users\Larissa\Desktop\Faculdade\Segundo Semestre\PI\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelas\src\main\java\Entities\Maquina.java
+C:\Users\Larissa\Desktop\Faculdade\Segundo Semestre\PI\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelas\src\main\java\Entities\Processos.java
+C:\Users\Larissa\Desktop\Faculdade\Segundo Semestre\PI\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelas\src\main\java\Views\TelaLogin.java
+>>>>>>> fcdbf91815c2b188e0959ffb2a3128aa64147ad6
