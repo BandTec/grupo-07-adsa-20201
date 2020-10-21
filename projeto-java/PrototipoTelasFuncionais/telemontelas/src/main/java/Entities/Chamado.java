@@ -16,6 +16,20 @@ public class Chamado {
     private Integer codigo = 0;
     private Maquina maquina;
     private String visto = "";
+    
+    
+    public Chamado(){
+        
+    }
+    
+    public Chamado(Integer codigo, String descricao, Maquina maquina, String prioridade) {
+        this.codigo = codigo;
+        this.descricao = descricao;
+        this.maquina = maquina;
+        this.visto = visto;
+    }
+    
+
 
     public Maquina getMaquina() {
         return maquina;
@@ -26,12 +40,7 @@ public class Chamado {
     }
     
     
-     public Chamado(Integer codigo, String descricao, Maquina maquina, String prioridade) {
-        this.codigo = codigo;
-        this.descricao = descricao;
-        this.maquina = maquina;
-        this.visto = visto;
-    }
+
     
     public String getPrioridade() {
         return visto;

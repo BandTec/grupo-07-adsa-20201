@@ -3,10 +3,14 @@ package Views;
 
 import Entities.Chamado;
 import Entities.Maquina;
+import Entities.Processos;
+import Entities.Usuario;
 import Services.ButtonColumn;
 
 import java.awt.image.BufferedImage;
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -14,11 +18,14 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Larissa
+ * cor #B00000
+ *      #293845
  */
 
 public class TelaPrincipal extends javax.swing.JFrame {
-    
+        
         ArrayList<Chamado> chamados = new ArrayList();
+        ArrayList<Processos> processos = new ArrayList();
         Maquina maquina1 = new Maquina(1, "DESK-LARISSA");
         Maquina maquina2 = new Maquina(2, "DESK-GABLAZARO");
         Maquina maquina3 = new Maquina(3, "DESK-VITOR");
@@ -32,10 +39,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Chamado chamado4 = new Chamado(4,"Conectado", maquina4, "Online");
         Chamado chamado5 = new Chamado(5,"Conectado", maquina5, "Online");
         Chamado chamado6 = new Chamado(6,"Conectado", maquina6, "Online");
+        
+        Processos proc1 = new Processos(16, 40, 80, Date.from(Instant.now()));
+        Processos proc2 = new Processos(17, 41, 81, Date.from(Instant.now()));
+        Processos proc3 = new Processos(18, 42, 82, Date.from(Instant.now()));
+        
+        
     
     
     BufferedImage img = null;
     public TelaPrincipal() {
+        
+
+    }
+    
+    public TelaPrincipal(Usuario usuario){
+        
         initComponents();
         
         chamados.add(chamado1);
@@ -43,8 +62,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         chamados.add(chamado3);
         chamados.add(chamado4);
         chamados.add(chamado5);  
-        chamados.add(chamado6); 
-
+        chamados.add(chamado6);
+        processos.add(proc1);
+        processos.add(proc2);
+        processos.add(proc3);
+        maquina6.setProcessos(processos);
+        
+        jLabel20.setText("Olá "+usuario.getNome().toString());
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -56,6 +81,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -115,9 +143,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(194, 23, 23), new java.awt.Color(194, 23, 23)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 0, 0), new java.awt.Color(204, 0, 0)));
 
-        jLabel4.setText("sair");
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logout.png"))); // NOI18N
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -127,25 +155,44 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo2 - Copia.png"))); // NOI18N
 
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/question.png"))); // NOI18N
+        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bell.png"))); // NOI18N
+        jLabel19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel20.setText("jLabel20");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1195, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 847, Short.MAX_VALUE)
+                .addComponent(jLabel19)
+                .addGap(44, 44, 44)
+                .addComponent(jLabel18)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel4)
-                .addGap(21, 21, 21))
+                .addGap(32, 32, 32))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel18)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel19)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel20)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1370, 60));
@@ -154,11 +201,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 153, 153), new java.awt.Color(153, 153, 153)));
         jPanel5.setPreferredSize(new java.awt.Dimension(80, 768));
 
-        jLabel1.setText("Home");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home.png"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel2.setText("Graphic");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pie-chart.png"))); // NOI18N
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel3.setText("Tools");
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/settings.png"))); // NOI18N
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -170,7 +220,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,7 +231,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(113, 113, 113)
                 .addComponent(jLabel3)
-                .addContainerGap(354, Short.MAX_VALUE))
+                .addContainerGap(210, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 80, 730));
@@ -224,7 +274,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jButton1.setText("Pesquisar");
 
-        jLabel6.setText("Img1");
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51)));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/wifi.png"))); // NOI18N
 
         jLabel7.setText("0");
 
@@ -257,7 +310,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jLabel15.setText("img4");
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 153, 153), new java.awt.Color(0, 153, 153)));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clockwise-rotation.png"))); // NOI18N
 
         jLabel14.setText("Horas");
 
@@ -289,7 +345,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(46, 46, 46))
         );
 
-        jLabel8.setText("img2");
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 0, 0), new java.awt.Color(204, 0, 0)));
+
+        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/no-wifi.png"))); // NOI18N
 
         jLabel9.setText("Conectados");
 
@@ -321,7 +381,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(46, 46, 46))
         );
 
-        jLabel11.setText("img3");
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 102, 0), new java.awt.Color(255, 102, 0)));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/monitor (1).png"))); // NOI18N
 
         jLabel12.setText("Processos indevidos");
 
@@ -379,7 +442,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -423,8 +486,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                  tableModel.addRow(chama);
                  
                  ButtonColumn bc;
-                 bc = new ButtonColumn(tabelaRedeMaquina, 4) {
-                 };
+                 bc = new ButtonColumn(tabelaRedeMaquina, 4, c) {};
+                 
             }
     }//GEN-LAST:event_formWindowOpened
 
@@ -485,7 +548,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

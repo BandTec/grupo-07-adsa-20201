@@ -14,6 +14,10 @@ public class Usuario {
         this.login = login;
         this.senha = senha;
     }
+    
+    public Usuario(){
+        
+    }
 
     public Integer getCodigo() {
         return codigo;

@@ -221,7 +221,7 @@ public class TelaLogin extends javax.swing.JFrame {
         Boolean resultado = usuario.fazerLogin();
         
         if(resultado){
-            TelaPrincipal tp = new TelaPrincipal();
+            TelaPrincipal tp = new TelaPrincipal(usuario);
             tp.setVisible(true);
             this.dispose();
         }else{
