@@ -15,18 +15,26 @@ public class Chamado {
     private String descricao = "";
     private Integer codigo = 0;
     private Maquina maquina;
-    private String visto = "";
+    private String vistoPorUltimo = "";
     
     
     public Chamado(){
         
     }
     
-    public Chamado(Integer codigo, String descricao, Maquina maquina, String prioridade) {
+    public Chamado(Integer codigo, String descricao, Maquina maquina, String vistoPorUltimo) {
         this.codigo = codigo;
         this.descricao = descricao;
         this.maquina = maquina;
-        this.visto = visto;
+        this.vistoPorUltimo = vistoPorUltimo;
+    }
+
+    public String getVistoPorUltimo() {
+        return vistoPorUltimo;
+    }
+
+    public void setVistoPorUltimo(String vistoPorUltimo) {
+        this.vistoPorUltimo = vistoPorUltimo;
     }
     
 
@@ -37,17 +45,6 @@ public class Chamado {
 
     public void setMaquina(Maquina maquina) {
         this.maquina = maquina;
-    }
-    
-    
-
-    
-    public String getPrioridade() {
-        return visto;
-    }
-
-    public void setPrioridade(String visto) {
-        this.visto = visto;
     }
     
 

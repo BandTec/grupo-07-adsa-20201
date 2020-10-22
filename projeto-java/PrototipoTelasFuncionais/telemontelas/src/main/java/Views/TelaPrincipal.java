@@ -4,7 +4,10 @@ import Entities.Chamado;
 import Entities.Maquina;
 import Entities.Processos;
 import Entities.Usuario;
+<<<<<<< HEAD
+=======
 import Services.ButtonColumn;
+>>>>>>> f0f3b7b931eb029c64a78422aca201a42e53e54a
 import java.awt.Image;
 
 import java.awt.image.BufferedImage;
@@ -24,7 +27,7 @@ import javax.swing.table.DefaultTableModel;
  */
 
 public class TelaPrincipal extends javax.swing.JFrame {
-        
+        DefaultTableModel tableModel = new DefaultTableModel();
         ArrayList<Chamado> chamados = new ArrayList();
         ArrayList<Processos> processos = new ArrayList();
         Maquina maquina1 = new Maquina(1, "DESK-LARISSA");
@@ -110,6 +113,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
@@ -187,6 +191,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(15, 15, 15))
+=======
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addContainerGap()
@@ -194,6 +206,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addGap(15, 15, 15))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(7, 7, 7)
+>>>>>>> f0f3b7b931eb029c64a78422aca201a42e53e54a
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -272,11 +285,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "MÁQUINA", "STATUS", "VISTO POR ÚLTIMO", "AÇÕES"
+                "ID", "MÁQUINA", "STATUS", "VISTO POR ÚLTIMO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -299,10 +312,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jButton1.setText("Pesquisar");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+<<<<<<< HEAD
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+=======
         jPanel7.setBackground(new java.awt.Color(0, 153, 51));
+>>>>>>> f0f3b7b931eb029c64a78422aca201a42e53e54a
         jPanel7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51)));
 
         jLabel6.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/wifi.png")).getImage().getScaledInstance(53, 53, Image.SCALE_SMOOTH)));
@@ -470,6 +488,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addGap(42, 42, 42))))
         );
 
+        jButton2.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
+        jButton2.setText("Ver detalhes");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -480,7 +507,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanel6Layout.createSequentialGroup()
                             .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -505,7 +534,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField1)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
@@ -533,14 +563,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-                DefaultTableModel tableModel = (DefaultTableModel) tabelaRedeMaquina.getModel();
-        
+                
+            tableModel = (DefaultTableModel) tabelaRedeMaquina.getModel();
             for(Chamado c: chamados){
-                 Object[] chama = {c.getCodigo(),c.getMaquina().getNome(), c.getDescricao(), c.getPrioridade()};
+                 Object[] chama = {c.getCodigo(),c.getMaquina().getNome(), c.getDescricao(), c.getVistoPorUltimo()};
                  tableModel.addRow(chama);
-                 
-                 ButtonColumn bc;
-                 bc = new ButtonColumn(tabelaRedeMaquina, 4, c) {};
                  
             }
             for (int i = 0; i < chamados.size(); i++) {
@@ -586,6 +613,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jLabel1MouseMoved
+<<<<<<< HEAD
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            System.out.println(tabelaRedeMaquina.getValueAt(tabelaRedeMaquina.getSelectedRow(),1));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Selecione um funcionário");
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+=======
+>>>>>>> f0f3b7b931eb029c64a78422aca201a42e53e54a
  
         
     /**
@@ -625,6 +664,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
