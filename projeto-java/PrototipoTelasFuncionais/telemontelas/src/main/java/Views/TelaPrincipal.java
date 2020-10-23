@@ -4,10 +4,7 @@ import Entities.Chamado;
 import Entities.Maquina;
 import Entities.Processos;
 import Entities.Usuario;
-<<<<<<< HEAD
-=======
-import Services.ButtonColumn;
->>>>>>> f0f3b7b931eb029c64a78422aca201a42e53e54a
+import Services.Something;
 import java.awt.Image;
 
 import java.awt.image.BufferedImage;
@@ -27,6 +24,10 @@ import javax.swing.table.DefaultTableModel;
  */
 
 public class TelaPrincipal extends javax.swing.JFrame {
+               Something algo = new Something();
+               
+              
+    
         DefaultTableModel tableModel = new DefaultTableModel();
         ArrayList<Chamado> chamados = new ArrayList();
         ArrayList<Processos> processos = new ArrayList();
@@ -44,9 +45,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Chamado chamado5 = new Chamado(5,"Conectado", maquina5, "Online");
         Chamado chamado6 = new Chamado(6,"Conectado", maquina6, "Online");
         
-        Processos proc1 = new Processos(16, 40, 80, Date.from(Instant.now()));
-        Processos proc2 = new Processos(17, 41, 81, Date.from(Instant.now()));
-        Processos proc3 = new Processos(18, 42, 82, Date.from(Instant.now()));
+        Processos proc1 = new Processos(algo.getCpuUsage(), 40, 80, Date.from(Instant.now()));
+        Processos proc2 = new Processos(algo.getCpuUsage(), 41, 81, Date.from(Instant.now()));
+        Processos proc3 = new Processos(algo.getCpuUsage(), 42, 82, Date.from(Instant.now()));
         
         Integer conectados = 0;
         Integer desconectados = 0;
@@ -191,14 +192,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(15, 15, 15))
-=======
+
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addContainerGap()
@@ -206,7 +200,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addGap(15, 15, 15))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(7, 7, 7)
->>>>>>> f0f3b7b931eb029c64a78422aca201a42e53e54a
+
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -316,11 +310,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton1.setText("Pesquisar");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-<<<<<<< HEAD
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-=======
+
         jPanel7.setBackground(new java.awt.Color(0, 153, 51));
->>>>>>> f0f3b7b931eb029c64a78422aca201a42e53e54a
+
         jPanel7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51)));
 
         jLabel6.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/wifi.png")).getImage().getScaledInstance(53, 53, Image.SCALE_SMOOTH)));
@@ -613,7 +605,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jLabel1MouseMoved
-<<<<<<< HEAD
+
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
@@ -623,8 +615,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton2ActionPerformed
-=======
->>>>>>> f0f3b7b931eb029c64a78422aca201a42e53e54a
+
  
         
     /**

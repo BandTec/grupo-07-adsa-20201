@@ -6,23 +6,23 @@ import java.util.Date;
 public class Processos {
     
     private Integer codigo = 0;
-    private Integer cpu = 0;
+    private Double cpu = 0.0;
     private Integer memoria = 0;
     private Integer disco = 0;
     private Date instante;
     
-    public Processos(Integer cpu, Integer memoria, Integer disco, Date instante){
+    public Processos(Double cpu, Integer memoria, Integer disco, Date instante){
         this.cpu = cpu;
         this.memoria = memoria;
         this.disco = disco;
         this.instante = instante;
     }
 
-    public Integer getCpu() {
+    public Double getCpu() {
         return cpu;
     }
 
-    public void setCpu(Integer cpu) {
+    public void setCpu(Double cpu) {
         this.cpu = cpu;
     }
 

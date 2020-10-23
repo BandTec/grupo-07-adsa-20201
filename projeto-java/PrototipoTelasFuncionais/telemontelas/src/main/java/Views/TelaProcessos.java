@@ -6,6 +6,7 @@ import Entities.Processos;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import Services.Something;
 
 /**
  *
@@ -19,12 +20,7 @@ public class TelaProcessos extends javax.swing.JFrame {
     
     public TelaProcessos(Chamado chamado) {
         initComponents();
-                processos = chamado.getMaquina().getProcessos();
-                for(Processos proc: processos){
-                    jLabel4.setText(proc.getCpu().toString());
-                    jLabel5.setText(proc.getMemoria().toString());
-                    jLabel6.setText(proc.getDisco().toString());
-            }
+                
     }
 
     @SuppressWarnings("unchecked")
