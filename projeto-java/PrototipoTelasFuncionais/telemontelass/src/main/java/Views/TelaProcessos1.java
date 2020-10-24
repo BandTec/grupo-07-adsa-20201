@@ -1,7 +1,7 @@
 
 package Views;
 
-import Entities.Chamado;
+import Entities.DadoConexaoMaquina;
 import Entities.Processos;
 import java.awt.Image;
 import java.util.ArrayList;
@@ -17,9 +17,9 @@ public class TelaProcessos1 extends javax.swing.JFrame {
         
     }
     
-    public TelaProcessos1(Chamado chamado) {
+    public TelaProcessos1(DadoConexaoMaquina dados) {
         initComponents();
-                processos = chamado.getMaquina().getProcessos();
+                processos = dados.getMaquina().getProcessos();
                 for(Processos proc: processos){
                     jLabel4.setText(proc.getCpu().toString());
                     jLabel5.setText(proc.getMemoria().toString());
@@ -44,7 +44,9 @@ public class TelaProcessos1 extends javax.swing.JFrame {
         jProgressBar3 = new javax.swing.JProgressBar();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("CPU:");
@@ -83,6 +85,10 @@ public class TelaProcessos1 extends javax.swing.JFrame {
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Views/sair (1).png"))); // NOI18N
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 40, 30));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sair.png"))); // NOI18N
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 30, 30));
+        jLabel11.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/sair.png")).getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH)));
 
         pack();
         setLocationRelativeTo(null);
@@ -130,6 +136,7 @@ public class TelaProcessos1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

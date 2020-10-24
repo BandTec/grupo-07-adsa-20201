@@ -1,11 +1,13 @@
 Services\Tela$1.class
 Views\TelaProcessos1.class
 Views\TelaPrincipal$2.class
+Entities\DadoConexaoMaquina.class
 Views\TelaProcessos1$2.class
 Services\Tela$4.class
 Views\TelaPrincipal$5.class
 Views\TelaLogin$6.class
 Views\TelaLogin$3.class
+Views\TelaProcessos$3.class
 Views\TelaPrincipal$3.class
 Views\TelaLogin.class
 Views\TelaLogin$4.class
@@ -22,6 +24,7 @@ Views\TelaProcessos1$1.class
 Entities\Maquina.class
 Views\TelaPrincipal.class
 Services\Tela$2.class
+Services\TableModel.class
 Views\TelaPrincipal$8.class
 Views\TelaLogin$2.class
 Views\TelaProcessos$1.class
@@ -31,5 +34,4 @@ Views\TelaLogin$5.class
 Views\TelaPrincipal$4.class
 Services\Tela.class
 Views\TelaProcessos.class
-Entities\Chamado.class
 Views\TelaPrincipal$1.class
