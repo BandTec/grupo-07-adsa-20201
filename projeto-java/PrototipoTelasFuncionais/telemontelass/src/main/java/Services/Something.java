@@ -1,5 +1,6 @@
 package Services;
 
+import com.sun.jna.platform.mac.DiskArbitration;
 import java.util.ArrayList;
 import java.util.List;
 import oshi.SystemInfo;
@@ -29,7 +30,6 @@ public class Something {
     private CentralProcessor cpu = haw.getProcessor();
     private GlobalMemory mem = haw.getMemory();
     private long[] oldTicks = cpu.getSystemCpuLoadTicks();
-        
 
     //=>Initialize<=//
     public void Telemon() {
@@ -39,14 +39,13 @@ public class Something {
     }
 
     //=>Gets<=//
-    public Double getCpuUsage() {
-        Double cpuUsage = 0.0;
+    public double getCpuUsage() {
         //try {
             //while (true) {
 
-                cpuUsage = (cpu.getSystemCpuLoadBetweenTicks(oldTicks) * 100);
+                double cpuUsage = (cpu.getSystemCpuLoadBetweenTicks(oldTicks) * 100);
                 oldTicks = cpu.getSystemCpuLoadTicks();
-                System.out.printf("CPU Usage: %.1f%% \n", cpuUsage);
+                //System.out.printf("CPU Usage: %.1f%% \n", cpuUsage);
                 //Thread.sleep(1000);
             //}
         //} catch (InterruptedException ex) {
@@ -55,17 +54,17 @@ public class Something {
         return cpuUsage;
     }
 
-    public Double getMemAvailable() {
+    public double getMemAvailable() {
         //try {
             //while (true) {
-                Double memUsage = Double.valueOf(100 - (mem.getAvailable() * 100) / (mem.getTotal()));
+                double memUsage = Double.valueOf(100 - (mem.getAvailable() * 100) / (mem.getTotal()));
                 //System.out.printf("%s \n Memory Usage: %.1f%% \n", getMem(), Double.valueOf(memUsage));
                // Thread.sleep(1000);
             //}
         //} catch (InterruptedException ex) {
             //System.out.printf("The Memory Capture is over. ERROR: %s", ex);
         //
-        return Double.valueOf(memUsage);
+        return memUsage;
     }
 
     public void getOsUpTime() {
@@ -80,7 +79,7 @@ public class Something {
         }
     }
 
-    public void getOsProcesses() {
+    public List<String> getOsProcesses() {
         try {
             List<OSProcess> osProcesses = os.getProcesses(10, OperatingSystem.ProcessSort.CPU);
             int j = 0;
@@ -91,20 +90,20 @@ public class Something {
 
                     OSProcess p = osProcesses.get(i);
 
-                    procList.add(String.format("PID %5d CPU %5.1f MEM %4.1f VSZ %9s RSS %9s NAME %s \n", p.getProcessID(),
+                    procList.add(String.format("PID %5d CPU %5.1f %% MEM %4.1f %% VSZ %9s RSS %9s NAME %s \n", p.getProcessID(),
                             100d * (p.getKernelTime() + p.getUserTime()) / p.getUpTime(),
                             100d * p.getResidentSetSize() / mem.getTotal(), FormatUtil.formatBytes(p.getVirtualSize()),
                             FormatUtil.formatBytes(p.getResidentSetSize()), p.getName()));
 
                 }
                 System.out.println("Acquiring processes...");
-                Thread.sleep(5000);
-                System.out.println(procList);
-            
+                Thread.sleep(0);
+                //System.out.println(procList);  
 
         } catch (InterruptedException ex) {
             System.out.printf("The Processes Capture is over. ERROR: %s", ex);
         }
+        return procList;
     }
     
 //    public void getOsServices() {
