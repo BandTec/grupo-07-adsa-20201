@@ -257,6 +257,10 @@ html {
     margin-left: 30px;
 }
 
+.card-footer{
+    background-color: white;
+}
+
 @media only screen and(max-widht: 768px) {
     .col-sm {
         padding-left: 0px;
