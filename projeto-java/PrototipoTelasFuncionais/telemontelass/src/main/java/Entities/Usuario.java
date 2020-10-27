@@ -7,12 +7,23 @@ public class Usuario {
     private String nome = "";
     private String login = "";
     private String senha = "";
+    private String tipoUsuario = "";
+
+    public String getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+    }
     
-    public Usuario(Integer codigo, String nome, String login, String senha) {
-        this.codigo = codigo;
-        this.nome = nome;
+    
+    public Usuario(String login, String senha, String tipoUsuario) {
+        this.codigo = 1;
+        this.nome = login;
         this.login = login;
         this.senha = senha;
+        this.tipoUsuario = tipoUsuario;
        
     }
     
@@ -52,11 +63,14 @@ public class Usuario {
         this.senha = senha;
     }
     
-    public Boolean fazerLogin(){
-        if(this.login.equals("larissa") && this.senha.equals("123")){
-            return true;
-        }else {
-            return false;
+    public String fazerLogin(){
+        if(this.login.equals("larissa") && this.senha.equals("123") && this.tipoUsuario.equals("Gestor")){
+            return "Gestor";
+        }else if(this.login.equals("victoria") && this.senha.equals("321") && this.tipoUsuario.equals("Funcionario")){
+            return "Funcionario";
+        }
+        else {
+            return "";
         }
     }
     

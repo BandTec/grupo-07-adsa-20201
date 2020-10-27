@@ -26,16 +26,22 @@ import javax.swing.table.DefaultTableModel;
 
 public class TelaPrincipal extends javax.swing.JFrame {
         Something algo = new Something();
-              
+        //Criação da lista de dados de conexão das máquinas
         ArrayList<DadoConexaoMaquina> dcms = new ArrayList();
+        //Criação da lista de processos
         ArrayList<Processos> processos = new ArrayList();
-        Maquina maquina1 = new Maquina(1, "DESK-LARISSA");
-        Maquina maquina2 = new Maquina(2, "DESK-GABLAZARO");
-        Maquina maquina3 = new Maquina(3, "DESK-VITOR");
-        Maquina maquina4 = new Maquina(4, "DESK-CERVAL");
-        Maquina maquina5 = new Maquina(5, "DESK-GUILHERME");
-        Maquina maquina6 = new Maquina(6, "DESK-MARCELO");
-         
+        
+        //Criação e instanciação das máquinas ---- precisa arrumar essa parte depois
+        Maquina maquina1 = new Maquina(1, "DESK-LARISSA", (ArrayList<String>)algo.getOsProcesses());
+        Maquina maquina2 = new Maquina(2, "DESK-GABLAZARO", (ArrayList<String>)algo.getOsProcesses());
+        Maquina maquina3 = new Maquina(3, "DESK-VITOR", (ArrayList<String>)algo.getOsProcesses());
+        Maquina maquina4 = new Maquina(4, "DESK-CERVAL", (ArrayList<String>)algo.getOsProcesses());
+        Maquina maquina5 = new Maquina(5, "DESK-GUILHERME", (ArrayList<String>)algo.getOsProcesses());
+        Maquina maquina6 = new Maquina(6, "DESK-MARCELO", (ArrayList<String>)algo.getOsProcesses());
+        
+        
+        
+        //Criação e instanciação dos dados de conexão das máquinas
         DadoConexaoMaquina dcm1 = new DadoConexaoMaquina(1,"Desconectado", maquina1, "Há 2 horas");
         DadoConexaoMaquina dcm2 = new DadoConexaoMaquina(2,"Desconectado", maquina2, "Há 1 dia");
         DadoConexaoMaquina cdm3 = new DadoConexaoMaquina(3,"Conectado", maquina3, "Online");
@@ -43,6 +49,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         DadoConexaoMaquina dcm5 = new DadoConexaoMaquina(5,"Conectado", maquina5, "Online");
         DadoConexaoMaquina dcm6 = new DadoConexaoMaquina(6,"Conectado", maquina6, "Online");
         
+        
+        //Criação e instanciação da lista de processos da máquina
         Processos proc1 = new Processos(algo.getCpuUsage(), algo.getMemAvailable(), 80.0, Date.from(Instant.now()));
         Processos proc2 = new Processos(algo.getCpuUsage(), algo.getMemAvailable(), 81.0, Date.from(Instant.now()));
         Processos proc3 = new Processos(algo.getCpuUsage(), algo.getMemAvailable(), 82.0, Date.from(Instant.now()));
@@ -55,6 +63,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Processos proc8 = new Processos(algo.getCpuUsage(), algo.getMemAvailable(), 81.0, Date.from(Instant.now()));
         Processos proc9 = new Processos(algo.getCpuUsage(), algo.getMemAvailable(), 82.0, Date.from(Instant.now()));
         
+        
         Integer conectados = 0;
         Integer desconectados = 0;
     
@@ -66,7 +75,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal(Usuario usuario){
         
         initComponents();
-  
+        //Adicionando dados de máquina na lista de dados de máquina
         dcms.add(dcm1);
         dcms.add(dcm2);
         dcms.add(cdm3);
@@ -74,6 +83,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         dcms.add(dcm5);  
         dcms.add(dcm6);
         
+        //Adicionando os processos nas máquinas
         maquina1.getProcessos().add(proc1);
         maquina1.getProcessos().add(proc2);
         maquina1.getProcessos().add(proc3);
@@ -86,10 +96,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         maquina3.getProcessos().add(proc8);
         maquina3.getProcessos().add(proc9);
         
-        jLabel21.setText("Olá "+usuario.getNome().toString());
+        jLabel21.setText("Olá "+usuario.getNome());
         
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -129,7 +138,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        btnFunc = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
@@ -278,10 +286,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(86, 86, 86)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(302, Short.MAX_VALUE))
+                .addContainerGap(292, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 70, 720));
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 70, 710));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -325,7 +333,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51)));
 
-        jLabel6.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/wifi.png")).getImage().getScaledInstance(53, 53, Image.SCALE_SMOOTH)));
+        jLabel6.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/no-wifi.png")).getImage().getScaledInstance(53, 53, Image.SCALE_SMOOTH)));
 
         qtdDesconectados.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 24)); // NOI18N
         qtdDesconectados.setText("0");
@@ -409,7 +417,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 0, 0), new java.awt.Color(204, 0, 0)));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel8.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/no-wifi.png")).getImage().getScaledInstance(53, 53, Image.SCALE_SMOOTH)));
+        jLabel8.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/wifi.png")).getImage().getScaledInstance(53, 53, Image.SCALE_SMOOTH)));
 
         jLabel9.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 14)); // NOI18N
         jLabel9.setText("Conectados");
@@ -499,19 +507,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnFunc.setText("Funcionário");
-        btnFunc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFuncActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
+                .addContainerGap(56, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
@@ -520,36 +521,33 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
+                                .addGap(10, 10, 10)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(btnFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
+                                .addGap(18, 18, 18)
                                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(43, 43, 43))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField1)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnFunc)))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
@@ -628,25 +626,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {        
+                
+            try{
             int linhaSelecionada = tabelaRedeMaquina.getSelectedRow();
             TableModel model = (TableModel)tabelaRedeMaquina.getModel();
             DadoConexaoMaquina dcm = new DadoConexaoMaquina();
             dcm = (DadoConexaoMaquina) model.getDadoConexaoMaquina(linhaSelecionada);
             TelaProcessos tp = new TelaProcessos(dcm);
             tp.setVisible(true);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Selecione um funcionário");
-        }
-        
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(null, "Selecione um funcionário");
+            }
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void btnFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuncActionPerformed
-
-        TelaProcessos1 telaProcessos1 = new TelaProcessos1();
-        telaProcessos1.setVisible(true);
-    }//GEN-LAST:event_btnFuncActionPerformed
 
  
         
@@ -686,7 +677,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnFunc;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

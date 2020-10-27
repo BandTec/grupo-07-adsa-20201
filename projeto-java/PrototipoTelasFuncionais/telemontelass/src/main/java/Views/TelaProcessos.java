@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import Entities.Processos;
+import javax.swing.ListModel;
 import javax.swing.SwingConstants;
 
 
@@ -46,9 +47,9 @@ public class TelaProcessos extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
         jLabel9 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtProgramas = new javax.swing.JTextArea();
 
         progresso2.setOrientation(SwingConstants.VERTICAL);
         progresso2.setBackground(new java.awt.Color(153, 153, 255));
@@ -127,18 +128,15 @@ public class TelaProcessos extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, 31, 31));
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 210, 340));
-
         jLabel9.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
         jLabel9.setText("Disco:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
+
+        txtProgramas.setColumns(20);
+        txtProgramas.setRows(5);
+        jScrollPane2.setViewportView(txtProgramas);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 230, 340));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 580));
 
@@ -193,9 +191,10 @@ public class TelaProcessos extends javax.swing.JFrame {
         progressoCPU.setValue(processo.getCpu().intValue());
         progressoMemoria.setValue(processo.getMemoria().intValue());
         progressoDisco.setValue(processo.getDisco().intValue());
-        valorCpu.setText(processo.getCpu().toString());
+        valorCpu.setText(String.format("%.1f", processo.getCpu()));
         valorMemoria.setText(processo.getMemoria().toString());
-        ValorDisco.setText(processo.getDisco().toString());   
+        ValorDisco.setText(processo.getDisco().toString());
+        txtProgramas.setText(dado.getMaquina().getProgramas().toString());
     }
     }
 
@@ -210,13 +209,13 @@ public class TelaProcessos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JProgressBar progresso2;
     private javax.swing.JProgressBar progressoCPU;
     private javax.swing.JProgressBar progressoDisco;
     private javax.swing.JProgressBar progressoMemoria;
+    private javax.swing.JTextArea txtProgramas;
     private javax.swing.JLabel valorCpu;
     private javax.swing.JLabel valorMemoria;
     // End of variables declaration//GEN-END:variables

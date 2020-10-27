@@ -1,5 +1,7 @@
 
 package Entities;
+import java.awt.List;
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -32,6 +34,7 @@ public class Processos {
         this.memoria = memoria;
         this.disco = disco;
         this.instante = instante;
+        
     }
 
     public Double getCpu() {

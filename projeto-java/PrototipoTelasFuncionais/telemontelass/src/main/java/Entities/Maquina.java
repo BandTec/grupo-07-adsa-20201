@@ -8,8 +8,18 @@ public class Maquina {
     
     private Integer codigo = 0;
     private String nome = "";
-    
     private ArrayList<Processos> processos = new ArrayList();
+    private ArrayList<String> programas = new ArrayList<>();
+    
+    public ArrayList<String> getProgramas() {
+        return programas;
+    }
+
+    public void setProgramas(ArrayList<String> programas) {
+        this.programas = programas;
+    }
+
+    
     
     public Maquina(){
         
@@ -23,9 +33,10 @@ public class Maquina {
     }
     
 
-    public Maquina(Integer codigo, String nome) {
+    public Maquina(Integer codigo, String nome, ArrayList<String> programas) {
         this.nome = nome;
         this.codigo = codigo;
+        this.programas = programas;
 
         
     }
