@@ -187,7 +187,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="c" green="1e" red="b4" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="M&#xe9;dia de consumo hoje"/>
+        <Property name="text" type="java.lang.String" value="Rel&#xe1;torio de uso"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

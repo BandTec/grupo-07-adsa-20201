@@ -100,7 +100,7 @@ public class TelaProcessos1 extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 32)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(180, 30, 12));
-        jLabel4.setText("Média de consumo hoje");
+        jLabel4.setText("Relátorio de uso");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 370, -1));
 
         jLabel5.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
