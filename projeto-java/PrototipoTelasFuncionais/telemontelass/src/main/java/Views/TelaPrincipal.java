@@ -42,12 +42,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         
         //Criação e instanciação dos dados de conexão das máquinas
-        DadoConexaoMaquina dcm1 = new DadoConexaoMaquina(1,"Desconectado", maquina1, "Há 2 horas");
-        DadoConexaoMaquina dcm2 = new DadoConexaoMaquina(2,"Desconectado", maquina2, "Há 1 dia");
+        DadoConexaoMaquina dcm1 = new DadoConexaoMaquina(1,"Conectado", maquina1, "Online");
+        DadoConexaoMaquina dcm2 = new DadoConexaoMaquina(2,"Conectado", maquina2, "Online");
         DadoConexaoMaquina cdm3 = new DadoConexaoMaquina(3,"Conectado", maquina3, "Online");
-        DadoConexaoMaquina dcm4 = new DadoConexaoMaquina(4,"Conectado", maquina4, "Online");
-        DadoConexaoMaquina dcm5 = new DadoConexaoMaquina(5,"Conectado", maquina5, "Online");
-        DadoConexaoMaquina dcm6 = new DadoConexaoMaquina(6,"Conectado", maquina6, "Online");
+        DadoConexaoMaquina dcm4 = new DadoConexaoMaquina(4,"Desconectado", maquina4, "Há 3 min");
+        DadoConexaoMaquina dcm5 = new DadoConexaoMaquina(5,"Desconectado", maquina5, "Há 45 min");
+        DadoConexaoMaquina dcm6 = new DadoConexaoMaquina(6,"Desconectado", maquina6, "Há 20 min");
         
         
         //Criação e instanciação da lista de processos da máquina
@@ -331,7 +331,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel7.setBorder(new javax.swing.border.SoftBevelBorder(0, new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51)));
+        jPanel7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51)));
 
         jLabel6.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/no-wifi.png")).getImage().getScaledInstance(53, 53, Image.SCALE_SMOOTH)));
 
