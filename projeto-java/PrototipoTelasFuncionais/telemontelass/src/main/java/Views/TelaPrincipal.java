@@ -331,7 +331,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51)));
+        jPanel7.setBorder(new javax.swing.border.SoftBevelBorder(0, new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51), new java.awt.Color(0, 153, 51)));
 
         jLabel6.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/no-wifi.png")).getImage().getScaledInstance(53, 53, Image.SCALE_SMOOTH)));
 

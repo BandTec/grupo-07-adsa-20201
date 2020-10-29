@@ -8,12 +8,11 @@ Views\TelaPrincipal$5.class
 Views\TelaDetalhes$3.class
 Views\TelaLogin$6.class
 Views\TelaLogin$3.class
-Views\TelaProcessos$3.class
+Views\TelaProcessos1$3.class
 Views\TelaPrincipal$3.class
 Views\TelaLogin.class
 Views\TelaDetalhes$2.class
 Views\TelaLogin$4.class
-Views\TelaPrincipal$9.class
 Services\Tela$3.class
 Services\Tela$6.class
 Views\TelaPrincipal$6.class
@@ -29,6 +28,7 @@ Views\TelaProcessos1$1.class
 Entities\Maquina.class
 Views\TelaPrincipal.class
 Services\Tela$2.class
+Views\TelaProcessos1$4.class
 Services\TableModel.class
 Views\TelaPrincipal$8.class
 Views\TelaLogin$2.class
@@ -39,4 +39,5 @@ Views\TelaLogin$5.class
 Views\TelaPrincipal$4.class
 Services\Tela.class
 Views\TelaProcessos.class
+Views\TelaDetalhes$4.class
 Views\TelaPrincipal$1.class

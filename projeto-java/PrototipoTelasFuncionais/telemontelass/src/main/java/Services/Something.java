@@ -1,17 +1,12 @@
 package Services;
 
-import com.sun.jna.platform.mac.DiskArbitration;
 import java.util.ArrayList;
 import java.util.List;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
-import oshi.hardware.ComputerSystem;
 import oshi.hardware.GlobalMemory;
-import oshi.hardware.HWDiskStore;
 import oshi.hardware.HardwareAbstractionLayer;
-import oshi.hardware.PhysicalMemory;
 import oshi.software.os.OSProcess;
-import oshi.software.os.OSService;
 import oshi.software.os.OSSession;
 import oshi.software.os.OperatingSystem;
 import oshi.util.FormatUtil;
