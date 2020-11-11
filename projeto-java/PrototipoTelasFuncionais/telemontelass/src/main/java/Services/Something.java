@@ -80,7 +80,7 @@ public class Something {
             int j = 0;
                 
                 procList.clear();
-                
+                  
                 for (int i = 0; i < osProcesses.size() && i < 10; i++) {
 
                     OSProcess p = osProcesses.get(i);
@@ -94,7 +94,7 @@ public class Something {
                 System.out.println("Acquiring processes...");
                 Thread.sleep(0);
                 //System.out.println(procList);  
-
+ 
         } catch (InterruptedException ex) {
             System.out.printf("The Processes Capture is over. ERROR: %s", ex);
         }
