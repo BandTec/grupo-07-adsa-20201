@@ -626,17 +626,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-                
-            try{
-            int linhaSelecionada = tabelaRedeMaquina.getSelectedRow();
-            TableModel model = (TableModel)tabelaRedeMaquina.getModel();
-            DadoConexaoMaquina dcm = new DadoConexaoMaquina();
-            dcm = (DadoConexaoMaquina) model.getDadoConexaoMaquina(linhaSelecionada);
-            TelaProcessos tp = new TelaProcessos(dcm);
-            tp.setVisible(true);
-            } catch (Exception e){
-                JOptionPane.showMessageDialog(null, "Selecione um funcionário");
-            }
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
  

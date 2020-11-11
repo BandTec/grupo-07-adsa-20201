@@ -85,10 +85,12 @@ public class Something {
 
                     OSProcess p = osProcesses.get(i);
 
-                    procList.add(String.format("PID %5d CPU %5.1f %% MEM %4.1f %% VSZ %9s RSS %9s NAME %s \n", p.getProcessID(),
-                            100d * (p.getKernelTime() + p.getUserTime()) / p.getUpTime(),
-                            100d * p.getResidentSetSize() / mem.getTotal(), FormatUtil.formatBytes(p.getVirtualSize()),
-                            FormatUtil.formatBytes(p.getResidentSetSize()), p.getName()));
+//                    procList.add(String.format("PID %5d CPU %5.1f %% MEM %4.1f %% VSZ %9s RSS %9s NAME %s \n", p.getProcessID(),
+//                            100d * (p.getKernelTime() + p.getUserTime()) / p.getUpTime(),
+//                            100d * p.getResidentSetSize() / mem.getTotal(), FormatUtil.formatBytes(p.getVirtualSize()),
+//                            FormatUtil.formatBytes(p.getResidentSetSize()), p.getName()));
+                    
+                    procList.add(p.getName());
 
                 }
                 System.out.println("Acquiring processes...");
