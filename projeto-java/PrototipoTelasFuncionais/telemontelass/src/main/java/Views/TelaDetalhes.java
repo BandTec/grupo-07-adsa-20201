@@ -8,10 +8,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Markz
- */
+
 public class TelaDetalhes extends javax.swing.JFrame {
 
     Something dado = new Something();
@@ -43,10 +40,10 @@ public class TelaDetalhes extends javax.swing.JFrame {
                     lblSo.setText(dado.getOs().toString());
                     
                     DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-                    List<String> list = dado.getOsProcesses();
+                    List<String> listProcessos = dado.getOsProcesses();
                     Object rowData[] = new Object[10];
-                    for (int i = 0; i < list.size(); i++) {
-                        rowData[0] = list.get(i);
+                    for (String processo : listProcessos) {
+                        rowData[0] = processo;
                         model.addRow(rowData);
                         if (model.getRowCount() > 10) {
                             model.removeRow(0);
