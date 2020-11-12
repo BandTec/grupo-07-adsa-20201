@@ -11,7 +11,7 @@ import oshi.SystemInfo;
  *
  * @author Markz
  */
-public class Sistema {
+public class Sistema{
     
     private SystemInfo si = new SystemInfo();
 

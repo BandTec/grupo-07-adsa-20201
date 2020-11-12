@@ -16,6 +16,7 @@ public class Mem {
     private Componente comp = new Componente();
     private GlobalMemory mem = comp.getHaw().getMemory();
     private double memUsage;
+    private double memTotal = (mem.getTotal() / 1000000000);
     
     public double getMemUsage(){
         
@@ -33,6 +34,13 @@ public class Mem {
     public GlobalMemory getMem() {
         return mem;
     }
-    
-    
+
+    public double getMemTotal() {
+        return memTotal;
+    }
+
+    @Override
+    public String toString() {
+        return "Mem{" + "comp=" + comp + ", mem=" + mem + ", memUsage=" + memUsage + ", memTotal=" + memTotal + '}';
+    }  
 }

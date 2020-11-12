@@ -33,4 +33,8 @@ public class SistemaOperacional {
         return os;
     }
 
+    @Override
+    public String toString() {
+        return "SistemaOperacional{" + "sistema=" + sistema + ", os=" + os + ", osUpTime=" + osUpTime + '}';
+    }
 }

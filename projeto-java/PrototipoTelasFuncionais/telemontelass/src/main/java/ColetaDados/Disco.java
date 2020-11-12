@@ -25,4 +25,8 @@ public class Disco {
         return disco;
     }
 
+    @Override
+    public String toString() {
+        return "Disco{" + "comp=" + comp + ", disco=" + disco + '}';
+    }
 }

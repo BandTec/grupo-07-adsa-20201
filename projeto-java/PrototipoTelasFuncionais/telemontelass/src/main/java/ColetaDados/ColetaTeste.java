@@ -11,8 +11,41 @@ package ColetaDados;
  */
 public class ColetaTeste {
     public static void main(String[] args) {
-        Disco disco = new Disco();
         
-        System.out.println(disco.getDisco());
+        Maquina maquina = new Maquina();
+        maquina.Init();
+        
+        System.out.println(maquina);
+        
+//        ColetaDados dados = new ColetaDados();
+//        
+//        dados.getCpuUsage();
+//        dados.getMemUsage();
+//        dados.getOsProcesses();
+//        dados.getOsUpTime();
+//        
+//        System.out.println(dados);
+        
+//        Sistema sistema = new Sistema();
+//        SistemaOperacional os = new SistemaOperacional();
+//        Componente comp = new Componente();
+//        Cpu cpu = new Cpu();
+//        Mem mem = new Mem();
+//        Disco disco = new Disco();
+//        Users users = new Users();
+//        Processos procs = new Processos();
+//        
+//        cpu.getCpuUsage();
+//        mem.getMemUsage();
+//        procs.getOsProcesses();
+//        os.getOsUpTime();
+//        
+//        System.out.println(sistema);
+//        System.out.println(os);
+//        System.out.println(cpu);
+//        System.out.println(mem);
+//        System.out.println(disco);
+//        System.out.println(users);
+//        System.out.println(procs);
     }
 }

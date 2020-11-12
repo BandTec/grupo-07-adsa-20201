@@ -40,5 +40,9 @@ public class Cpu {
     public long[] getOldTicks() {
         return oldTicks;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Cpu{" + "comp=" + comp + ", cpu=" + cpu + ", cpuUsage=" + cpuUsage + '}';
+    } 
 }
