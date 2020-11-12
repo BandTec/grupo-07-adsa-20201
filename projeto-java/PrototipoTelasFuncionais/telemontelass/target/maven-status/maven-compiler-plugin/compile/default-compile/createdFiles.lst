@@ -21,7 +21,6 @@ Views\TelaDetalhes.class
 Views\TelaPrincipal$7.class
 Views\TelaLogin$1.class
 Views\TelaDetalhes$1.class
-Views\TelaProcessos$2.class
 Entities\Processos.class
 Entities\Usuario.class
 Views\TelaProcessos1$1.class
@@ -32,12 +31,9 @@ Views\TelaProcessos1$4.class
 Services\TableModel.class
 Views\TelaPrincipal$8.class
 Views\TelaLogin$2.class
-Views\TelaProcessos$1.class
 Services\Something.class
 Services\Tela$5.class
 Views\TelaLogin$5.class
 Views\TelaPrincipal$4.class
 Services\Tela.class
-Views\TelaProcessos.class
-Views\TelaDetalhes$4.class
 Views\TelaPrincipal$1.class
