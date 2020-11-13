@@ -26,7 +26,7 @@ public class ExemploLog_GabrielCerval {
 
         long registro;
 
-        RandomAccessFile logErro = new RandomAccessFile("D:\\GABRIEL" + dataFormatada + horaFormatada + ".txt", "rw");
+        RandomAccessFile logErro = new RandomAccessFile(".\\logs\\GABRIEL" + dataFormatada + horaFormatada + ".txt", "rw");
         logErro.seek(logErro.length()); // posiciona o ponteiro de posição no final do arquivo
         registro = (logErro.length() / 56) + 1; // número do novo registro
 
