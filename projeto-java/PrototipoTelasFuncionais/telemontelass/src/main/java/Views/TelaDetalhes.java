@@ -1,6 +1,6 @@
 package Views;
 
-import Services.Something;
+import ColetaDados.Maquina;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,11 +8,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.table.DefaultTableModel;
 
-
 public class TelaDetalhes extends javax.swing.JFrame {
 
-    Something dado = new Something();
     Timer timer = new Timer();
+    Maquina maquina = new Maquina();
 
     public TelaDetalhes() {
         initComponents();
@@ -21,27 +20,32 @@ public class TelaDetalhes extends javax.swing.JFrame {
 
     public void ApresentarDados() {
 
+        maquina.Init();
+
         int delay = 500;   // tempo de espera antes da 1ª execução da tarefa.
         int interval = 1000;  // intervalo no qual a tarefa será executada.
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
                 try {
-
-                    int cpu = (int) dado.getCpuUsage();
-                    int ram = (int) dado.getMemAvailable();
+                    
+                    Object rowData[] = new Object[10];
+                    int cpu = (int) maquina.getCpuUsage();
+                    int ram = (int) maquina.getMemUsage();
 
                     pgbCpu.setStringPainted(true);
                     pgbCpu.setForeground(Color.BLACK);
-                    
+
                     pgbRam.setStringPainted(true);
                     pgbRam.setForeground(Color.BLACK);
 
-                    lblSo.setText(dado.getOs().toString());
-                    
+                    lblSo.setText(maquina.getOs().toString());
+
                     DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-                    List<String> listProcessos = dado.getOsProcesses();
-                    Object rowData[] = new Object[10];
+                    List<String> listProcessos = maquina.getProcs();
+                    
+                    
+
                     for (String processo : listProcessos) {
                         rowData[0] = processo;
                         model.addRow(rowData);
@@ -49,7 +53,7 @@ public class TelaDetalhes extends javax.swing.JFrame {
                             model.removeRow(0);
                         }
                     }
-                    
+
                     pgbCpu.setValue(cpu);
                     pgbRam.setValue(ram);
 
@@ -224,7 +228,7 @@ public class TelaDetalhes extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         TelaProcessos1 tp1 = new TelaProcessos1();
         tp1.setVisible(true);
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
@@ -274,4 +278,3 @@ public class TelaDetalhes extends javax.swing.JFrame {
     private javax.swing.JProgressBar pgbRam;
     // End of variables declaration//GEN-END:variables
 }
-

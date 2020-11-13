@@ -12,19 +12,19 @@ import oshi.software.os.OperatingSystem;
  * @author Markz
  */
 public class SistemaOperacional {
-    
+
     private Sistema sistema = new Sistema();
     private OperatingSystem os = sistema.getSi().getOperatingSystem();
     private long osUpTime;
 
-    public long getOsUpTime(){
+    public long getOsUpTime() {
         try {
             osUpTime = os.getSystemUptime();
         } catch (Exception e) {
         }
         return osUpTime;
     }
-    
+
     public Sistema getSistema() {
         return sistema;
     }

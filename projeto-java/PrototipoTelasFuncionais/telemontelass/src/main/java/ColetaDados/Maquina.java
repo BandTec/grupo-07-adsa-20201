@@ -8,6 +8,7 @@ package ColetaDados;
 import java.util.ArrayList;
 import java.util.List;
 import oshi.software.os.OSSession;
+import oshi.software.os.OperatingSystem;
 
 /**
  *
@@ -39,6 +40,62 @@ public class Maquina {
         timeUp = os.getOsUpTime();
     }
 
+    public Sistema getSistema() {
+        return sistema;
+    }
+
+    public OperatingSystem getOs() {
+        return os.getOs();
+    }
+
+    public Componente getComp() {
+        return comp;
+    }
+
+    public Cpu getCpu() {
+        return cpu;
+    }
+
+    public Mem getMem() {
+        return mem;
+    }
+
+    public Disco getDisco() {
+        return disco;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public Processos getProcessos() {
+        return processos;
+    }
+
+    public List<OSSession> getUsersList() {
+        return usersList;
+    }
+
+    public double getCpuUsage() {
+        return cpuUsage;
+    }
+
+    public double getMemTotal() {
+        return memTotal;
+    }
+
+    public double getMemUsage() {
+        return memUsage;
+    }
+
+    public List<String> getProcs() {
+        return procs;
+    }
+
+    public long getTimeUp() {
+        return timeUp;
+    }
+
     @Override
     public String toString() {
         return "Maquina{" + "Sistema:" + sistema + ",\n "
@@ -50,7 +107,7 @@ public class Maquina {
                 + "Usuários:" + usersList + ",\n "
                 + "Uso da CPU:" + cpuUsage + ",\n "
                 + "Uso da MEM:" + memUsage + ",\n "
-                + "Processos:" + procs + ",\n "
+                + "Processos:" + processos + ",\n "
                 + "Tempo ligada:" + timeUp + '}';
     }
 }

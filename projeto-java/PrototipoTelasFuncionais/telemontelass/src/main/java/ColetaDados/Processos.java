@@ -29,12 +29,11 @@ public class Processos {
 
                 OSProcess p = osProcesses.get(i);
 
-                procList.add(String.format("\n %5d --- %5.1f %% --- %4.1f %% --- %s \n",
-//                        "PID %5d --- Processamento %5.1f %% --- MEM %4.1f %% --- NAME %s \n", 
+                procList.add(String.format("%5d %s %5.1f %% %4.1f %% \n",
                         p.getProcessID(),
-                        100d * (p.getKernelTime() + p.getUserTime()) / p.getUpTime(),
-                        100d * p.getResidentSetSize() / memoria.getMem().getTotal(), 
-                        p.getName()));
+                        p.getName(),
+                        p.getProcessCpuLoadBetweenTicks(p),
+                        100d * p.getResidentSetSize() / memoria.getMem().getTotal()));
             }
         } catch (Exception e) {
         }
@@ -56,5 +55,5 @@ public class Processos {
     @Override
     public String toString() {
         return "Processos{" + "os=" + os + ", procList=" + procList + '}';
-    } 
+    }
 }
