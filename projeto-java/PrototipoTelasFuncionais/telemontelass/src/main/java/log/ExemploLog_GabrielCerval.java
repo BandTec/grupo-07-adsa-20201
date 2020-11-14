@@ -30,9 +30,9 @@ public class ExemploLog_GabrielCerval {
         logErro.seek(logErro.length()); // posiciona o ponteiro de posição no final do arquivo
         registro = (logErro.length() / 56) + 1; // número do novo registro
 
-        descLog = "DESCRIÇÃO: " + descTeste;
-        nome = "NOME: " + nomeTeste;
-        nivelLog = "NIVEL: " + nivelTeste;
+        descLog = "DESCRIÇÃO: " + descTeste + "\n";
+        nome = "NOME: " + nomeTeste + "\n";
+        nivelLog = "NIVEL: " + nivelTeste + "\n";
 
         gravarString(logErro, nome);
         gravarString(logErro, descLog);
