@@ -28,7 +28,7 @@ public class TelaDetalhes extends javax.swing.JFrame {
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
                 try {
-                    
+
                     Object rowData[] = new Object[10];
                     int cpu = (int) maquina.getCpuUsage();
                     int ram = (int) maquina.getMemUsage();
@@ -43,15 +43,17 @@ public class TelaDetalhes extends javax.swing.JFrame {
 
                     DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
                     List<String> listProcessos = maquina.getProcs();
-                    
-                    
 
                     for (String processo : listProcessos) {
-                        rowData[0] = processo;
-                        model.addRow(rowData);
-                        if (model.getRowCount() > 10) {
-                            model.removeRow(0);
+
+                        if(!(processo.contains("Idle"))){
+                            rowData[0] = processo;
+                            model.addRow(rowData);
+                            if (model.getRowCount() > 10) {
+                                model.removeRow(0);
+                            }
                         }
+
                     }
 
                     pgbCpu.setValue(cpu);

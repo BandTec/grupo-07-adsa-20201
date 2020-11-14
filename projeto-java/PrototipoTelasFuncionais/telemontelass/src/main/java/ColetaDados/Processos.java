@@ -6,7 +6,9 @@
 package ColetaDados;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import oshi.software.os.OSProcess;
 import oshi.software.os.OperatingSystem;
 import oshi.util.FormatUtil;
@@ -23,9 +25,9 @@ public class Processos {
 
     public List<String> getOsProcesses() {
         try {
-            List<OSProcess> osProcesses = os.getOs().getProcesses(10, OperatingSystem.ProcessSort.CPU);
+            List<OSProcess> osProcesses = os.getOs().getProcesses(11, OperatingSystem.ProcessSort.CPU);
 
-            for (int i = 0; i < osProcesses.size() && i < 10; i++) {
+            for (int i = 0; i < osProcesses.size() && i < 11; i++) {
 
                 OSProcess p = osProcesses.get(i);
 
@@ -34,6 +36,15 @@ public class Processos {
                         p.getName(),
                         p.getProcessCpuLoadBetweenTicks(p),
                         100d * p.getResidentSetSize() / memoria.getMem().getTotal()));
+                
+//                Map<Integer, String> procMap = new HashMap();
+//                procMap.put(1, (String.format("%5d", p.getProcessID())));
+//                procMap.put(2, (String.format("%s", p.getName())));
+//                procMap.put(3, (String.format("%5.1f", p.getProcessCpuLoadBetweenTicks(p))));
+//                procMap.put(4, (String.format("%4.1f", 100d * p.getResidentSetSize() / memoria.getMem().getTotal())));
+                
+//                System.out.println(procMap);
+                
             }
         } catch (Exception e) {
         }
