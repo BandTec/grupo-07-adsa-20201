@@ -1,6 +1,7 @@
 package Views;
 
 import ColetaDados.Maquina;
+import Entities.AlertHardware;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +13,12 @@ public class TelaDetalhes extends javax.swing.JFrame {
 
     Timer timer = new Timer();
     Maquina maquina = new Maquina();
+    AlertHardware alertProcs = new AlertHardware();
 
     public TelaDetalhes() {
         initComponents();
         ApresentarDados();
+        alertProcs.enviarAlertaProcesso(alertProcs);
     }
 
     public void ApresentarDados() {
