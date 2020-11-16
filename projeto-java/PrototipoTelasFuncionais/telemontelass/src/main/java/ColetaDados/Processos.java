@@ -22,6 +22,11 @@ public class Processos {
     private SistemaOperacional os = new SistemaOperacional();
     private Mem memoria = new Mem();
     private List<String> procList = new ArrayList();
+    
+    private String nomeProcesso;
+    private double cpuProcesso;
+    private double memProcesso;
+    private String registro;
 
     public List<String> getOsProcesses() {
         try {

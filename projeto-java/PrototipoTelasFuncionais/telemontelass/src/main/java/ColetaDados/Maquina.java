@@ -32,6 +32,11 @@ public class Maquina {
     private List<String> procs;
     private long timeUp;
 
+    private String osMaquina;
+    private String userMaquina;
+    private String hostname;
+    private String registo;
+
     public void Init() {
         usersList = users.getUsersList();
         cpuUsage = cpu.getCpuUsage();
