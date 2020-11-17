@@ -5,6 +5,9 @@
  */
 package ColetaDados;
 
+import Entities.AlertHardware;
+import java.lang.reflect.Array;
+import java.util.List;
 import oshi.hardware.CentralProcessor;
 
 /**
@@ -17,11 +20,15 @@ public class Cpu {
     private CentralProcessor cpu = comp.getHaw().getProcessor();
     private long[] oldTicks = cpu.getSystemCpuLoadTicks();
     private double cpuUsage;
+    private List<double> cpuList = new ArrayList();
+    AlertHardware alertCpu = new AlertHardware();
     
     public double getCpuUsage(){
         
         try {
             cpuUsage = (cpu.getSystemCpuLoadBetweenTicks(oldTicks) * 100);
+            
+            
             
         } catch (Exception e) {
             System.out.println(e);
@@ -29,6 +36,29 @@ public class Cpu {
         return cpuUsage;
     }
 
+    public List<double> gerarLista (){
+        
+        if(cpuList.size() < 10){
+                cpuList.add(cpuUsage);
+            }
+            else{
+               cpuList.remove(0);
+               cpuList.add(cpuUsage);
+            }
+    }
+    
+    public void verificarLista() {
+        Integer i = 0;
+        for (Cpu cpu : cpuList) {
+            if (cpuList.get(i) > 90.00) {
+                i++;
+                if (i > 5) {
+                    alertCpu.enviarAlertaCpu(alertCpu);
+                }
+            }
+        }
+    }
+    
     public Componente getComp() {
         return comp;
     }

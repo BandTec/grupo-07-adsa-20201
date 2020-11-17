@@ -5,6 +5,8 @@
  */
 package ColetaDados;
 
+import Entities.AlertHardware;
+import java.util.List;
 import oshi.hardware.GlobalMemory;
 
 /**
@@ -12,19 +14,44 @@ import oshi.hardware.GlobalMemory;
  * @author Markz
  */
 public class Mem {
-   
+
     private Componente comp = new Componente();
     private GlobalMemory mem = comp.getHaw().getMemory();
     private double memUsage;
     private double memTotal = (mem.getTotal() / 1000000000);
-    
-    public double getMemUsage(){
-        
+    private List<double> memList = new ArraryList();
+    AlertHardware alertMem = new AlertHardware();
+
+    public double getMemUsage() {
+
         try {
             memUsage = (100 - (mem.getAvailable() * 100) / (mem.getTotal()));
         } catch (Exception e) {
         }
         return memUsage;
+    }
+
+    public List<double> gerarLista() {
+
+        if (memList.size() < 10) {
+            memList.add(memUsage);
+        } else {
+            memList.remove(0);
+            memList.add(memUsage);
+        }
+        return memList;
+    }
+
+    public void verificarLista() {
+        Integer i = 0;
+        for (Mem mem : memList) {
+            if (memList.get(i) > 90.00) {
+                i++;
+                if (i > 5) {
+                    alertMem.enviarAlertaMemoria(alertMem);
+                }
+            }
+        }
     }
 
     public Componente getComp() {
@@ -42,5 +69,5 @@ public class Mem {
     @Override
     public String toString() {
         return "Mem{" + "comp=" + comp + ", mem=" + mem + ", memUsage=" + memUsage + ", memTotal=" + memTotal + '}';
-    }  
+    }
 }

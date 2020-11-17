@@ -40,12 +40,16 @@ public class Maquina {
     public void Init() {
         usersList = users.getUsersList();
         cpuUsage = cpu.getCpuUsage();
+        cpu.gerarLista();
+        cpu.verificarLista();
         memUsage = mem.getMemUsage();
-        procs = processos.getOsProcesses();
+        mem.gerarLista();
+        mem.verificarLista();
+        procs = processos.getOsProcesses();                                                                                                                                                                             
         timeUp = os.getOsUpTime();
     }
     
-    public String verificarMaq(double uso, ) {
+    public String verificarMaq(double uso) {
         List<double> alertList = new ArrayList();
         if(uso > 90.00) {
             alertList.add(uso);
@@ -54,10 +58,6 @@ public class Maquina {
         }    
            
         }
-        
-        
-        
-        return null;
     }
 
     public Sistema getSistema() {
