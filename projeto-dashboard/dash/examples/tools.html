@@ -74,12 +74,6 @@ The above copyright notice and this permission notice shall be included in all c
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./map.html">
-              <i class="material-icons">location_ons</i>
-              <p>Maps</p>
-            </a>
-          </li>
-          <li class="nav-item ">
             <a class="nav-link" href="./notifications.html">
               <i class="material-icons">notifications</i>
               <p>Notifications</p>
@@ -146,19 +140,19 @@ The above copyright notice and this permission notice shall be included in all c
                       <span class="nav-tabs-title">Consultar:</span>
                       <ul class="nav nav-tabs" data-tabs="tabs">
                         <li class="nav-item">
-                          <a class="nav-link active" href="#profile" data-toggle="tab">
+                          <a class="nav-link active" href="#maquina" data-toggle="tab">
                             <i class="material-icons">devices</i> Máquinas
                             <div class="ripple-container"></div>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#messages" data-toggle="tab">
+                          <a class="nav-link" href="#funcionario" data-toggle="tab">
                             <i class="material-icons">groups</i> Funcionários
                             <div class="ripple-container"></div>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#settings" data-toggle="tab">
+                          <a class="nav-link" href="#programas" data-toggle="tab">
                             <i class="material-icons">web</i> Programas
                             <div class="ripple-container"></div>
                           </a>
@@ -175,7 +169,7 @@ The above copyright notice and this permission notice shall be included in all c
                 </div>
                 <div class="card-body">
                   <div class="tab-content">
-                    <div class="tab-pane active" id="profile">
+                    <div class="tab-pane active" id="maquina">
                       <table class="table table-hover">
                         <form class="navbar-form">
                           <div class="input-group no-border">
@@ -186,8 +180,8 @@ The above copyright notice and this permission notice shall be included in all c
                             </button>
                           </div>
                         </form>
+
                         <div class="nav-tabs-navigation">
-                          
                             <ul class="nav nav-tabs" data-tabs="tabs">
                               <li class="nav-item">
                                 <a class="nav-link" href="#addMaquina" data-toggle="tab" style="margin-left: 1100px;">
@@ -199,8 +193,8 @@ The above copyright notice and this permission notice shall be included in all c
                                 </a>
                               </li>
                             </ul>
-                          
                         </div>
+
                         <thead class="text-danger">
                           <th>ID</th>
                           <th>Nome</th>
@@ -352,7 +346,7 @@ The above copyright notice and this permission notice shall be included in all c
                         </tbody>
                       </table>
                     </div>
-                    <div class="tab-pane" id="messages">
+                    <div class="tab-pane" id="funcionario">
                       <table class="table table-hover">
                         <form class="navbar-form">
                           <div class="input-group no-border">
@@ -361,12 +355,21 @@ The above copyright notice and this permission notice shall be included in all c
                               <i class="material-icons">search</i>
                               <div class="ripple-container"></div>
                             </button>
-                            <button type="submit" class="btn btn-success btn-round btn-just-icon">
-                              <i class="material-icons">add</i>
-                              <div class="ripple-container"></div>
-                            </button>
                           </div>
                         </form>
+                        <div class="nav-tabs-navigation">
+                          <ul class="nav nav-tabs" data-tabs="tabs">
+                            <li class="nav-item">
+                              <a class="nav-link" href="#addFunc" data-toggle="tab" style="margin-left: 1100px;">
+                                <button class="btn btn-success btn-round btn-just-icon">
+                                  <i class="material-icons">add</i>
+                                  <div class="ripple-container"></div>
+                                </button>
+                                <div class="ripple-container"></div>
+                              </a>
+                            </li>
+                          </ul>
+                      </div>
                         <thead class="text-danger">
                           <th>ID</th>
                           <th>Nome</th>
@@ -448,7 +451,7 @@ The above copyright notice and this permission notice shall be included in all c
                         </tbody>
                       </table>
                     </div>
-                    <div class="tab-pane" id="settings">
+                    <div class="tab-pane" id="programas">
                       <table class="table table-hover">
                         <form class="navbar-form">
                           <div class="input-group no-border">
@@ -457,12 +460,21 @@ The above copyright notice and this permission notice shall be included in all c
                               <i class="material-icons">search</i>
                               <div class="ripple-container"></div>
                             </button>
-                            <button type="submit" class="btn btn-success btn-round btn-just-icon">
-                              <i class="material-icons">add</i>
-                              <div class="ripple-container"></div>
-                            </button>
                           </div>
                         </form>
+                        <div class="nav-tabs-navigation">
+                          <ul class="nav nav-tabs" data-tabs="tabs">
+                            <li class="nav-item">
+                              <a class="nav-link" href="#addPrograma" data-toggle="tab" style="margin-left: 1100px;">
+                                <button class="btn btn-success btn-round btn-just-icon">
+                                  <i class="material-icons">add</i>
+                                  <div class="ripple-container"></div>
+                                </button>
+                                <div class="ripple-container"></div>
+                              </a>
+                            </li>
+                          </ul>
+                      </div>
                         <thead class="text-danger">
                           <th>ID</th>
                           <th>Nome</th>
@@ -509,12 +521,21 @@ The above copyright notice and this permission notice shall be included in all c
                               <i class="material-icons">search</i>
                               <div class="ripple-container"></div>
                             </button>
-                            <button type="submit" class="btn btn-success btn-round btn-just-icon">
-                              <i class="material-icons">add</i>
-                              <div class="ripple-container"></div>
-                            </button>
                           </div>
                         </form>
+                        <div class="nav-tabs-navigation">
+                          <ul class="nav nav-tabs" data-tabs="tabs">
+                            <li class="nav-item">
+                              <a class="nav-link" href="#addComponente" data-toggle="tab" style="margin-left: 1100px;">
+                                <button class="btn btn-success btn-round btn-just-icon">
+                                  <i class="material-icons">add</i>
+                                  <div class="ripple-container"></div>
+                                </button>
+                                <div class="ripple-container"></div>
+                              </a>
+                            </li>
+                          </ul>
+                      </div>
                         <thead class="text-danger">
                           <th>ID</th>
                           <th>Nome</th>
@@ -552,7 +573,140 @@ The above copyright notice and this permission notice shall be included in all c
                       </table>
                     </div>
                     <div class="tab-pane" id="addMaquina">
-                      olaaar
+                      <div class="nav-tabs-navigation">
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                          <li class="nav-item">
+                            <a class="nav-link" href="#maquina" data-toggle="tab" style="margin-left: 1100px;">
+                              <button class="btn btn-warning btn-round btn-just-icon">
+                                <i class="material-icons">keyboard_backspace</i>
+                                <div class="ripple-container"></div>
+                              </button>
+                              <div class="ripple-container"></div>
+                            </a>
+                          </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                      <form>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Nome máquina (HOSTNAME)</label>
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Modelo</label>
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                     
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label>Selecione os componentes</label>
+                            </div>
+                          </div>
+                        </div>
+                                  <div class="form-check">
+                                     <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" value="" checked>
+                                        CPU
+                                          <span class="form-check-sign">
+                                          <span class="check"></span>
+                                        </span>
+                                      </label>
+                                    </div>
+
+                        <button type="submit" class="btn btn-primary pull-right">Cadastrar</button>
+                        <div class="clearfix"></div>
+                      </form>
+                    </div>
+                    </div>
+                    <div class="tab-pane" id="addFunc">
+                      <div class="nav-tabs-navigation">
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                          <li class="nav-item">
+                            <a class="nav-link" href="#funcionario" data-toggle="tab" style="margin-left: 1100px;">
+                              <button class="btn btn-warning btn-round btn-just-icon">
+                                <i class="material-icons">keyboard_backspace</i>
+                                <div class="ripple-container"></div>
+                              </button>
+                              <div class="ripple-container"></div>
+                            </a>
+                          </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                      <form>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Nome máquina (HOSTNAME)</label>
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Modelo</label>
+                              <input type="text" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                     
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label>Selecione os componentes</label>
+                            </div>
+                          </div>
+                        </div>
+                                  <div class="form-check">
+                                     <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" value="" checked>
+                                        CPU
+                                          <span class="form-check-sign">
+                                          <span class="check"></span>
+                                        </span>
+                                      </label>
+                                    </div>
+
+                        <button type="submit" class="btn btn-primary pull-right">Cadastrar</button>
+                        <div class="clearfix"></div>
+                      </form>
+                    </div>
+                    </div>
+                    <div class="tab-pane" id="addPrograma">
+                      <div class="nav-tabs-navigation">
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                          <li class="nav-item">
+                            <a class="nav-link" href="#programas" data-toggle="tab" style="margin-left: 1100px;">
+                              <button class="btn btn-warning btn-round btn-just-icon">
+                                <i class="material-icons">keyboard_backspace</i>
+                                <div class="ripple-container"></div>
+                              </button>
+                              <div class="ripple-container"></div>
+                            </a>
+                          </li>
+                        </ul>
+                    </div>
+                    </div>
+                    <div class="tab-pane" id="addComponente">
+                      <div class="nav-tabs-navigation">
+                        <ul class="nav nav-tabs" data-tabs="tabs">
+                          <li class="nav-item">
+                            <a class="nav-link" href="#components" data-toggle="tab" style="margin-left: 1100px;">
+                              <button class="btn btn-warning btn-round btn-just-icon">
+                                <i class="material-icons">keyboard_backspace</i>
+                                <div class="ripple-container"></div>
+                              </button>
+                              <div class="ripple-container"></div>
+                            </a>
+                          </li>
+                        </ul>
+                    </div>
                     </div>
                   </div>
                 </div>
