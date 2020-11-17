@@ -44,6 +44,21 @@ public class Maquina {
         procs = processos.getOsProcesses();
         timeUp = os.getOsUpTime();
     }
+    
+    public String verificarMaq(double uso, ) {
+        List<double> alertList = new ArrayList();
+        if(uso > 90.00) {
+            alertList.add(uso);
+        if(alertList.size() > 10) {
+            String.format("Alerta! Máquina %s está com o uso de %s elevado", hostname, cpu)
+        }    
+           
+        }
+        
+        
+        
+        return null;
+    }
 
     public Sistema getSistema() {
         return sistema;
