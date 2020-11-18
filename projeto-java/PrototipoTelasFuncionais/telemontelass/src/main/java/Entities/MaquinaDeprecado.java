@@ -4,7 +4,7 @@ import java.awt.List;
 import java.util.ArrayList;
 
 
-public class Maquina {
+public class MaquinaDeprecado {
     
     private Integer codigo = 0;
     private String nome = "";
@@ -21,7 +21,7 @@ public class Maquina {
 
     
     
-    public Maquina(){
+    public MaquinaDeprecado(){
         
     }
     public ArrayList<Processos> getProcessos() {
@@ -33,7 +33,7 @@ public class Maquina {
     }
     
 
-    public Maquina(Integer codigo, String nome, ArrayList<String> programas) {
+    public MaquinaDeprecado(Integer codigo, String nome, ArrayList<String> programas) {
         this.nome = nome;
         this.codigo = codigo;
         this.programas = programas;

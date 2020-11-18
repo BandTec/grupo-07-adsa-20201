@@ -9,7 +9,7 @@ public class DadoConexaoMaquina {
     
     private String descricao = "";
     private Integer codigo = 0;
-    private Maquina maquina;
+    private MaquinaDeprecado maquina;
     private String vistoPorUltimo = "";
     
     
@@ -17,7 +17,7 @@ public class DadoConexaoMaquina {
         
     }
     
-    public DadoConexaoMaquina(Integer codigo, String descricao, Maquina maquina, String vistoPorUltimo) {
+    public DadoConexaoMaquina(Integer codigo, String descricao, MaquinaDeprecado maquina, String vistoPorUltimo) {
         this.codigo = codigo;
         this.descricao = descricao;
         this.maquina = maquina;
@@ -34,11 +34,11 @@ public class DadoConexaoMaquina {
     
 
 
-    public Maquina getMaquina() {
+    public MaquinaDeprecado getMaquina() {
         return maquina;
     }
 
-    public void setMaquina(Maquina maquina) {
+    public void setMaquina(MaquinaDeprecado maquina) {
         this.maquina = maquina;
     }
     
