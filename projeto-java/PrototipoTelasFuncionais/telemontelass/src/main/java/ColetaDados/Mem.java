@@ -35,7 +35,7 @@ public class Mem {
         }
         return memUsage;
     }
-
+    //ESTÁ EM DESENVOLVIMENTO
     public List<Double> gerarLista() {
 
         if (memList.size() < 10) {
@@ -45,8 +45,9 @@ public class Mem {
             memList.add(memUsage);
         }
         return memList;
+    //ESTÁ EM DESENVOLVIMENTO
     }
-
+    //ESTÁ EM DESENVOLVIMENTO
     public void verificarLista() {
         Integer i = 0;
         for (Double mem : memList) {
@@ -57,6 +58,7 @@ public class Mem {
                 }
             }
         }
+    //ESTÁ EM DESENVOLVIMENTO
     }
 
     public Componente getComp() {

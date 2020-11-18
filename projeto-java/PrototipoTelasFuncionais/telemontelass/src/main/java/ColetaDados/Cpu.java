@@ -38,7 +38,7 @@ public class Cpu {
         }
         return cpuUsage;
     }
-
+    //ESTÁ EM DESENVOLVIMENTO
     public List<Double> gerarLista() {
 
         if (cpuList.size() < 10) {
@@ -48,8 +48,9 @@ public class Cpu {
             cpuList.add(cpuUsage);
         }
         return cpuList;
+    //ESTÁ EM DESENVOLVIMENTO
     }
-
+    //ESTÁ EM DESENVOLVIMENTO
     public void verificarLista() {
         Integer i = 0;
         for (Double cpu : cpuList) {
@@ -60,6 +61,7 @@ public class Cpu {
                 }
             }
         }
+    //ESTÁ EM DESENVOLVIMENTO
     }
 
     public Componente getComp() {

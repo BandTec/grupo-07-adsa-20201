@@ -17,7 +17,6 @@ public class AlertHardware extends Alerts{
     
      public void enviarAlertaProcesso(AlertHardware alertaHardware){
           ColetaDados.Maquina maquina = new ColetaDados.Maquina();
-          maquina.Init();
           for (String process : maquina.getProcs()) {
                 if (process.contains("Discord")) {
                     System.out.println(process);

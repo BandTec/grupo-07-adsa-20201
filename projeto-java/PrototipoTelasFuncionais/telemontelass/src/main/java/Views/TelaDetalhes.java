@@ -23,8 +23,6 @@ public class TelaDetalhes extends javax.swing.JFrame {
 
     public void ApresentarDados() {
 
-        maquina.Init();
-
         int delay = 500;   // tempo de espera antes da 1ª execução da tarefa.
         int interval = 1000;  // intervalo no qual a tarefa será executada.
         Timer timer = new Timer();

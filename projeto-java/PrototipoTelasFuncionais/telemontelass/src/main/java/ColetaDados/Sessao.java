@@ -12,17 +12,17 @@ import oshi.software.os.OSSession;
  *
  * @author Markz
  */
-public class Users {
+public class Sessao {
     
     private SistemaOperacional os = new SistemaOperacional();
-    private List<OSSession> usersList = os.getOs().getSessions();
+    private List<OSSession> sessionList = os.getOs().getSessions();
 
     public SistemaOperacional getOs() {
         return os;
     }
 
     public List<OSSession> getUsersList() {
-        return usersList;
+        return sessionList;
     }
     
 }

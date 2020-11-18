@@ -1,9 +1,12 @@
 
+import ColetaDados.Componente;
 import ColetaDados.Cpu;
 import ColetaDados.Disco;
 import ColetaDados.Maquina;
 import ColetaDados.Mem;
 import ColetaDados.Processos;
+import ColetaDados.Sessao;
+import java.awt.Component;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,18 +21,17 @@ public class ColetaTeste {
 
     public static void main(String[] args) {
 
-        Cpu cpu = new Cpu();
-        Mem mem = new Mem();
-        Disco disco = new Disco();
-        
-        System.out.println(cpu.getComp());
-        System.out.println(mem.getComp());
-        System.out.println(disco.getComp());
-        
-//        Maquina maquina = new Maquina();
-//        maquina.Init();
-//
-//        System.out.println(maquina.getComponentes());
+//        Cpu cpu = new Cpu();
+//        Mem mem = new Mem();
+//        Disco disco = new Disco();
+//        
+//        System.out.println(cpu.getComp());
+//        System.out.println(mem.getComp());
+//        System.out.println(disco.getComp());
+
+        Maquina maquina = new Maquina();
+
+        System.out.println(maquina);
 
 //        ColetaDados dados = new ColetaDados();
 //        

@@ -22,10 +22,10 @@ public class Maquina {
     private Cpu cpu = new Cpu();
     private Mem mem = new Mem();
     private Disco disco = new Disco();
-    private Users users = new Users();
+    private Sessao sessao = new Sessao();
     private Processos processos = new Processos();
 
-    private List<OSSession> usersList;
+    private List<OSSession> sessionList;
     private double cpuUsage;
     private double memTotal = mem.getMemTotal();
     private double memUsage;
@@ -33,37 +33,31 @@ public class Maquina {
     private long timeUp;
 
     private String osMaquina;
-    private String userMaquina;
     private String hostname;
     private String registo;
     private List<String> componentes = new ArrayList();
 
-    public void Init() {
-        componentes.add(String.format("CPU: %s \n"
-                + "RAM: %.1f Gb\n"
-                + "Discos: %s \n",
-                cpu.getCpu().toString(),
-                memTotal,
-                disco.getDisco().toString()));
-        usersList = users.getUsersList();
-        cpuUsage = cpu.getCpuUsage();
+    public Maquina() {
+        this.sessionList = sessao.getUsersList();
+        this.cpuUsage = cpu.getCpuUsage();
+        this.memUsage = mem.getMemUsage();
+        this.procs = processos.getOsProcesses();
+        this.timeUp = os.getOsUpTime();
+        this.osMaquina = os.getOs().toString();
+        this.registo = "";
+        componentes.add(cpu.getComp().toString());
+        componentes.add(mem.getComp().toString());
+        componentes.add(disco.getComp().toString());
+//        componentes.add(String.format("CPU: %s \n"
+//                + "RAM: %.1f Gb\n"
+//                + "Discos: %s \n",
+//                cpu.getCpu().toString(),
+//                memTotal,
+//                disco.getDisco().toString()));
         cpu.gerarLista();
         cpu.verificarLista();
-        memUsage = mem.getMemUsage();
         mem.gerarLista();
         mem.verificarLista();
-        procs = processos.getOsProcesses();                                                                                                                                                                             
-        timeUp = os.getOsUpTime();
-    }
-    
-    public void verificarMaq(double uso) {
-        List<Double> alertList = new ArrayList();
-        if(uso > 90.00) {
-            alertList.add(uso);
-        if(alertList.size() > 10) {
-            String.format("Alerta! Máquina %s está com o uso de %s elevado", hostname, cpu);
-        }    
-        }
     }
 
     public Sistema getSistema() {
@@ -86,16 +80,12 @@ public class Maquina {
         return disco;
     }
 
-    public Users getUsers() {
-        return users;
+    public List<OSSession> getSessionList() {
+        return sessionList;
     }
 
     public Processos getProcessos() {
         return processos;
-    }
-
-    public List<OSSession> getUsersList() {
-        return usersList;
     }
 
     public double getCpuUsage() {
@@ -122,17 +112,28 @@ public class Maquina {
         return componentes;
     }
 
-    @Override
+//    @Override
+//    public String toString() {
+//        return "Maquina{" + "Sistema:" + sistema + ",\n "
+//                + "Sistema Operacional:" + os + ",\n "
+//                + "Modelo CPU:" + cpu + ",\n "
+//                + "Total MEM" + memTotal + ",\n "
+//                + "Discos:" + disco + ",\n "
+//                + "Usuários:" + usersList + ",\n "
+//                + "Uso da CPU:" + cpuUsage + ",\n "
+//                + "Uso da MEM:" + memUsage + ",\n "
+//                + "Processos:" + processos + ",\n "
+//                + "Tempo ligada:" + timeUp + '}';
+//    }
+
+        @Override
     public String toString() {
-        return "Maquina{" + "Sistema:" + sistema + ",\n "
-                + "Sistema Operacional:" + os + ",\n "
-                + "Modelo CPU:" + cpu + ",\n "
-                + "Total MEM" + memTotal + ",\n "
-                + "Discos:" + disco + ",\n "
-                + "Usuários:" + usersList + ",\n "
-                + "Uso da CPU:" + cpuUsage + ",\n "
-                + "Uso da MEM:" + memUsage + ",\n "
-                + "Processos:" + processos + ",\n "
-                + "Tempo ligada:" + timeUp + '}';
-    }
+        return "Maquina{"
+//                + "Hostname:" + hostname + ",\n "
+                + "Sistema Operacional:" + osMaquina + ",\n "
+                + "Sessão:" + sessionList + ",\n "
+                + "Processos:" + procs + ",\n "
+                + "Tempo ligada:" + timeUp + ",\n "
+                + "Componentes:" + componentes + '}';
+    } 
 }
