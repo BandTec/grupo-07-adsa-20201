@@ -16,12 +16,16 @@ import oshi.hardware.GlobalMemory;
  */
 public class Mem {
 
-    private Componente comp = new Componente();
+    private Componente comp = new Componente("ram");
     private GlobalMemory mem = comp.getHaw().getMemory();
     private Double memUsage;
-    private double memTotal = (mem.getTotal() / 1000000000);
+    private Long memTotal = (mem.getTotal() / 1000000000);
     private List<Double> memList = new ArrayList();
     AlertHardware alertMem = new AlertHardware();
+    
+     public Mem() {
+         comp.setDesc(memTotal.toString());
+    } 
 
     public double getMemUsage() {
 

@@ -14,9 +14,13 @@ import oshi.hardware.HWDiskStore;
  */
 public class Disco {
     
-    private Componente comp = new Componente();
+    private Componente comp = new Componente("disco");
     private List<HWDiskStore> disco = comp.getHaw().getDiskStores();
 
+    public Disco() {
+        comp.setDesc(disco.toString());
+    } 
+    
     public Componente getComp() {
         return comp;
     }

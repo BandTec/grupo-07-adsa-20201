@@ -15,14 +15,41 @@ import oshi.hardware.HardwareAbstractionLayer;
 public class Componente {
    
     private Sistema sistema = new Sistema();
-    private HardwareAbstractionLayer haw = sistema.getSi().getHardware();  
+    private HardwareAbstractionLayer haw = sistema.getSi().getHardware();
+    private String tipo;
+    private String desc;
+
+    public Componente(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+    
+    public Sistema getSistema() {
+        return sistema;
+    }
 
     public HardwareAbstractionLayer getHaw() {
         return haw;
     }
 
-    public Sistema getSistema() {
-        return sistema;
+    public String getTipo() {
+        return tipo;
     }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    @Override
+    public String toString() {
+        return "Componente{" + "tipo=" + tipo + ",\n desc=" + desc + '}';
+    }
+    
+    
+
+
     
 }

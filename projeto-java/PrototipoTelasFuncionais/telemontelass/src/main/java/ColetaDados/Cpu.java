@@ -17,38 +17,39 @@ import oshi.hardware.CentralProcessor;
  */
 public class Cpu {
 
-    private Componente comp = new Componente();
+    private Componente comp = new Componente("cpu");
     private CentralProcessor cpu = comp.getHaw().getProcessor();
     private long[] oldTicks = cpu.getSystemCpuLoadTicks();
     private double cpuUsage;
     private List<Double> cpuList = new ArrayList();
     AlertHardware alertCpu = new AlertHardware();
-    
-    public double getCpuUsage(){
-        
+
+    public Cpu() {
+        comp.setDesc(cpu.toString());
+    }
+
+    public double getCpuUsage() {
+
         try {
             cpuUsage = (cpu.getSystemCpuLoadBetweenTicks(oldTicks) * 100);
-            
-            
-            
+
         } catch (Exception e) {
             System.out.println(e);
         }
         return cpuUsage;
     }
 
-    public List<Double> gerarLista (){
-        
-        if(cpuList.size() < 10){
-                cpuList.add(cpuUsage);
-            }
-            else{
-               cpuList.remove(0);
-               cpuList.add(cpuUsage);
-            }
+    public List<Double> gerarLista() {
+
+        if (cpuList.size() < 10) {
+            cpuList.add(cpuUsage);
+        } else {
+            cpuList.remove(0);
+            cpuList.add(cpuUsage);
+        }
         return cpuList;
     }
-    
+
     public void verificarLista() {
         Integer i = 0;
         for (Double cpu : cpuList) {
@@ -60,7 +61,7 @@ public class Cpu {
             }
         }
     }
-    
+
     public Componente getComp() {
         return comp;
     }
@@ -76,5 +77,5 @@ public class Cpu {
     @Override
     public String toString() {
         return "Cpu{" + "comp=" + comp + ", cpu=" + cpu + ", cpuUsage=" + cpuUsage + '}';
-    } 
+    }
 }

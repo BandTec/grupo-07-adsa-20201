@@ -7,6 +7,7 @@ package ColetaDados;
 
 import java.util.ArrayList;
 import java.util.List;
+import oshi.software.os.OSProcess;
 import oshi.software.os.OSSession;
 import oshi.software.os.OperatingSystem;
 
@@ -18,7 +19,6 @@ public class Maquina {
 
     private Sistema sistema = new Sistema();
     private SistemaOperacional os = new SistemaOperacional();
-    private Componente comp = new Componente();
     private Cpu cpu = new Cpu();
     private Mem mem = new Mem();
     private Disco disco = new Disco();
@@ -36,8 +36,15 @@ public class Maquina {
     private String userMaquina;
     private String hostname;
     private String registo;
+    private List<String> componentes = new ArrayList();
 
     public void Init() {
+        componentes.add(String.format("CPU: %s \n"
+                + "RAM: %.1f Gb\n"
+                + "Discos: %s \n",
+                cpu.getCpu().toString(),
+                memTotal,
+                disco.getDisco().toString()));
         usersList = users.getUsersList();
         cpuUsage = cpu.getCpuUsage();
         cpu.gerarLista();
@@ -65,10 +72,6 @@ public class Maquina {
 
     public OperatingSystem getOs() {
         return os.getOs();
-    }
-
-    public Componente getComp() {
-        return comp;
     }
 
     public Cpu getCpu() {
@@ -115,11 +118,14 @@ public class Maquina {
         return timeUp;
     }
 
+    public List<String> getComponentes() {
+        return componentes;
+    }
+
     @Override
     public String toString() {
         return "Maquina{" + "Sistema:" + sistema + ",\n "
                 + "Sistema Operacional:" + os + ",\n "
-                + "Componentes:" + comp + ",\n "
                 + "Modelo CPU:" + cpu + ",\n "
                 + "Total MEM" + memTotal + ",\n "
                 + "Discos:" + disco + ",\n "

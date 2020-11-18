@@ -1,5 +1,8 @@
 
+import ColetaDados.Cpu;
+import ColetaDados.Disco;
 import ColetaDados.Maquina;
+import ColetaDados.Mem;
 import ColetaDados.Processos;
 
 /*
@@ -15,10 +18,18 @@ public class ColetaTeste {
 
     public static void main(String[] args) {
 
-        Maquina maquina = new Maquina();
-        maquina.Init();
-
-        System.out.println(maquina);
+        Cpu cpu = new Cpu();
+        Mem mem = new Mem();
+        Disco disco = new Disco();
+        
+        System.out.println(cpu.getComp());
+        System.out.println(mem.getComp());
+        System.out.println(disco.getComp());
+        
+//        Maquina maquina = new Maquina();
+//        maquina.Init();
+//
+//        System.out.println(maquina.getComponentes());
 
 //        ColetaDados dados = new ColetaDados();
 //        
