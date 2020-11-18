@@ -49,14 +49,13 @@ public class Maquina {
         timeUp = os.getOsUpTime();
     }
     
-    public String verificarMaq(double uso) {
-        List<double> alertList = new ArrayList();
+    public void verificarMaq(double uso) {
+        List<Double> alertList = new ArrayList();
         if(uso > 90.00) {
             alertList.add(uso);
         if(alertList.size() > 10) {
-            String.format("Alerta! Máquina %s está com o uso de %s elevado", hostname, cpu)
+            String.format("Alerta! Máquina %s está com o uso de %s elevado", hostname, cpu);
         }    
-           
         }
     }
 

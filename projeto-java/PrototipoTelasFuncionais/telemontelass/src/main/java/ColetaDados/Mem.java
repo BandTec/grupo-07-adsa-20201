@@ -6,6 +6,7 @@
 package ColetaDados;
 
 import Entities.AlertHardware;
+import java.util.ArrayList;
 import java.util.List;
 import oshi.hardware.GlobalMemory;
 
@@ -17,21 +18,21 @@ public class Mem {
 
     private Componente comp = new Componente();
     private GlobalMemory mem = comp.getHaw().getMemory();
-    private double memUsage;
+    private Double memUsage;
     private double memTotal = (mem.getTotal() / 1000000000);
-    private List<double> memList = new ArraryList();
+    private List<Double> memList = new ArrayList();
     AlertHardware alertMem = new AlertHardware();
 
     public double getMemUsage() {
 
         try {
-            memUsage = (100 - (mem.getAvailable() * 100) / (mem.getTotal()));
+            memUsage = Double.valueOf(100 - (mem.getAvailable() * 100) / (mem.getTotal()));
         } catch (Exception e) {
         }
         return memUsage;
     }
 
-    public List<double> gerarLista() {
+    public List<Double> gerarLista() {
 
         if (memList.size() < 10) {
             memList.add(memUsage);
@@ -44,7 +45,7 @@ public class Mem {
 
     public void verificarLista() {
         Integer i = 0;
-        for (Mem mem : memList) {
+        for (Double mem : memList) {
             if (memList.get(i) > 90.00) {
                 i++;
                 if (i > 5) {

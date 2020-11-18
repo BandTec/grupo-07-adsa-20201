@@ -7,6 +7,7 @@ package ColetaDados;
 
 import Entities.AlertHardware;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 import oshi.hardware.CentralProcessor;
 
@@ -20,7 +21,7 @@ public class Cpu {
     private CentralProcessor cpu = comp.getHaw().getProcessor();
     private long[] oldTicks = cpu.getSystemCpuLoadTicks();
     private double cpuUsage;
-    private List<double> cpuList = new ArrayList();
+    private List<Double> cpuList = new ArrayList();
     AlertHardware alertCpu = new AlertHardware();
     
     public double getCpuUsage(){
@@ -36,7 +37,7 @@ public class Cpu {
         return cpuUsage;
     }
 
-    public List<double> gerarLista (){
+    public List<Double> gerarLista (){
         
         if(cpuList.size() < 10){
                 cpuList.add(cpuUsage);
@@ -45,11 +46,12 @@ public class Cpu {
                cpuList.remove(0);
                cpuList.add(cpuUsage);
             }
+        return cpuList;
     }
     
     public void verificarLista() {
         Integer i = 0;
-        for (Cpu cpu : cpuList) {
+        for (Double cpu : cpuList) {
             if (cpuList.get(i) > 90.00) {
                 i++;
                 if (i > 5) {
