@@ -33,6 +33,8 @@ public class Mem extends Componente{
             memUsage = Double.valueOf(100 - (mem.getAvailable() * 100) / (mem.getTotal()));
         } catch (Exception e) {
         }
+        gerarLista();
+        verificarLista();
         return memUsage;
     }
     //ESTÁ EM DESENVOLVIMENTO
@@ -51,12 +53,13 @@ public class Mem extends Componente{
     public void verificarLista() {
         Integer i = 0;
         for (Double mem : memList) {
-            if (memList.get(i) > 90.00) {
+            if (memList.get(i) > 20.00) {
                 i++;
                 if (i > 5) {
                     alertMem.enviarAlertaMemoria(alertMem);
                 }
             }
+            System.out.println(i);
         }
     //ESTÁ EM DESENVOLVIMENTO
     }
