@@ -17,7 +17,7 @@ public class AlertHardware extends Alerts{
     
      public void enviarAlertaProcesso(AlertHardware alertaHardware){
           ColetaDados.Maquina maquina = new ColetaDados.Maquina();
-          for (String process : maquina.getProcs()) {
+          for (String process : maquina.getProcessesName()) {
                 if (process.contains("Discord")) {
                     System.out.println(process);
                     alertaHardware.setTipoAlerta("Programa não autorizado detectado");

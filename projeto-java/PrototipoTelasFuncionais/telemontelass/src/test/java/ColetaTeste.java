@@ -21,7 +21,7 @@ public class ColetaTeste {
 
     public static void main(String[] args) throws InterruptedException {
 
-//        Cpu cpu = new Cpu("cpu");
+        Cpu cpu = new Cpu("cpu");
 //        Mem mem = new Mem("ram");
 //        Disco disco = new Disco();
           Sessao session = new Sessao();
@@ -31,8 +31,8 @@ public class ColetaTeste {
 //        System.out.println(disco.getComp());
         Maquina maquina = new Maquina();
         while(true){
-        System.out.println(maquina.getUsers());
-                    Thread.sleep(1000);
+        System.out.println(maquina.getCpuUsage());
+                    Thread.sleep(2000);
     }
 //        ColetaDados dados = new ColetaDados();
 //        
