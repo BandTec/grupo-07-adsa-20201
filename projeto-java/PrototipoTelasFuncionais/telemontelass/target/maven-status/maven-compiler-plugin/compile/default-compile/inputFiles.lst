@@ -1,20 +1,21 @@
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/Views/TelaProcessos1.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/Entities/DadoConexaoMaquina.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/Entities/AlertPausa.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/Entities/Alerts.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/ColetaDados/Disco.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/ColetaDados/Sistema.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/ColetaDados/Users.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/Views/TelaDetalhes.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/Entities/Usuario.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/ColetaDados/Mem.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/log/ExemploLog_GabrielCerval.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/ColetaDados/SistemaOperacional.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/Entities/AlertHardware.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/Views/TelaLogin.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/Entities/Processos.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/ColetaDados/Processos.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/Entities/Maquina.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/ColetaDados/Maquina.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/ColetaDados/Componente.java
-/home/markz/Área de trabalho/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/src/main/java/ColetaDados/Cpu.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\Processos.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Entities\AlertPausa.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Entities\AlertHardware.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Entities\AlertRelatorio.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\Maquina.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Entities\Alerts.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Views\TelaDetalhes.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Views\TelaLogin.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\Sessao.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Entities\DadoConexaoMaquina.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\Componente.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\Cpu.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Entities\Usuario.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\SistemaOperacional.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\Disco.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Views\TelaProcessos1.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\log\ExemploLog_GabrielCerval.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\Sistema.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Entities\Processos.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\Mem.java
+C:\Users\marce\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Entities\MaquinaDeprecado.java

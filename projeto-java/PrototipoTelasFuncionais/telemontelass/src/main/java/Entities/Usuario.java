@@ -1,4 +1,3 @@
-
 package Entities;
 
 public class Usuario {
@@ -64,9 +63,7 @@ public class Usuario {
     }
     
     public String fazerLogin(){
-        if(this.login.equals("larissa") && this.senha.equals("123") && this.tipoUsuario.equals("Gestor")){
-            return "Gestor";
-        }else if(this.login.equals("victoria") && this.senha.equals("321") && this.tipoUsuario.equals("Funcionario")){
+        if(this.login.equals("victoria") && this.senha.equals("321") && this.tipoUsuario.equals("Funcionario")){
             return "Funcionario";
         }
         else {
