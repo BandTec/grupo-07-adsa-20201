@@ -207,7 +207,7 @@ public class TelaLogin extends javax.swing.JFrame {
         
         Usuario usuario = new Usuario(txtLogin.getText(),txtSenha.getText(), "Funcionario");
         
-        if(usuario.fazerLogin().equals("Funcionario")){
+        if(usuario.fazerLogin()){
             TelaDetalhes telauser = new TelaDetalhes();
             telauser.setVisible(true);
             this.dispose();

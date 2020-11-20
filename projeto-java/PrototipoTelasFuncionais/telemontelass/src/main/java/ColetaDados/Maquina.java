@@ -3,13 +3,9 @@ package ColetaDados;
 import java.util.ArrayList;
 import java.util.List;
 import oshi.software.os.OSProcess;
-import oshi.software.os.OSSession;
-import oshi.software.os.OperatingSystem;
-
 
 public class Maquina {
 
-    private Sistema sistema = new Sistema();
     private SistemaOperacional os = new SistemaOperacional();
     private Cpu cpu = new Cpu("cpu");
     private Mem mem = new Mem("ram");
@@ -17,115 +13,55 @@ public class Maquina {
     private Sessao sessao = new Sessao();
     private Processos processos = new Processos();
 
-    private List<OSSession> sessionList;
-    private double cpuUsage;
-    private double memTotal = mem.getMemTotal();
-    private double memUsage;
-    private List<String> procs;
     private long timeUp;
-
     private String osMaquina;
     private String hostname;
-    private String registo;
-    private List<String> componentes = new ArrayList();
 
     public Maquina() {
-        this.sessionList = sessao.getUsersList();
-        this.cpuUsage = cpu.getCpuUsage();
-        this.memUsage = mem.getMemUsage();
-        this.procs = processos.getOsProcesses();
-        this.timeUp = os.getOsUpTime();
         this.osMaquina = os.getOs().toString();
-        this.registo = "";
-//        componentes.add(cpu.getComp().toString());
-//        componentes.add(mem.getComp().toString());
-//        componentes.add(disco.getComp().toString());
-//        componentes.add(String.format("CPU: %s \n"
-//                + "RAM: %.1f Gb\n"
-//                + "Discos: %s \n",
-//                cpu.getCpu().toString(),
-//                memTotal,
-//                disco.getDisco().toString()));
-        cpu.gerarLista();
-        cpu.verificarLista();
-        mem.gerarLista();
-        mem.verificarLista();
+        this.timeUp = os.getOsUpTime();
     }
 
-    public Sistema getSistema() {
-        return sistema;
+    public String getOsMaquina() {
+        return osMaquina;
     }
-
-    public OperatingSystem getOs() {
-        return os.getOs();
+    
+    public String getUsers(){
+        return sessao.getUser(0);
     }
-
-    public Cpu getCpu() {
-        return cpu;
-    }
-
-    public Mem getMem() {
-        return mem;
-    }
-
-    public Disco getDisco() {
-        return disco;
-    }
-
-    public List<OSSession> getSessionList() {
-        return sessionList;
-    }
-
-    public Processos getProcessos() {
-        return processos;
+    
+    public String getHostname(){
+        return sessao.getHostname(0);
     }
 
     public double getCpuUsage() {
-        return cpuUsage;
-    }
-
-    public double getMemTotal() {
-        return memTotal;
+        return cpu.getCpuUsage();
     }
 
     public double getMemUsage() {
-        return memUsage;
+        return mem.getMemUsage();
     }
 
-    public List<String> getProcs() {
-        return procs;
+    public double getMemTotal() {
+        return mem.getMemTotal();
     }
 
-    public long getTimeUp() {
-        return timeUp;
+    public List<String> getDisks() {
+        List<String> allDisks = new ArrayList();
+        for (int i = 0; i <= disco.quantidadeDisco(); i++) {
+            allDisks.add(disco.diskName(i));
+        }
+        return allDisks;
     }
+    
+    public List<String> getProcessesName(){
+        List<String> listProcs = new ArrayList();
+        for (int i = 0; i < processos.getOsProcesses().size() && i < 11; i++) {
 
-    public List<String> getComponentes() {
-        return componentes;
+                OSProcess p = processos.getOsProcesses().get(i);
+
+                listProcs.add(String.format("%s\n", p.getName()));
     }
-
-//    @Override
-//    public String toString() {
-//        return "Maquina{" + "Sistema:" + sistema + ",\n "
-//                + "Sistema Operacional:" + os + ",\n "
-//                + "Modelo CPU:" + cpu + ",\n "
-//                + "Total MEM" + memTotal + ",\n "
-//                + "Discos:" + disco + ",\n "
-//                + "Usuários:" + usersList + ",\n "
-//                + "Uso da CPU:" + cpuUsage + ",\n "
-//                + "Uso da MEM:" + memUsage + ",\n "
-//                + "Processos:" + processos + ",\n "
-//                + "Tempo ligada:" + timeUp + '}';
-//    }
-
-        @Override
-    public String toString() {
-        return "Maquina{"
-//                + "Hostname:" + hostname + ",\n "
-                + "Sistema Operacional:" + osMaquina + ",\n "
-                + "Sessão:" + sessionList + ",\n "
-                + "Processos:" + procs + ",\n "
-                + "Tempo ligada:" + timeUp + ",\n "
-                + "Componentes:" + componentes + '}';
-    } 
+        return listProcs;
+    }
 }

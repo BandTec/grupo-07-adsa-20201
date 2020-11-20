@@ -15,10 +15,10 @@ import oshi.hardware.CentralProcessor;
  *
  * @author Markz
  */
-public class Cpu extends Componente{
-    
+public class Cpu extends Componente {
+
     private CentralProcessor cpu = this.getHaw().getProcessor();
-    private long[] oldTicks = cpu.getSystemCpuLoadTicks();
+    private long oldTicks[] = new long[CentralProcessor.TickType.values().length];
     private double cpuUsage;
     private List<Double> cpuList = new ArrayList();
     AlertHardware alertCpu = new AlertHardware();
@@ -26,19 +26,19 @@ public class Cpu extends Componente{
     public Cpu(String tipo) {
         super(tipo);
         this.desc = cpu.toString();
-      
+
     }
 
     public double getCpuUsage() {
-
-        try {
-            cpuUsage = (cpu.getSystemCpuLoadBetweenTicks(oldTicks) * 100);
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+            try {
+                cpuUsage = (cpu.getSystemCpuLoadBetweenTicks(oldTicks) * 100);
+                oldTicks = cpu.getSystemCpuLoadTicks();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         return cpuUsage;
     }
+
     //ESTÁ EM DESENVOLVIMENTO
     public List<Double> gerarLista() {
 
@@ -49,8 +49,9 @@ public class Cpu extends Componente{
             cpuList.add(cpuUsage);
         }
         return cpuList;
-    //ESTÁ EM DESENVOLVIMENTO
+        //ESTÁ EM DESENVOLVIMENTO
     }
+
     //ESTÁ EM DESENVOLVIMENTO
     public void verificarLista() {
         Integer i = 0;
@@ -62,9 +63,17 @@ public class Cpu extends Componente{
                 }
             }
         }
-    //ESTÁ EM DESENVOLVIMENTO
+        //ESTÁ EM DESENVOLVIMENTO
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+    
     public CentralProcessor getCpu() {
         return cpu;
     }

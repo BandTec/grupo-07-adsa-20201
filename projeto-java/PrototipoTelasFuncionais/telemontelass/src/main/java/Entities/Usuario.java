@@ -27,12 +27,12 @@ public class Usuario {
         this.senha = senha;
     }
     
-    public String fazerLogin(){
+    public Boolean fazerLogin(){
         if(this.login.equals("victoria") && this.senha.equals("321")){
-            return "Funcionario";
+            return true;
         }
         else {
-            return "";
+            return false;
         }
     }
     

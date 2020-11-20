@@ -21,8 +21,15 @@ public class Sessao {
         return os;
     }
 
-    public List<OSSession> getUsersList() {
-        return sessionList;
+    public String getUser(Integer pos) {
+       return sessionList.get(pos).getUserName();
     }
     
+    public String getHostname(Integer pos){
+        return sessionList.get(pos).getHost();
+    }
+    
+    public List<OSSession> getSessionList(){
+        return sessionList;
+    }
 }

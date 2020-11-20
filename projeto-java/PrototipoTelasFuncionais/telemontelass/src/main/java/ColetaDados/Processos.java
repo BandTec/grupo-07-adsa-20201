@@ -29,32 +29,12 @@ public class Processos {
     private double memProcesso;
     private String registro;
 
-    public List<String> getOsProcesses() {
+    public List<OSProcess> getOsProcesses() {
         try {
             osProcesses = os.getOs().getProcesses(11, OperatingSystem.ProcessSort.CPU);
-
-            for (int i = 0; i < osProcesses.size() && i < 11; i++) {
-
-                OSProcess p = osProcesses.get(i);
-
-                procList.add(String.format("%5d %s %5.1f %% %4.1f %% \n",
-                        p.getProcessID(),
-                        p.getName(),
-                        p.getProcessCpuLoadBetweenTicks(p),
-                        100d * p.getResidentSetSize() / memoria.getMem().getTotal()));
-                
-//                Map<Integer, String> procMap = new HashMap();
-//                procMap.put(1, (String.format("%5d", p.getProcessID())));
-//                procMap.put(2, (String.format("%s", p.getName())));
-//                procMap.put(3, (String.format("%5.1f", p.getProcessCpuLoadBetweenTicks(p))));
-//                procMap.put(4, (String.format("%4.1f", 100d * p.getResidentSetSize() / memoria.getMem().getTotal())));
-                
-//                System.out.println(procMap);
-                
-            }
         } catch (Exception e) {
         }
-        return procList;
+        return osProcesses;
     }
 
     public SistemaOperacional getOs() {

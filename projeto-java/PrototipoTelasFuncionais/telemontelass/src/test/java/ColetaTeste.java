@@ -19,20 +19,21 @@ import java.awt.Component;
  */
 public class ColetaTeste {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-//        Cpu cpu = new Cpu();
-//        Mem mem = new Mem();
+//        Cpu cpu = new Cpu("cpu");
+//        Mem mem = new Mem("ram");
 //        Disco disco = new Disco();
+          Sessao session = new Sessao();
 //        
 //        System.out.println(cpu.getComp());
 //        System.out.println(mem.getComp());
 //        System.out.println(disco.getComp());
-
         Maquina maquina = new Maquina();
-
-        System.out.println(maquina);
-
+        while(true){
+        System.out.println(maquina.getUsers());
+                    Thread.sleep(1000);
+    }
 //        ColetaDados dados = new ColetaDados();
 //        
 //        dados.getCpuUsage();

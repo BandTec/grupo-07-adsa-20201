@@ -13,9 +13,8 @@ import oshi.hardware.HardwareAbstractionLayer;
  * @author Markz
  */
 public class Componente {
-   
-    private Sistema sistema = new Sistema();
-    private HardwareAbstractionLayer haw = sistema.getSi().getHardware();
+    
+    private HardwareAbstractionLayer haw = new SystemInfo().getHardware();
     protected String tipo;
     protected String desc;
 
@@ -25,10 +24,6 @@ public class Componente {
 
     public void setDesc(String desc) {
         this.desc = desc;
-    }
-    
-    public Sistema getSistema() {
-        return sistema;
     }
 
     public HardwareAbstractionLayer getHaw() {
