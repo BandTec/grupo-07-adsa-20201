@@ -12,17 +12,13 @@ import oshi.hardware.HWDiskStore;
  *
  * @author Markz
  */
-public class Disco {
-    
-    private Componente comp = new Componente("disco");
-    private List<HWDiskStore> disco = comp.getHaw().getDiskStores();
+public class Disco extends Componente{
 
-    public Disco() {
-        comp.setDesc(disco.toString());
-    } 
+    private List<HWDiskStore> disco = this.getHaw().getDiskStores();
     
-    public Componente getComp() {
-        return comp;
+    public Disco(String tipo) {
+        super(tipo);
+        this.desc = disco.toString();
     }
 
     public List<HWDiskStore> getDisco() {
@@ -31,6 +27,7 @@ public class Disco {
 
     @Override
     public String toString() {
-        return "Disco{" + "comp=" + comp + ", disco=" + disco + '}';
+        return "Disco{" + "disco=" + disco + '}';
     }
+
 }

@@ -20,7 +20,7 @@ import oshi.util.FormatUtil;
 public class Processos {
 
     private SistemaOperacional os = new SistemaOperacional();
-    private Mem memoria = new Mem();
+    private Mem memoria = new Mem("ram");
     List<OSProcess> osProcesses = new ArrayList();
     private List<String> procList = new ArrayList();
     

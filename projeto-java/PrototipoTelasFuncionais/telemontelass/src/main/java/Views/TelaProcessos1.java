@@ -2,7 +2,6 @@
 package Views;
 
 import Entities.DadoConexaoMaquina;
-import Entities.Processos;
 import Entities.Usuario;
 import java.awt.Image;
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ public class TelaProcessos1 extends javax.swing.JFrame {
     }
     public TelaProcessos1(Usuario usuario){
         initComponents();
-        jLabel8.setText("Olá "+usuario.getNome().toString());
+        jLabel8.setText("Olá "+usuario.getLogin().toString());
     }
 
     @SuppressWarnings("unchecked")

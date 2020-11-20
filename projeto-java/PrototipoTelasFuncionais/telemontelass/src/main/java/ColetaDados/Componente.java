@@ -16,8 +16,8 @@ public class Componente {
    
     private Sistema sistema = new Sistema();
     private HardwareAbstractionLayer haw = sistema.getSi().getHardware();
-    private String tipo;
-    private String desc;
+    protected String tipo;
+    protected String desc;
 
     public Componente(String tipo) {
         this.tipo = tipo;

@@ -14,18 +14,18 @@ import oshi.hardware.GlobalMemory;
  *
  * @author Markz
  */
-public class Mem {
-
-    private Componente comp = new Componente("ram");
-    private GlobalMemory mem = comp.getHaw().getMemory();
+public class Mem extends Componente{
+    
+    private GlobalMemory mem = this.getHaw().getMemory();
     private Double memUsage;
     private Long memTotal = (mem.getTotal() / 1000000000);
     private List<Double> memList = new ArrayList();
     AlertHardware alertMem = new AlertHardware();
-    
-     public Mem() {
-         comp.setDesc(memTotal.toString());
-    } 
+
+    public Mem(String tipo) {
+        super(tipo);
+        this.desc = memTotal.toString();
+    }
 
     public double getMemUsage() {
 
@@ -60,11 +60,7 @@ public class Mem {
         }
     //ESTÁ EM DESENVOLVIMENTO
     }
-
-    public Componente getComp() {
-        return comp;
-    }
-
+    
     public GlobalMemory getMem() {
         return mem;
     }
@@ -75,6 +71,6 @@ public class Mem {
 
     @Override
     public String toString() {
-        return "Mem{" + "comp=" + comp + ", mem=" + mem + ", memUsage=" + memUsage + ", memTotal=" + memTotal + '}';
+        return "Mem{" + "mem=" + mem + ", memTotal=" + memTotal + '}';
     }
 }

@@ -19,9 +19,9 @@ public class Maquina {
 
     private Sistema sistema = new Sistema();
     private SistemaOperacional os = new SistemaOperacional();
-    private Cpu cpu = new Cpu();
-    private Mem mem = new Mem();
-    private Disco disco = new Disco();
+    private Cpu cpu = new Cpu("cpu");
+    private Mem mem = new Mem("ram");
+    private Disco disco = new Disco("disco");
     private Sessao sessao = new Sessao();
     private Processos processos = new Processos();
 
@@ -45,9 +45,9 @@ public class Maquina {
         this.timeUp = os.getOsUpTime();
         this.osMaquina = os.getOs().toString();
         this.registo = "";
-        componentes.add(cpu.getComp().toString());
-        componentes.add(mem.getComp().toString());
-        componentes.add(disco.getComp().toString());
+//        componentes.add(cpu.getComp().toString());
+//        componentes.add(mem.getComp().toString());
+//        componentes.add(disco.getComp().toString());
 //        componentes.add(String.format("CPU: %s \n"
 //                + "RAM: %.1f Gb\n"
 //                + "Discos: %s \n",

@@ -15,17 +15,18 @@ import oshi.hardware.CentralProcessor;
  *
  * @author Markz
  */
-public class Cpu {
-
-    private Componente comp = new Componente("cpu");
-    private CentralProcessor cpu = comp.getHaw().getProcessor();
+public class Cpu extends Componente{
+    
+    private CentralProcessor cpu = this.getHaw().getProcessor();
     private long[] oldTicks = cpu.getSystemCpuLoadTicks();
     private double cpuUsage;
     private List<Double> cpuList = new ArrayList();
     AlertHardware alertCpu = new AlertHardware();
 
-    public Cpu() {
-        comp.setDesc(cpu.toString());
+    public Cpu(String tipo) {
+        super(tipo);
+        this.desc = cpu.toString();
+      
     }
 
     public double getCpuUsage() {
@@ -64,10 +65,6 @@ public class Cpu {
     //ESTÁ EM DESENVOLVIMENTO
     }
 
-    public Componente getComp() {
-        return comp;
-    }
-
     public CentralProcessor getCpu() {
         return cpu;
     }
@@ -78,6 +75,6 @@ public class Cpu {
 
     @Override
     public String toString() {
-        return "Cpu{" + "comp=" + comp + ", cpu=" + cpu + ", cpuUsage=" + cpuUsage + '}';
+        return "Cpu{" + "cpu=" + cpu + '}';
     }
 }
