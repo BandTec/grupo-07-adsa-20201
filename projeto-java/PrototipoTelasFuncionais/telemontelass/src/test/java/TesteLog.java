@@ -6,7 +6,7 @@
 
 
 import java.io.IOException;
-import log.ExemploLog_GabrielCerval;
+import log.Log;
 
 /**
  *
@@ -15,7 +15,7 @@ import log.ExemploLog_GabrielCerval;
 public class TesteLog {
     
     public static void main(String[] args) throws IOException {
-        ExemploLog_GabrielCerval teste = new ExemploLog_GabrielCerval();
+        Log teste = new Log();
         
         teste.logCriation();
     }
