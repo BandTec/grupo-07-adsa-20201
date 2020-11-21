@@ -42,6 +42,7 @@ public class Insertbd {
         
         List consulta = template.queryForList("SELECT * FROM tbDadosComponente");
         
+//        template.execute("DROP TABLE tbDadosComponente");
         System.out.println(consulta);
         
     }

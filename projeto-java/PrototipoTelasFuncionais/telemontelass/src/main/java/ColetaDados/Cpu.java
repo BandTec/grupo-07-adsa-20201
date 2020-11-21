@@ -59,7 +59,7 @@ public class Cpu extends Componente {
     public void verificarLista() {
         Integer i = 0;
         for (Double cpu : cpuList) {
-            if (cpuList.get(i) > 1.00) {
+            if (cpuList.get(i) > 90.00) {
                 i++;
                 if (i > 5) {
                     alertCpu.enviarAlertaCpu(alertCpu);

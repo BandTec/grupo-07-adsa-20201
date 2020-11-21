@@ -9,6 +9,7 @@ import Entities.AlertHardware;
 import java.util.ArrayList;
 import java.util.List;
 import oshi.hardware.GlobalMemory;
+import oshi.hardware.HardwareAbstractionLayer;
 
 /**
  *
@@ -21,7 +22,7 @@ public class Mem extends Componente{
     private Long memTotal = (mem.getTotal() / 1000000000);
     private List<Double> memList = new ArrayList();
     AlertHardware alertMem = new AlertHardware();
-
+    
     public Mem(String tipo) {
         super(tipo);
         this.desc = memTotal.toString();
