@@ -17,6 +17,7 @@ public class TelaDetalhes extends javax.swing.JFrame {
     Timer timer = new Timer();
     Maquina maquina = new Maquina();
     AlertHardware alertProcs = new AlertHardware();
+    Insertbd inserir = new Insertbd();
 
     public TelaDetalhes() {
         initComponents();
@@ -33,6 +34,9 @@ public class TelaDetalhes extends javax.swing.JFrame {
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
                 try {
+                    
+                    inserir.InserirComponente(maquina.getCpuUsage());
+                    
                     Object rowData[] = new Object[10];
                     
                     pgbCpu.setValue((int) maquina.getCpuUsage());
