@@ -12,7 +12,6 @@ Entities\Alerts.class
 Views\TelaLogin$3.class
 ColetaDados\Cpu.class
 ColetaDados\Mem.class
-log\ExemploLog_GabrielCerval.class
 Views\TelaLogin$2.class
 ColetaDados\Processos.class
 ColetaDados\Sessao.class
@@ -24,6 +23,7 @@ Entities\AlertHardware.class
 Views\TelaDetalhes$2.class
 Views\TelaLogin$4.class
 Entities\AlertPausa.class
+log\Log.class
 Views\TelaLogin$7.class
 Banco\Registro.class
 Views\TelaDetalhes.class

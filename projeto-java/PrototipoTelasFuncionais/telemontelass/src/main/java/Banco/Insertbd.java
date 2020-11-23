@@ -18,7 +18,7 @@ import oshi.SystemInfo;
  */
 public class Insertbd {
     
-    public static void main(String[] args) {
+    public void inserirComponente(double valor) {
         
         SystemInfo si = new SystemInfo();
         
@@ -30,7 +30,7 @@ public class Insertbd {
         JdbcTemplate template = new JdbcTemplate(con.getDatasource());
         
         template.execute("DROP TABLE IF EXISTS tbDadosComponente");
-                
+            
             String criacao = "CREATE TABLE tbDadosComponente("
                     + "codDadosComponente INT PRIMARY KEY AUTO_INCREMENT,"
                     + "valorDadosComponente DOUBLE,"
@@ -38,7 +38,7 @@ public class Insertbd {
             
         template.execute(criacao);
         
-        template.update ("INSERT INTO tbDadosComponente VALUES (?,?,?)", null, maquina.getCpuUsage(), reg.dataFormatada + reg.horaFormatada);
+        template.update ("INSERT INTO tbDadosComponente VALUES (?,?,?)", null, valor, reg.dataFormatada + reg.horaFormatada);
         
         List consulta = template.queryForList("SELECT * FROM tbDadosComponente");
         
