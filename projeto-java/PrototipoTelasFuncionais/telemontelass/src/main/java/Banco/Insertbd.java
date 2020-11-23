@@ -17,34 +17,34 @@ import oshi.SystemInfo;
  * @author markz
  */
 public class Insertbd {
-    
-    public void inserirComponente(double valor) {
-        
+
+    public static void main(String[] args) {
+
         SystemInfo si = new SystemInfo();
-        
+
         Registro reg = new Registro();
-        
+
         Maquina maquina = new Maquina();
-        
+
         Connection con = new Connection();
         JdbcTemplate template = new JdbcTemplate(con.getDatasource());
-        
+
         template.execute("DROP TABLE IF EXISTS tbDadosComponente");
-            
-            String criacao = "CREATE TABLE tbDadosComponente("
-                    + "codDadosComponente INT PRIMARY KEY AUTO_INCREMENT,"
-                    + "valorDadosComponente DOUBLE,"
-                    + "registroDadosComponente VARCHAR(50));";
-            
+
+        String criacao = "CREATE TABLE tbDadosComponente("
+                + "codDadosComponente INT PRIMARY KEY AUTO_INCREMENT,"
+                + "valorDadosComponente DOUBLE,"
+                + "registroDadosComponente VARCHAR(50));";
+
         template.execute(criacao);
-        
-        template.update ("INSERT INTO tbDadosComponente VALUES (?,?,?)", null, valor, reg.dataFormatada + reg.horaFormatada);
-        
+
+        template.update("INSERT INTO tbDadosComponente VALUES (?,?,?)", null, maquina.getCpuUsage(), reg.dataFormatada + reg.horaFormatada);
+
         List consulta = template.queryForList("SELECT * FROM tbDadosComponente");
-        
+
 //        template.execute("DROP TABLE tbDadosComponente");
         System.out.println(consulta);
-        
-    }
+
     
+}
 }
