@@ -8,7 +8,7 @@ import oshi.software.os.OSProcess;
 
 
 public class AlertHardware extends Alerts{
-
+    
     public void enviarAlertaCpu(AlertHardware alertaHardware){
         alertaHardware.setTipoAlerta("Problema com CPU");
         alertaHardware.setMensagemAlerta("Sua CPU está apresentando problemas, envie uma notificação ao seu gestor");
@@ -22,7 +22,7 @@ public class AlertHardware extends Alerts{
                     System.out.println(process);
                     alertaHardware.setTipoAlerta("Programa não autorizado detectado");
                     alertaHardware.setMensagemAlerta("Você está usando programas não autorizados, uma notificação foi enviada ao seu gestor");
-                    JOptionPane.showMessageDialog(null, alertaHardware.getMensagemAlerta(), alertaHardware.getTipoAlerta(), JOptionPane.WARNING_MESSAGE);  
+                    JOptionPane.showMessageDialog(null, alertaHardware.getMensagemAlerta(), alertaHardware.getTipoAlerta(), JOptionPane.WARNING_MESSAGE);                                               
                 }
          }
     }
