@@ -22,11 +22,7 @@ public class AlertHardware extends Alerts{
                     System.out.println(process);
                     alertaHardware.setTipoAlerta("Programa não autorizado detectado");
                     alertaHardware.setMensagemAlerta("Você está usando programas não autorizados, uma notificação foi enviada ao seu gestor");
-<<<<<<< HEAD
-                    JOptionPane.showMessageDialog(null, alertaHardware.getMensagemAlerta(), alertaHardware.getTipoAlerta(), JOptionPane.WARNING_MESSAGE);                  
-=======
-                    JOptionPane.showMessageDialog(null, alertaHardware.getMensagemAlerta(), alertaHardware.getTipoAlerta(), JOptionPane.WARNING_MESSAGE);                                               
->>>>>>> master
+                    JOptionPane.showMessageDialog(null, alertaHardware.getMensagemAlerta(), alertaHardware.getTipoAlerta(), JOptionPane.WARNING_MESSAGE);
                 }
          }
     }
