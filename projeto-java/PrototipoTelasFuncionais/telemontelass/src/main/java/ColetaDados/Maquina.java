@@ -27,13 +27,17 @@ public class Maquina {
     }
     
     public String getUsers(){
-        return sessao.getUser(0);
+        return sessao.getUser(2);
     }
     
     public String getHostname(){
-        return sessao.getHostname(0);
+        return sessao.getHostname(2);
     }
 
+    public long getTimeUp() {
+        return timeUp;
+    }
+    
     public double getCpuUsage() {
         return cpu.getCpuUsage();
     }

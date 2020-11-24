@@ -29,6 +29,10 @@ public class Sessao {
         return sessionList.get(pos).getHost();
     }
     
+    public Long getLoginTime(Integer pos){
+        return sessionList.get(pos).getLoginTime();
+    }
+    
     public List<OSSession> getSessionList(){
         return sessionList;
     }

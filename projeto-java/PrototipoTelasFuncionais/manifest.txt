@@ -1,3 +1,0 @@
-Main-Class: com.Viwes.TelaLogin
-Name: Viwes.TelaLogin.class
-Java-Bean:True
