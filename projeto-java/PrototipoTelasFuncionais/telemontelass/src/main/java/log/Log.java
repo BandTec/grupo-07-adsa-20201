@@ -6,6 +6,8 @@ import Entities.AlertHardware;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Log {
 
@@ -16,11 +18,12 @@ public class Log {
 
     Maquina maquina = new Maquina();
     Registro reg = new Registro();
+//    FileNotFoundException, IOException
     
-    public void logCriation() throws FileNotFoundException, IOException {
+    public void logCriation()  {
         String nome, descLog, nivelLog;
-        
-        RandomAccessFile logErro = new RandomAccessFile(".\\logs\\" + maquina.getHostname() + reg.getDataFormatada() + reg.getHoraFormatada() + ".txt", "rw");
+        try {
+            RandomAccessFile logErro = new RandomAccessFile(".\\logs\\" + maquina.getHostname() + reg.getDataFormatada() + reg.getHoraFormatada() + ".txt", "rw");
         logErro.seek(logErro.length()); // posiciona o ponteiro de posição no final do arquivo
         
         nome = "NOME: " + this.nomeLog + "\n";
@@ -30,8 +33,13 @@ public class Log {
         gravarString(logErro, descLog);
         gravarString(logErro, nivelLog);
         logErro.close();
-    }
-    
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Log.class.getName()).log(Level.SEVERE, null, ex);
+        }    
+       catch (IOException ex) {
+            Logger.getLogger(Log.class.getName()).log(Level.SEVERE, null, ex);
+        }}
+        
     private static void gravarString(RandomAccessFile arq, String arg) throws IOException {
         StringBuilder result = new StringBuilder(arg);
         arq.writeChars(result.toString());

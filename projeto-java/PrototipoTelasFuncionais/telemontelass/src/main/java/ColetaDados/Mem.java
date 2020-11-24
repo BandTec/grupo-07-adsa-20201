@@ -54,13 +54,12 @@ public class Mem extends Componente{
     public void verificarLista() {
         Integer i = 0;
         for (Double mem : memList) {
-            if (memList.get(i) > 20.00) {
+            if (memList.get(i) > 99.00) {
                 i++;
                 if (i > 5) {
                     alertMem.enviarAlertaMemoria(alertMem);
                 }
             }
-            System.out.println(i);
         }
     //ESTÁ EM DESENVOLVIMENTO
     }

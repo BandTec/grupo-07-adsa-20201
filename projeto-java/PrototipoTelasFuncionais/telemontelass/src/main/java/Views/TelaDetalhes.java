@@ -1,5 +1,6 @@
 package Views;
 
+import Banco.Insertbd;
 import ColetaDados.Cpu;
 import ColetaDados.Maquina;
 import ColetaDados.Mem;
@@ -16,21 +17,26 @@ public class TelaDetalhes extends javax.swing.JFrame {
     Timer timer = new Timer();
     Maquina maquina = new Maquina();
     AlertHardware alertProcs = new AlertHardware();
+    Insertbd inserir = new Insertbd();
 
     public TelaDetalhes() {
         initComponents();
         ApresentarDados();
-//        alertProcs.enviarAlertaProcesso(alertProcs);
+        alertProcs.enviarAlertaProcesso(alertProcs); 
     }
 
     public void ApresentarDados() {
 
+        
         int delay = 500;   // tempo de espera antes da 1ª execução da tarefa.
         int interval = 1000;  // intervalo no qual a tarefa será executada.
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
                 try {
+                    
+                    inserir.InserirComponente(maquina.getCpuUsage());
+                    
                     Object rowData[] = new Object[10];
                     
                     pgbCpu.setValue((int) maquina.getCpuUsage());
@@ -60,9 +66,7 @@ public class TelaDetalhes extends javax.swing.JFrame {
                         }
 
                     }
-
                     
-
                 } catch (Exception e) {
                 }
             }
