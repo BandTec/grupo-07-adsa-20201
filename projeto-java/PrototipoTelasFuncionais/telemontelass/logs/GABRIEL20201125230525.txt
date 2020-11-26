@@ -1,0 +1,4 @@
+Nome: Teste
+Descrição: Este log é somente um teste
+Nível: Alerta de Teste
+Usuário: Gabriel

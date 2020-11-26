@@ -25,7 +25,11 @@ public class TelaDetalhes extends javax.swing.JFrame {
     public TelaDetalhes() {
         initComponents();
         ApresentarDados();
-        alertProcs.enviarAlertaProcesso(alertProcs);
+        try {
+            alertProcs.enviarAlertaProcesso(alertProcs);
+        } catch (Exception e) {
+            System.out.println("Erro: " + e);
+        }       
     }
 
     public void ApresentarDados() {
