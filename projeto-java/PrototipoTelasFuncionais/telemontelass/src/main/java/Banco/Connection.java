@@ -18,11 +18,7 @@ public class Connection {
     public Connection() {
         this.datasource = new BasicDataSource();
         this.datasource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-<<<<<<< HEAD
-        this.datasource.setUrl("jdbc:mysql://3.83.153.177:3306/bdTelemon");
-=======
-        this.datasource.setUrl("jdbc:mysql://18.208.110.85:3306/bdTelemon");
->>>>>>> ddae9dd459db28fc0ee9f7fc8390595a4d15a3c2
+        this.datasource.setUrl("jdbc:mysql://localhost:3306/bdTelemon");
         this.datasource.setUsername("root");
         this.datasource.setPassword("urubu100");
 

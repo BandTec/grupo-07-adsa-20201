@@ -25,15 +25,11 @@ public class TelaDetalhes extends javax.swing.JFrame {
     public TelaDetalhes() {
         initComponents();
         ApresentarDados();
-<<<<<<< HEAD
         try {
             alertProcs.enviarAlertaProcesso(alertProcs);
         } catch (Exception e) {
             System.out.println("Erro: " + e);
         }       
-=======
-        alertProcs.enviarAlertaProcesso(alertProcs);
->>>>>>> master
     }
 
     public void ApresentarDados() {
@@ -44,13 +40,7 @@ public class TelaDetalhes extends javax.swing.JFrame {
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
                 try {
-<<<<<<< HEAD
-                    
-                    //inserir.InserirComponente(maquina.getCpuUsage());
-                    
-=======
 
->>>>>>> master
                     Object rowData[] = new Object[10];
 
                     pgbCpu.setValue((int) maquina.getCpuUsage());
