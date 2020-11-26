@@ -5,6 +5,7 @@
  */
 package ColetaDados;
 
+import Banco.Insertbd;
 import Entities.AlertHardware;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ public class Mem extends Componente{
     private Long memTotal = (mem.getTotal() / 1000000000);
     private List<Double> memList = new ArrayList();
     AlertHardware alertMem = new AlertHardware();
+    Insertbd inserir = new Insertbd();
     
     public Mem(String tipo) {
         super(tipo);
@@ -63,7 +65,7 @@ public class Mem extends Componente{
         }
     //ESTÁ EM DESENVOLVIMENTO
     }
-    
+
     public GlobalMemory getMem() {
         return mem;
     }

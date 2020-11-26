@@ -4,6 +4,7 @@ import Banco.Insertbd;
 import ColetaDados.Cpu;
 import ColetaDados.Maquina;
 import ColetaDados.Mem;
+import ColetaDados.Processos;
 import Entities.AlertHardware;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.table.DefaultTableModel;
+import oshi.software.os.OSProcess;
 
 public class TelaDetalhes extends javax.swing.JFrame {
 
@@ -18,31 +20,39 @@ public class TelaDetalhes extends javax.swing.JFrame {
     Maquina maquina = new Maquina();
     AlertHardware alertProcs = new AlertHardware();
     Insertbd inserir = new Insertbd();
+    private Processos processos = new Processos();
 
     public TelaDetalhes() {
         initComponents();
         ApresentarDados();
+<<<<<<< HEAD
         try {
             alertProcs.enviarAlertaProcesso(alertProcs);
         } catch (Exception e) {
             System.out.println("Erro: " + e);
         }       
+=======
+        alertProcs.enviarAlertaProcesso(alertProcs);
+>>>>>>> master
     }
 
     public void ApresentarDados() {
 
-        
         int delay = 500;   // tempo de espera antes da 1ª execução da tarefa.
         int interval = 1000;  // intervalo no qual a tarefa será executada.
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
                 try {
+<<<<<<< HEAD
                     
                     //inserir.InserirComponente(maquina.getCpuUsage());
                     
+=======
+
+>>>>>>> master
                     Object rowData[] = new Object[10];
-                    
+
                     pgbCpu.setValue((int) maquina.getCpuUsage());
                     pgbRam.setValue((int) maquina.getMemUsage());
 
@@ -61,15 +71,18 @@ public class TelaDetalhes extends javax.swing.JFrame {
 
                     for (String processo : listProcessos) {
 
-                        if(!(processo.contains("Idle"))){
+                        if (!(processo.contains("Idle"))) {
                             rowData[0] = processo;
                             model.addRow(rowData);
                             if (model.getRowCount() > 10) {
                                 model.removeRow(0);
                             }
                         }
-
                     }
+                    
+                    inserir.InserirDadosComponente(maquina.getCpuUsage());
+                    inserir.InserirDadosComponente(maquina.getDisco().espacoLivre(0));
+                    inserir.InserirDadosComponente(maquina.getMemUsage());
                     
                 } catch (Exception e) {
                 }
