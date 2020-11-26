@@ -5,6 +5,7 @@
  */
 package ColetaDados;
 
+import Banco.Insertbd;
 import Entities.AlertHardware;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -22,10 +23,11 @@ public class Cpu extends Componente {
     private double cpuUsage;
     private List<Double> cpuList = new ArrayList();
     AlertHardware alertCpu = new AlertHardware();
+    Insertbd inserir = new Insertbd();
 
     public Cpu(String tipo) {
         super(tipo);
-        this.desc = cpu.toString();
+        this.desc = cpu.getProcessorIdentifier().getName();
 
     }
 

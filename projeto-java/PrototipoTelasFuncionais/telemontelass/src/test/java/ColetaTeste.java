@@ -1,4 +1,5 @@
 
+import Banco.Insertbd;
 import ColetaDados.Componente;
 import ColetaDados.Cpu;
 import ColetaDados.Disco;
@@ -7,6 +8,8 @@ import ColetaDados.Mem;
 import ColetaDados.Processos;
 import ColetaDados.Sessao;
 import java.awt.Component;
+import java.util.Arrays;
+import oshi.hardware.CentralProcessor;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,17 +27,16 @@ public class ColetaTeste {
         Cpu cpu = new Cpu("cpu");
 //        Mem mem = new Mem("ram");
 //        Disco disco = new Disco();
-          Sessao session = new Sessao();
+        Sessao session = new Sessao();
+
+        Insertbd inserir = new Insertbd();
 //        
 //        System.out.println(cpu.getComp());
 //        System.out.println(mem.getComp());
 //        System.out.println(disco.getComp());
         Maquina maquina = new Maquina();
-        while(true){
-        System.out.println(session.getLoginTime(2));
-            System.out.println(maquina.getTimeUp());
-                    Thread.sleep(1000);
-    }
+
+            System.out.println(maquina.getProcessesName());
 //        ColetaDados dados = new ColetaDados();
 //        
 //        dados.getCpuUsage();

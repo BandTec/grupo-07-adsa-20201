@@ -5,6 +5,7 @@
  */
 package ColetaDados;
 
+import Banco.Insertbd;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
