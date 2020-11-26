@@ -22,7 +22,11 @@ public class TelaDetalhes extends javax.swing.JFrame {
     public TelaDetalhes() {
         initComponents();
         ApresentarDados();
-        alertProcs.enviarAlertaProcesso(alertProcs); 
+        try {
+            alertProcs.enviarAlertaProcesso(alertProcs);
+        } catch (Exception e) {
+            System.out.println("Erro: " + e);
+        }       
     }
 
     public void ApresentarDados() {
@@ -35,7 +39,7 @@ public class TelaDetalhes extends javax.swing.JFrame {
             public void run() {
                 try {
                     
-                    inserir.InserirComponente(maquina.getCpuUsage());
+                    //inserir.InserirComponente(maquina.getCpuUsage());
                     
                     Object rowData[] = new Object[10];
                     

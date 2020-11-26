@@ -11,13 +11,23 @@ import java.util.logging.Logger;
 
 public class Log {
 
-    Maquina maquinaLog = new Maquina();
-    private String nomeLog = "Hardware";
-    private String descLog = "Quebrou hardware";
-    private String nivelLog = "Aviso";
-
     Maquina maquina = new Maquina();
     Registro reg = new Registro();
+    
+    private String nomeLog;
+    private String descLog;
+    private String nivelLog;
+    private String usuarioLog;
+
+    public Log(String nomeLog, String descLog, String nivelLog) {
+        this.nomeLog = nomeLog;
+        this.descLog = descLog;
+        this.nivelLog = nivelLog;
+        this.usuarioLog = maquina.getUsers();
+    }
+
+ 
+    
 //    FileNotFoundException, IOException
     
     public void logCriation()  {
@@ -26,12 +36,8 @@ public class Log {
             RandomAccessFile logErro = new RandomAccessFile(".\\logs\\" + maquina.getHostname() + reg.getDataFormatada() + reg.getHoraFormatada() + ".txt", "rw");
         logErro.seek(logErro.length()); // posiciona o ponteiro de posição no final do arquivo
         
-        nome = "NOME: " + this.nomeLog + "\n";
-        descLog = "DESCRIÇÃO: " + this.descLog + "\n";
-        nivelLog = "NIVEL:" + this.nivelLog + "\n";
-        gravarString(logErro, nome);
-        gravarString(logErro, descLog);
-        gravarString(logErro, nivelLog);
+        gravarString(logErro, String.format("Nome: %s\nDescrição: %s\nNível: %s\nUsuário: %s", this.nomeLog, this.descLog, this.nivelLog, this.usuarioLog));
+        
         logErro.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Log.class.getName()).log(Level.SEVERE, null, ex);
@@ -42,7 +48,7 @@ public class Log {
         
     private static void gravarString(RandomAccessFile arq, String arg) throws IOException {
         StringBuilder result = new StringBuilder(arg);
-        arq.writeChars(result.toString());
+        arq.writeBytes(result.toString());
 
     }
     public void setNomeLog(String nomeLog) {
