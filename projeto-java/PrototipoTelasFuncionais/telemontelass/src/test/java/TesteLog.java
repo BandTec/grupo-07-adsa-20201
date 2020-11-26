@@ -15,7 +15,7 @@ import log.Log;
 public class TesteLog {
     
     public static void main(String[] args) throws IOException {
-        Log teste = new Log();
+        Log teste = new Log("Teste", "Este log é somente um teste", "Alerta de Teste");
         
         teste.logCriation();
     }
