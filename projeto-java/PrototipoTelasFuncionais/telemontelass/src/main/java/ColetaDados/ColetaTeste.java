@@ -41,6 +41,7 @@ public class ColetaTeste {
                     System.out.println(maquina.getCpu().getDesc());
                     System.out.println(maquina.getMem().getDesc());
                     System.out.println(maquina.getHostname());
+                    System.out.println(session.getSessionList());
 //        ColetaDados dados = new ColetaDados();
 //        
 //        dados.getCpuUsage();
