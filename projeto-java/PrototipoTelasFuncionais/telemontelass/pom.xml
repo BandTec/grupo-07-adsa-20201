@@ -58,7 +58,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>Views.TelaLogin</mainClass>
+                            <mainClass>ColetaDados.ColetaTeste</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>dependency-jars/</classpathPrefix>
                         </manifest>

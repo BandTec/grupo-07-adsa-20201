@@ -1,3 +1,5 @@
+package ColetaDados;
+
 
 import Banco.Insertbd;
 import ColetaDados.Componente;
@@ -36,7 +38,9 @@ public class ColetaTeste {
 //        System.out.println(disco.getComp());
         Maquina maquina = new Maquina();
 
-          System.out.println(maquina.getMem().getDesc());
+                    System.out.println(maquina.getCpu().getDesc());
+                    System.out.println(maquina.getMem().getDesc());
+                    System.out.println(maquina.getDisco().diskName(0));
 //        ColetaDados dados = new ColetaDados();
 //        
 //        dados.getCpuUsage();
