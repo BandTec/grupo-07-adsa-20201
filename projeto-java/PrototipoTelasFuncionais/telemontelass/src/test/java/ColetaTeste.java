@@ -1,4 +1,5 @@
 
+import Banco.Insertbd;
 import ColetaDados.Componente;
 import ColetaDados.Cpu;
 import ColetaDados.Disco;
@@ -7,6 +8,11 @@ import ColetaDados.Mem;
 import ColetaDados.Processos;
 import ColetaDados.Sessao;
 import java.awt.Component;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import oshi.hardware.CentralProcessor;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,19 +25,21 @@ import java.awt.Component;
  */
 public class ColetaTeste {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-//        Cpu cpu = new Cpu();
-//        Mem mem = new Mem();
+        Cpu cpu = new Cpu("cpu");
+//        Mem mem = new Mem("ram");
 //        Disco disco = new Disco();
+        Sessao session = new Sessao();
+
+        Insertbd inserir = new Insertbd();
 //        
 //        System.out.println(cpu.getComp());
 //        System.out.println(mem.getComp());
 //        System.out.println(disco.getComp());
-
         Maquina maquina = new Maquina();
 
-        System.out.println(maquina);
+        System.out.println(maquina.getHostname());
 
 //        ColetaDados dados = new ColetaDados();
 //        

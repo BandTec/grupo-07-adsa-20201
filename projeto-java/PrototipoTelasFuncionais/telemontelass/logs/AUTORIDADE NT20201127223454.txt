@@ -1,0 +1,4 @@
+Nome: Programa não autorizado detectado
+Descrição: Você está usando programas não autorizados, uma notificação foi enviada ao seu gestor
+Nível: Alerta
+Usuário: SERVIÇO LOCAL

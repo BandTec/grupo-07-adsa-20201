@@ -5,6 +5,8 @@
  */
 package ColetaDados;
 
+import log.Log;
+import oshi.SystemInfo;
 import oshi.software.os.OperatingSystem;
 
 /**
@@ -12,21 +14,18 @@ import oshi.software.os.OperatingSystem;
  * @author Markz
  */
 public class SistemaOperacional {
-
-    private Sistema sistema = new Sistema();
-    private OperatingSystem os = sistema.getSi().getOperatingSystem();
+    
+    private OperatingSystem os = new SystemInfo().getOperatingSystem();
     private long osUpTime;
 
     public long getOsUpTime() {
         try {
             osUpTime = os.getSystemUptime();
         } catch (Exception e) {
+            Log log = new Log("ERROR_get_OS_uptime", e.toString(), "erro");
+            log.logCriation();
         }
         return osUpTime;
-    }
-
-    public Sistema getSistema() {
-        return sistema;
     }
 
     public OperatingSystem getOs() {
@@ -35,6 +34,6 @@ public class SistemaOperacional {
 
     @Override
     public String toString() {
-        return "SistemaOperacional{" + "sistema=" + sistema + ", os=" + os + ", osUpTime=" + osUpTime + '}';
+        return "SistemaOperacional{" + ", os=" + os + ", osUpTime=" + osUpTime + '}';
     }
 }
