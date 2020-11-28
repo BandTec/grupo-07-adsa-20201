@@ -51,14 +51,8 @@ The above copyright notice and this permission notice shall be included in all c
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="./user.html">
-              <i class="material-icons">person</i>
-              <p>User Profile</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
-              <i class="material-icons">content_paste</i>
-              <p>Table List</p>
+              <i class="material-icons">pie_chart</i>
+              <p>Estatísticas</p>
             </a>
           </li>
           <li class="nav-item active  ">
@@ -140,25 +134,25 @@ The above copyright notice and this permission notice shall be included in all c
                       <span class="nav-tabs-title">Consultar:</span>
                       <ul class="nav nav-tabs" data-tabs="tabs">
                         <li class="nav-item">
-                          <a class="nav-link active" href="#maquina" data-toggle="tab">
+                          <a class="nav-link active" href="#maquina" data-toggle="tab" onclick="listarMaquina()">
                             <i class="material-icons">devices</i> Máquinas
                             <div class="ripple-container"></div>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#funcionario" data-toggle="tab">
+                          <a class="nav-link" href="#funcionario" data-toggle="tab" onclick="listarFuncionario()">
                             <i class="material-icons">groups</i> Funcionários
                             <div class="ripple-container"></div>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#programas" data-toggle="tab">
+                          <a class="nav-link" href="#programas" data-toggle="tab" onclick="listarPrograma()">
                             <i class="material-icons">web</i> Programas
                             <div class="ripple-container"></div>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#components" data-toggle="tab">
+                          <a class="nav-link" href="#components" data-toggle="tab" onclick="listarComponentes()">
                             <i class="material-icons">build</i> Componentes
                             <div class="ripple-container"></div>
                           </a>
@@ -169,8 +163,8 @@ The above copyright notice and this permission notice shall be included in all c
                 </div>
                 <div class="card-body">
                   <div class="tab-content">
-                    <div class="tab-pane active" id="maquina">
-                      <table class="table table-hover">
+                    <div class="tab-pane active" id="maquina" onload="listarMaquina()">
+                      <table class="table table-hover" id="tableMaquina" name="tableMaquina">
                         <form class="navbar-form">
                           <div class="input-group no-border">
                             <input type="text" value="" class="form-control" placeholder="Pesquisar...">
@@ -179,12 +173,12 @@ The above copyright notice and this permission notice shall be included in all c
                               <div class="ripple-container"></div>
                             </button>
                           </div>
+                          
                         </form>
-
                         <div class="nav-tabs-navigation">
                             <ul class="nav nav-tabs" data-tabs="tabs">
                               <li class="nav-item">
-                                <a class="nav-link" href="#addMaquina" data-toggle="tab" style="margin-left: 1100px;">
+                                <a class="nav-link" href="#addMaquina" data-toggle="tab" style="margin-left: 1100px;" onclick="listarComponenteMaquina()">
                                   <button class="btn btn-success btn-round btn-just-icon">
                                     <i class="material-icons">add</i>
                                     <div class="ripple-container"></div>
@@ -195,159 +189,14 @@ The above copyright notice and this permission notice shall be included in all c
                             </ul>
                         </div>
 
-                        <thead class="text-danger">
-                          <th>ID</th>
-                          <th>Nome</th>
-                          <th>Modelo</th>
-                          <th>Cadastrado em</th>
-                          <th>Ações</th>
+                        <thead class="text-danger" id="textDangerMaquina">
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td>Maquina 1</td>
-                            <td>Lenovo</td>
-                            <td>14/11/2020</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>Maquina 2</td>
-                            <td>Lenovo</td>
-                            <td>14/11/2020</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>3</td>
-                            <td>Maquina 3</td>
-                            <td>Lenovo</td>
-                            <td>14/11/2020</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>4</td>
-                            <td>Maquina 4</td>
-                            <td>Lenovo</td>
-                            <td>14/11/2020</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>5</td>
-                            <td>Maquina 5</td>
-                            <td>Lenovo</td>
-                            <td>14/11/2020</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>6</td>
-                            <td>Maquina 6</td>
-                            <td>Lenovo</td>
-                            <td>14/11/2020</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>7</td>
-                            <td>Maquina 7</td>
-                            <td>Lenovo</td>
-                            <td>14/11/2020</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>8</td>
-                            <td>Maquina 8</td>
-                            <td>Lenovo</td>
-                            <td>14/11/2020</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>9</td>
-                            <td>Maquina 9</td>
-                            <td>Lenovo</td>
-                            <td>14/11/2020</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>10</td>
-                            <td>Maquina 10</td>
-                            <td>Lenovo</td>
-                            <td>14/11/2020</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
                         </tbody>
                       </table>
                     </div>
                     <div class="tab-pane" id="funcionario">
-                      <table class="table table-hover">
+                      <table class="table table-hover" id="tableFuncionario">
                         <form class="navbar-form">
                           <div class="input-group no-border">
                             <input type="text" value="" class="form-control" placeholder="Pesquisar...">
@@ -360,7 +209,7 @@ The above copyright notice and this permission notice shall be included in all c
                         <div class="nav-tabs-navigation">
                           <ul class="nav nav-tabs" data-tabs="tabs">
                             <li class="nav-item">
-                              <a class="nav-link" href="#addFunc" data-toggle="tab" style="margin-left: 1100px;">
+                              <a class="nav-link" href="#addFunc" data-toggle="tab" style="margin-left: 1100px;" onclick="listarFuncionarioMaquina()">
                                 <button class="btn btn-success btn-round btn-just-icon">
                                   <i class="material-icons">add</i>
                                   <div class="ripple-container"></div>
@@ -370,89 +219,15 @@ The above copyright notice and this permission notice shall be included in all c
                             </li>
                           </ul>
                       </div>
-                        <thead class="text-danger">
-                          <th>ID</th>
-                          <th>Nome</th>
-                          <th>Login</th>
-                          <th>Cadastrado em</th>
-                          <th>Ações</th>
+                        <thead class="text-danger" id="textDangerFuncionario" name="textDangerFuncionario">
+
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td>Herick</td>
-                            <td>herick5357</td>
-                            <td>14/11/2020</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>João</td>
-                            <td>joao9364</td>
-                            <td>14/11/2020</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>3</td>
-                            <td>Priscila</td>
-                            <td>priscila2354</td>
-                            <td>14/11/2020</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>4</td>
-                            <td>Junior</td>
-                            <td>junior4756</td>
-                            <td>14/11/2020</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>5</td>
-                            <td>Maria</td>
-                            <td>Maria01935</td>
-                            <td>14/11/2020</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
                         </tbody>
                       </table>
                     </div>
                     <div class="tab-pane" id="programas">
-                      <table class="table table-hover">
+                      <table class="table table-hover" id="tablePrograma">
                         <form class="navbar-form">
                           <div class="input-group no-border">
                             <input type="text" value="" class="form-control" placeholder="Pesquisar...">
@@ -475,45 +250,15 @@ The above copyright notice and this permission notice shall be included in all c
                             </li>
                           </ul>
                       </div>
-                        <thead class="text-danger">
-                          <th>ID</th>
-                          <th>Nome</th>
-                          <th>Cadastrado em</th>
-                          <th>Ações</th>
+                        <thead class="text-danger" id="textDangerPrograma">
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td>Excel</td>
-                            <td>14/11/2020</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>Telemark</td>
-                            <td>14/11/2020</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
                         </tbody>
                       </table>
                     </div>
 
                     <div class="tab-pane" id="components">
-                      <table class="table table-hover">
+                      <table class="table table-hover" id="tableComponentes">
                         <form class="navbar-form">
                           <div class="input-group no-border">
                             <input type="text" value="" class="form-control" placeholder="Pesquisar...">
@@ -535,40 +280,11 @@ The above copyright notice and this permission notice shall be included in all c
                               </a>
                             </li>
                           </ul>
-                      </div>
-                        <thead class="text-danger">
-                          <th>ID</th>
-                          <th>Nome</th>
-                          <th>Descrição</th>
-                          <th>Ações</th>
+                       </div>
+                        <thead class="text-danger" id="textDanger">
+                          
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td>CPU</td>
-                            <td>algum modelo de CPU</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>Memória</td>
-                            <td>Algum modelo de memória</td>
-                            <td class="td-actions">
-                              <button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                                <i class="material-icons">close</i>
-                              </button>
-                            </td>
-                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -587,18 +303,18 @@ The above copyright notice and this permission notice shall be included in all c
                         </ul>
                     </div>
                     <div class="card-body">
-                      <form>
+                      <form action="http://localhost:3000/addMaquina" method="POST" id="form-maquina" name="form-maquina">
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
                               <label class="bmd-label-floating">Nome máquina (HOSTNAME)</label>
-                              <input type="text" class="form-control">
+                              <input type="text" class="form-control" id="nomeMaquina" name="nomeMaquina">
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
                               <label class="bmd-label-floating">Modelo</label>
-                              <input type="text" class="form-control">
+                              <input type="text" class="form-control" id="modeloMaquina" name="modeloMaquina">
                             </div>
                           </div>
                         </div>
@@ -607,22 +323,20 @@ The above copyright notice and this permission notice shall be included in all c
                           <div class="col-md-12">
                             <div class="form-group">
                               <label>Selecione os componentes</label>
+                              <div class="form-check" id="checkBoxes" name="checkBoxes"> 
+                              </div>
                             </div>
+                            
                           </div>
+                          
                         </div>
-                                  <div class="form-check">
-                                     <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" value="" checked>
-                                        CPU
-                                          <span class="form-check-sign">
-                                          <span class="check"></span>
-                                        </span>
-                                      </label>
-                                    </div>
 
-                        <button type="submit" class="btn btn-primary pull-right">Cadastrar</button>
+                        <input type="submit" value="Cadastrar" class="btn btn-primary pull-right">
+
+                        
                         <div class="clearfix"></div>
                       </form>
+                      
                     </div>
                     </div>
                     <div class="tab-pane" id="addFunc">
@@ -638,45 +352,35 @@ The above copyright notice and this permission notice shall be included in all c
                             </a>
                           </li>
                         </ul>
+                        
                     </div>
                     <div class="card-body">
-                      <form>
+                      <form id="form-funcionario" action="http://localhost:3000/addFuncionario" method="POST">
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label class="bmd-label-floating">Nome máquina (HOSTNAME)</label>
-                              <input type="text" class="form-control">
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label class="bmd-label-floating">Modelo</label>
-                              <input type="text" class="form-control">
+                              <label class="bmd-label-floating"  >Nome Funcionario</label>
+                              <input type="text" class="form-control" id="nomeFuncionario" name="nomeFuncionario">
                             </div>
                           </div>
                         </div>
                      
-                        <div class="row">
+                        <div class="row"> 
                           <div class="col-md-12">
                             <div class="form-group">
-                              <label>Selecione os componentes</label>
+                              <label>Selecione as máquinas disponíveis para o funcionário</label>
                             </div>
                           </div>
                         </div>
-                                  <div class="form-check">
-                                     <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" value="" checked>
-                                        CPU
-                                          <span class="form-check-sign">
-                                          <span class="check"></span>
-                                        </span>
-                                      </label>
+                                    <div class="form-check" id="checkBoxesMaquina" name="checkBoxesMaquina">
                                     </div>
+                                    
 
                         <button type="submit" class="btn btn-primary pull-right">Cadastrar</button>
                         <div class="clearfix"></div>
                       </form>
                     </div>
+
                     </div>
                     <div class="tab-pane" id="addPrograma">
                       <div class="nav-tabs-navigation">
@@ -691,6 +395,21 @@ The above copyright notice and this permission notice shall be included in all c
                             </a>
                           </li>
                         </ul>
+                        <div class="card-body">
+                          <form id="form-programa" action="http://localhost:3000/addPrograma" method="POST">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Nome</label>
+                                  <input type="text" class="form-control" id="nomePrograma" name="nomePrograma">
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <input type="submit" class="btn btn-primary pull-right" name="Cadastrar" value="Cadastrar">
+                            <div class="clearfix"></div>
+                          </form>
+                        </div>
                     </div>
                     </div>
                     <div class="tab-pane" id="addComponente">
@@ -706,6 +425,27 @@ The above copyright notice and this permission notice shall be included in all c
                             </a>
                           </li>
                         </ul>
+                        <div class="card-body">
+                          <form id="form-componente" action="http://localhost:3000/addComponente" method="POST">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Nome</label>
+                                  <input type="text" class="form-control" id="nomeComponente" name="nomeComponente">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Descrição</label>
+                                  <input type="text" class="form-control" id="descComponente" name="descComponente">
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <input type="submit" class="btn btn-primary pull-right" name="Cadastrar" value="Cadastrar">
+                            <div class="clearfix"></div>
+                          </form>
+                        </div>
                     </div>
                     </div>
                   </div>
@@ -821,6 +561,11 @@ The above copyright notice and this permission notice shall be included in all c
   </div>
   <!--   Core JS Files   -->
   <script src="acoes.js"></script>
+  <script src="../../cliente/javascriptDash.js"></script>
+  <script src="../../cliente/returnDadosMaquina.js"></script>
+  <script src="../../cliente/returnDadosComponente.js"></script>
+  <script src="../../cliente/returnDadosPrograma.js"></script>
+  <script src="../../cliente/returnDadosFuncionario.js"></script>
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap-material-design.min.js"></script>

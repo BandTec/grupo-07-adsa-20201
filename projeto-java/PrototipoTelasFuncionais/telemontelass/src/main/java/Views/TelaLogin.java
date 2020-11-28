@@ -26,8 +26,8 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
         initComponents();
       
-        jLabel5.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/cancel.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
-        jLabel3.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/logo2.png")).getImage().getScaledInstance(248, 73, Image.SCALE_SMOOTH)));
+        //jLabel5.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/cancel.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
+        //jLabel3.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/logo2.png")).getImage().getScaledInstance(248, 73, Image.SCALE_SMOOTH)));
     }
 
     @SuppressWarnings("unchecked")

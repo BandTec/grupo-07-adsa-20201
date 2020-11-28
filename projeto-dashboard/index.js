@@ -17,7 +17,7 @@ app.get('/',(req,res)=>{
 
 app.post('/user',(req,res)=>{
     let data = [req.body.login, req.body.senha];
-    let sql = "select count(id) as 'id',nome from usuario where login = ? and senha = ?"; 
+    let sql = "select count(codUsuario) as 'id',nomeUsuario from tbUsuario where loginUsuario = ? and senhaUsuario = ? group by codUsuario"; 
 
     connection.query(sql,data,function(err,result){
         if(err) throw err;
@@ -36,10 +36,10 @@ app.post('/addUser',(req,res)=>{
     
 });
 
-app.post('/addMsg',(req,res)=>{
-    let data=[req.body.nomeMensagem, req.body.emailMensagem, req.body.textoMensagem];
+app.post('/addComponente',(req,res)=>{
+    let data=[req.body.nomeComponente, req.body.descComponente];
 
-    let sql = "INSERT INTO Mensagem (nome,email,textoMensagem) values (?,?,?)";
+    let sql = "INSERT INTO tbComponente (nomeComponente,descComponente) values (?,?)";
     connection.query(sql,data,function(err,result){
         if(err) throw err;
         res.send(result);
@@ -47,68 +47,191 @@ app.post('/addMsg',(req,res)=>{
     
 });
 
-app.post('/addPedido',(req,res)=>{
-    let data=[req.body.logradouro, req.body.cep, req.body.ncasa, req.body.fixo, req.body.celular, req.body.bairro, req.body.cidade, req.body.email, req.body.senha];
+app.post('/addPrograma',(req,res)=>{
+    let data=[req.body.nomePrograma];
 
-    let sql = "UPDATE usuario set logradouro = ?, cep = ?, numeroCasa = ?, telefoneFixo = ?, telefoneCelular = ?, bairro = ?,cidade = ? where emailUsuario = ? and senhaUsuario = ?";
-
+    let sql = "INSERT INTO tbPrograma (nomePrograma) values (?)";
     connection.query(sql,data,function(err,result){
         if(err) throw err;
-        res.send(result);  
+        res.send(result);
     });
-
-            //let agora = new Date();
-            //let data3=[resultado1.codigoUsuario,agora,req.body.valortotal];
-            //let sql3 = "insert into Pedido (fkUsuario, dataPedido, valorPedido) values (?,?,?)";
-            //connection.query(sql3,data3, function(err2,result2){
-                //if(err2) throw err2;
-                //res.send(result2); 
-            //});                   
-});
-
-app.post('/recuperarCliente',(req,res)=>{
-    let data=[req.body.email, req.body.senha];
-    let sql = "SELECT codigoUsuario FROM usuario where emailUsuario = ? and senhaUsuario = ?";
-    connection.query(sql,data,function(err,result){
-        if(err) throw err;
-        res.send(result);  
-    });
-});
-
-app.post('/addVenda',(req,res)=>{
-    let data=[req.body.codigo, req.body.agora, req.body.total];
-    let sql = "INSERT INTO Pedido (fkUsuario, dataPedido, valorPedido) values (?,?,?)";
-    connection.query(sql,data,function(err,result){
-        if(err) throw err;
-        res.send(result);  
-    });
-});
-
-app.post('/addItensPedido',(req,res)=>{
-
-        let data=[req.body.itens, req.body.fkpedido];
-        let sql = "INSERT INTO ProdutoPedido (fkProduto, fkPedido) values (?,?)";
-    connection.query(sql,data,function(err,result){
-        if(err) throw err;
-        res.send(result);  
-    });
-
     
 });
 
-app.get('/abrirProduto',(req,res)=>{
-    connection.query("SELECT * FROM Produto",function(err,result){
+app.post('/addFuncionario',(req,res)=>{
+    let data=[req.body.nomeFuncionario, req.body.loginFuncionario, req.body.senhaFuncionario, req.body.dataCadastro];
+
+    let sql = "INSERT INTO tbUsuario (nomeUsuario, loginUsuario, senhaUsuario, dataCadastroUsuario) values (?,?,?,?)";
+    connection.query(sql,data,function(err,result){
+        if(err) throw err;
+        res.send(result);
+    });
+    
+});
+
+app.post('/getValues',(req,res)=>{
+    let data=[req.body.pacote, req.body.fkMaquina];
+
+    let sql = "insert into tbComponenteMaquina (fkComponente, fkMaquina) values (?,?);";
+    connection.query(sql,data,function(err,result){
+        if(err) throw err;
+        res.send(result);
+    });
+    
+});
+
+app.post('/getValuesFuncionario',(req,res)=>{
+    let data=[req.body.fkFuncionario, req.body.pacoteFuncionario];
+
+    let sql = "insert into tbUsuarioMaquina (fkUsuario, fkMaquina) values (?,?);";
+    connection.query(sql,data,function(err,result){
+        if(err) throw err;
+        res.send(result);
+    });
+    
+});
+
+
+
+
+app.post('/addMaquina',(req,res)=>{
+    let data=[req.body.nomeMaquina, req.body.modeloMaquina, req.body.dataCadastro];
+
+    let sql = "INSERT INTO tbMaquina (nomeMaquina, modeloMaquina, dataCadastroMaquina) values (?, ?, ?)"; 
+    connection.query(sql,data,function(err,result){
+        if(err) throw err;
+        res.send(result);
+    });
+    
+});
+
+
+
+app.get('/listarComponentes',(req,res)=>{
+    connection.query("SELECT * FROM tbComponente",function(err,result){
         if(err) throw err;
         res.send(result);
     })
 });
 
-app.get('/recuperarVenda',(req,res)=>{
-    connection.query("SELECT MAX(codPedido) as ultimoRegistro FROM Pedido",function(err,result){
+app.get('/buscarUltimaMaquina',(req,res)=>{
+    connection.query("SELECT Max(codMaquina) as UltimoRegistro FROM tbMaquina",function(err,result){
         if(err) throw err;
         res.send(result);
     })
 });
+
+app.get('/buscarUltimoFuncionario',(req,res)=>{
+    connection.query("SELECT Max(codUsuario) as UltimoRegistro FROM tbUsuario",function(err,result){
+        if(err) throw err;
+        res.send(result);
+    })
+});
+
+app.get('/listarPrograma',(req,res)=>{
+    connection.query("SELECT * FROM tbPrograma",function(err,result){
+        if(err) throw err;
+        res.send(result);
+    })
+});
+
+app.get('/listarFuncionario',(req,res)=>{
+    connection.query("SELECT * FROM tbUsuario",function(err,result){
+        if(err) throw err;
+        res.send(result);
+    })
+});
+
+
+app.get('/listarComponenteMaquina',(req,res)=>{
+    connection.query("SELECT * FROM tbComponente",function(err,result){
+        if(err) throw err;
+        res.send(result);
+    })
+});
+
+
+
+app.get('/listarFuncionarioMaquina',(req,res)=>{
+    connection.query("SELECT * FROM tbMaquina",function(err,result){
+        if(err) throw err;
+        res.send(result);
+    })
+});
+
+app.get('/listarMaquina',(req,res)=>{
+    connection.query("SELECT * FROM tbMaquina",function(err,result){
+        if(err) throw err;
+        res.send(result);
+    })
+});
+
+app.post('/excluirComponente',(req,res)=>{
+    let data=[req.body.codComponente];
+
+    let sql = "DELETE FROM tbComponente WHERE codComponente = ?";
+    connection.query(sql,data,function(err,result){
+        if(err) throw err;
+        res.send(result);
+    });
+    
+});
+
+app.post('/excluirFuncionarioMaquina',(req,res)=>{
+    let data=[req.body.codFuncionario];
+
+    let sql = "DELETE FROM tbUsuarioMaquina WHERE fkUsuario = ?";
+    connection.query(sql,data,function(err,result){
+        if(err) throw err;
+        res.send(result);
+    });
+    
+});
+
+app.post('/excluirFuncionario',(req,res)=>{
+    let data=[req.body.codFuncionario];
+
+    let sql = "DELETE FROM tbUsuario WHERE codUsuario = ?";
+    connection.query(sql,data,function(err,result){
+        if(err) throw err;
+        res.send(result);
+    });
+    
+});
+
+app.post('/excluirPrograma',(req,res)=>{
+    let data=[req.body.codPrograma];
+
+    let sql = "DELETE FROM tbPrograma WHERE codPrograma = ?";
+    connection.query(sql,data,function(err,result){
+        if(err) throw err;
+        res.send(result);
+    });
+    
+});
+
+app.post('/excluirMaquina',(req,res)=>{
+    let data=[req.body.codMaquina];
+
+    let sql = "DELETE FROM tbMaquina WHERE codMaquina = ?";
+    connection.query(sql,data,function(err,result){
+        if(err) throw err;
+        res.send(result);
+    });
+    
+});
+
+app.post('/editarComponente',(req,res)=>{
+    let data=[req.body.codComponente];
+
+    let sql = "SELECT nomeComponente, descComponente FROM tbComponente WHERE codComponente = ?";
+    connection.query(sql,data,function(err,result){
+        if(err) throw err;
+        res.send(result);
+    });
+    
+});
+
 
 app.listen(port, function(){
     console.log('Servidor rodando na porta '+port);
