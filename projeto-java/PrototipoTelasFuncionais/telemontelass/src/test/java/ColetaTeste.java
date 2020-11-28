@@ -36,7 +36,7 @@ public class ColetaTeste {
 //        System.out.println(disco.getComp());
         Maquina maquina = new Maquina();
 
-          System.out.println(maquina.getCpu());
+          System.out.println(maquina.getMem().getDesc());
 //        ColetaDados dados = new ColetaDados();
 //        
 //        dados.getCpuUsage();
