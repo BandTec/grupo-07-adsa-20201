@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+/API's/API oshi/teste-oshi1/target/
+=======
+/API's/API oshi/teste-oshi1/target/
+/API's/API oshi/teste-oshi/target/
+>>>>>>> 2ae43121dacd3cf1fc6aeb2ae4d45fd9c8ce4d46
+/projeto-java/PrototipoTelasFuncionais/telemontelass/target/
+=======
 
 # Created by https://www.toptal.com/developers/gitignore/api/maven,netbeans,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=maven,netbeans,node
@@ -136,3 +145,4 @@ dist
 .vscode-test
 
 # End of https://www.toptal.com/developers/gitignore/api/maven,netbeans,node
+>>>>>>> master
