@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.table.DefaultTableModel;
+import log.Log;
 import oshi.software.os.OSProcess;
 
 public class TelaDetalhes extends javax.swing.JFrame {
@@ -28,7 +29,8 @@ public class TelaDetalhes extends javax.swing.JFrame {
         try {
             alertProcs.enviarAlertaProcesso(alertProcs);
         } catch (Exception e) {
-            System.out.println("Erro: " + e);
+            Log log = new Log("ERROR_tela_detalhes", e.toString(), "Erro");
+            log.logCriation();
         }       
     }
 
@@ -75,6 +77,8 @@ public class TelaDetalhes extends javax.swing.JFrame {
                     inserir.InserirDadosComponente(maquina.getMemUsage(), maquina.getMem().getDesc(), maquina.getHostname());
                     
                 } catch (Exception e) {
+                    Log log = new Log("ERROR_apresentar_dados", e.toString(), "Erro");
+                    log.logCriation();
                 }
             }
         }, delay, interval);

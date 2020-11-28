@@ -1,0 +1,12 @@
+Hora: 22:00:24.133
+Nome: Teste
+Descrição: Este log é somente um teste
+Nível: Alerta de Teste
+Usuário: SERVIÇO LOCAL
+=======================
+Hora: 22:01:23.801
+Nome: Teste
+Descrição: Este log é somente um teste
+Nível: Alerta de Teste
+Usuário: SERVIÇO LOCAL
+=======================

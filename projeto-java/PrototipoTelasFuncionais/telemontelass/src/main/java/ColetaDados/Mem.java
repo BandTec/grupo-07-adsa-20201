@@ -9,6 +9,7 @@ import Banco.Insertbd;
 import Entities.AlertHardware;
 import java.util.ArrayList;
 import java.util.List;
+import log.Log;
 import oshi.hardware.GlobalMemory;
 import oshi.hardware.HardwareAbstractionLayer;
 
@@ -35,6 +36,8 @@ public class Mem extends Componente{
         try {
             memUsage = Double.valueOf(100 - (mem.getAvailable() * 100) / (mem.getTotal()));
         } catch (Exception e) {
+            Log log = new Log("ERROR_get_mem_usage", e.toString(), "erro");
+                log.logCriation();
         }
         gerarLista();
         verificarLista();

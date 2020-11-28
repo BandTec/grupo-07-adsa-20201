@@ -10,6 +10,7 @@ import Entities.AlertHardware;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import log.Log;
 import oshi.hardware.CentralProcessor;
 
 /**
@@ -36,7 +37,8 @@ public class Cpu extends Componente {
                 cpuUsage = (cpu.getSystemCpuLoadBetweenTicks(oldTicks) * 100);
                 oldTicks = cpu.getSystemCpuLoadTicks();
             } catch (Exception e) {
-                System.out.println(e);
+                Log log = new Log("ERROR_get_cpu_usage", e.toString(), "erro");
+                log.logCriation();
             }
         gerarLista();
         verificarLista();

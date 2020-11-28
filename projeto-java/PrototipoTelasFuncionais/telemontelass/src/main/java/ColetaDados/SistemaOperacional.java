@@ -5,6 +5,7 @@
  */
 package ColetaDados;
 
+import log.Log;
 import oshi.SystemInfo;
 import oshi.software.os.OperatingSystem;
 
@@ -21,6 +22,8 @@ public class SistemaOperacional {
         try {
             osUpTime = os.getSystemUptime();
         } catch (Exception e) {
+            Log log = new Log("ERROR_get_OS_uptime", e.toString(), "erro");
+            log.logCriation();
         }
         return osUpTime;
     }

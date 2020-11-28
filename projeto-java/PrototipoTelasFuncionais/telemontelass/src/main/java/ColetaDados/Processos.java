@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import log.Log;
 import oshi.software.os.OSProcess;
 import oshi.software.os.OperatingSystem;
 import oshi.util.FormatUtil;
@@ -34,6 +35,8 @@ public class Processos {
         try {
             osProcesses = os.getOs().getProcesses(11, OperatingSystem.ProcessSort.CPU);
         } catch (Exception e) {
+            Log log = new Log("ERROR_get_processes", e.toString(), "erro");
+            log.logCriation();
         }
         return osProcesses;
     }

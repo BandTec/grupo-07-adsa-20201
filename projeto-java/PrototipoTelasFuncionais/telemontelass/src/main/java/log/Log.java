@@ -6,6 +6,7 @@ import Entities.AlertHardware;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.time.LocalTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,13 +31,12 @@ public class Log {
     
 //    FileNotFoundException, IOException
     
-    public void logCriation()  {
-        String nome, descLog, nivelLog;
+    public void logCriation()  {     
         try {
-            RandomAccessFile logErro = new RandomAccessFile(".\\logs\\" + maquina.getHostname() + reg.getDataFormatada() + reg.getHoraFormatada() + ".txt", "rw");
+            RandomAccessFile logErro = new RandomAccessFile(".\\logs\\" + maquina.getHostname() + reg.getDataFormatada() + ".txt", "rw");
         logErro.seek(logErro.length()); // posiciona o ponteiro de posição no final do arquivo
         
-        gravarString(logErro, String.format("Nome: %s\nDescrição: %s\nNível: %s\nUsuário: %s", this.nomeLog, this.descLog, this.nivelLog, this.usuarioLog));
+        gravarString(logErro, String.format("Hora: %s\nNome: %s\nDescrição: %s\nNível: %s\nUsuário: %s\n=======================\n", LocalTime.now(),this.nomeLog, this.descLog, this.nivelLog, this.usuarioLog));
         
         logErro.close();
         } catch (FileNotFoundException ex) {

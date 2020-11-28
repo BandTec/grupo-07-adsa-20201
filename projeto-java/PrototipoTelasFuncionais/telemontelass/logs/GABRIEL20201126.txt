@@ -1,0 +1,48 @@
+Nome: Teste
+Descrição: Este log é somente um teste
+Nível: Alerta de Teste
+Usuário: GabrielNome: Teste
+Descrição: Este log é somente um teste
+Nível: Alerta de Teste
+Usuário: GabrielHora: 215617
+Nome: Teste
+Descrição: Este log é somente um teste
+Nível: Alerta de Teste
+Usuário: Gabriel
+=======================
+Hora: 215623
+Nome: Teste
+Descrição: Este log é somente um teste
+Nível: Alerta de Teste
+Usuário: Gabriel
+=======================
+Hora: 21:59:07.053
+Nome: Teste
+Descrição: Este log é somente um teste
+Nível: Alerta de Teste
+Usuário: Gabriel
+=======================
+Hora: 21:59:12.295
+Nome: Teste
+Descrição: Este log é somente um teste
+Nível: Alerta de Teste
+Usuário: Gabriel
+=======================
+Hora: 22:03:02.052
+Nome: Problema com Memória
+Descrição: Sua memória está apresentando problemas, envie uma notificação ao seu gestor
+Nível: Alerta
+Usuário: Gabriel
+=======================
+Hora: 22:03:03.213
+Nome: Problema com Memória
+Descrição: Sua memória está apresentando problemas, envie uma notificação ao seu gestor
+Nível: Alerta
+Usuário: Gabriel
+=======================
+Hora: 22:03:04.136
+Nome: Problema com Memória
+Descrição: Sua memória está apresentando problemas, envie uma notificação ao seu gestor
+Nível: Alerta
+Usuário: Gabriel
+=======================
