@@ -29,11 +29,11 @@ public class Maquina {
     }
     
     public String getUsers(){
-        return sessao.getUser(2);
+        return sessao.getUser(0);
     }
     
     public String getHostname(){
-        return sessao.getHostname(2);
+        return sessao.getHostname(0);
     }
 
     public long getTimeUp() {
