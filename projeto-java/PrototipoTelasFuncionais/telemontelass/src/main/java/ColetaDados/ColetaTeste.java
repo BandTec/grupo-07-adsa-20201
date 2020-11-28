@@ -44,6 +44,7 @@ public class ColetaTeste {
             System.out.println(Runtime.getRuntime().exec("cat /proc/sys/kernel/hostname"));
             System.out.println(maquina.getCpu().getDesc());
             System.out.println(maquina.getMem().getDesc());
+            System.out.println(session.getSessionList());
         } catch (IOException ex) {
             Logger.getLogger(ColetaTeste.class.getName()).log(Level.SEVERE, null, ex);
         }
