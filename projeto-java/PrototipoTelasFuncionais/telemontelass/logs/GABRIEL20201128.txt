@@ -1,0 +1,54 @@
+Hora: 15:35:49.675
+Nome: Teste
+Descrição: Este log é somente um teste
+Nível: Alerta de Teste
+Usuário: Gabriel
+=======================
+Hora: 16:16:27.509
+Nome: Fail_request_slack
+Descrição: java.net.MalformedURLException: no protocol: xoxb-1527821347670-1534558982834-rM3Dakpk6WHYbWY5ZgG2Ltb8
+Nível: Erro
+Usuário: Gabriel
+=======================
+Hora: 16:18:05.197
+Nome: Fail_request_slack
+Descrição: java.net.MalformedURLException: no protocol: xoxb-1527821347670-1534558982834-rM3Dakpk6WHYbWY5ZgG2Ltb8
+Nível: Erro
+Usuário: Gabriel
+=======================
+Hora: 16:19:29.321
+Nome: Fail_request_slack
+Descrição: java.net.MalformedURLException: no protocol: xoxb-1527821347670-1534558982834-rM3Dakpk6WHYbWY5ZgG2Ltb8
+Nível: Erro
+Usuário: Gabriel
+=======================
+Hora: 16:24:42.158
+Nome: Fail_request_slack
+Descrição: java.net.MalformedURLException: no protocol: xoxb-1527821347670-1534558982834-rM3Dakpk6WHYbWY5ZgG2Ltb8
+Nível: Erro
+Usuário: Gabriel
+=======================
+Hora: 16:26:17.137
+Nome: Fail_request_slack
+Descrição: java.net.MalformedURLException: no protocol: xoxb-1527821347670-1534558982834-rM3Dakpk6WHYbWY5ZgG2Ltb8
+Nível: Erro
+Usuário: Gabriel
+=======================
+Hora: 16:27:15.665
+Nome: Fail_request_slack
+Descrição: java.net.MalformedURLException: no protocol: xoxb-1527821347670-1534558982834-rM3Dakpk6WHYbWY5ZgG2Ltb8
+Nível: Erro
+Usuário: Gabriel
+=======================
+Hora: 16:29:32.839
+Nome: Fail_request_slack
+Descrição: java.net.MalformedURLException: no protocol: xoxb-1527821347670-1534558982834-rM3Dakpk6WHYbWY5ZgG2Ltb8 (WEBHOOK)
+Nível: Erro
+Usuário: Gabriel
+=======================
+Hora: 16:36:17.309
+Nome: Fail_request_slack
+Descrição: java.net.MalformedURLException: no protocol: telemonworkspace.slack.com
+Nível: Erro
+Usuário: Gabriel
+=======================
