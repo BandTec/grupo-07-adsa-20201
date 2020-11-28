@@ -15,7 +15,7 @@ import log.Log;
  * @author Gabriel
  */
 public class Slack {
-    private String URL = "https://hooks.slack.com/services/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";
+    private String URL = "https://hooks.slack.com/services/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";
     
     public void sendMessage(JSONObject message){
         try {
