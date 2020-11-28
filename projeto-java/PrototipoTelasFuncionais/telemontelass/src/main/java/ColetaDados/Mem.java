@@ -37,7 +37,7 @@ public class Mem extends Componente{
             memUsage = Double.valueOf(100 - (mem.getAvailable() * 100) / (mem.getTotal()));
         } catch (Exception e) {
             Log log = new Log("ERROR_get_mem_usage", e.toString(), "erro");
-                log.logCriation();
+            log.logCriation();
         }
         gerarLista();
         verificarLista();

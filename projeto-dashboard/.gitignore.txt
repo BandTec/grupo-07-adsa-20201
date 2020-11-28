@@ -1,37 +1,6 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-/API's/API oshi/teste-oshi1/target/
-=======
-/API's/API oshi/teste-oshi1/target/
-/API's/API oshi/teste-oshi/target/
->>>>>>> 2ae43121dacd3cf1fc6aeb2ae4d45fd9c8ce4d46
-/projeto-java/PrototipoTelasFuncionais/telemontelass/target/
-=======
 
-# Created by https://www.toptal.com/developers/gitignore/api/maven,netbeans,node
-# Edit at https://www.toptal.com/developers/gitignore?templates=maven,netbeans,node
-
-### Maven ###
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-# https://github.com/takari/maven-wrapper#usage-without-binary-jar
-.mvn/wrapper/maven-wrapper.jar
-
-### NetBeans ###
-**/nbproject/private/
-**/nbproject/Makefile-*.mk
-**/nbproject/Package-*.bash
-build/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
+# Created by https://www.toptal.com/developers/gitignore/api/node
+# Edit at https://www.toptal.com/developers/gitignore?templates=node
 
 ### Node ###
 # Logs
@@ -144,5 +113,4 @@ dist
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
-# End of https://www.toptal.com/developers/gitignore/api/maven,netbeans,node
->>>>>>> master
+# End of https://www.toptal.com/developers/gitignore/api/node

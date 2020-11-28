@@ -1,5 +1,3 @@
-package ColetaDados;
-
 
 import Banco.Insertbd;
 import ColetaDados.Componente;
@@ -10,7 +8,10 @@ import ColetaDados.Mem;
 import ColetaDados.Processos;
 import ColetaDados.Sessao;
 import java.awt.Component;
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import oshi.hardware.CentralProcessor;
 
 /*
@@ -38,10 +39,8 @@ public class ColetaTeste {
 //        System.out.println(disco.getComp());
         Maquina maquina = new Maquina();
 
-                    System.out.println(maquina.getCpu().getDesc());
-                    System.out.println(maquina.getMem().getDesc());
-                    System.out.println(maquina.getHostname());
-                    System.out.println(session.getSessionList());
+        System.out.println(maquina.getHostname());
+
 //        ColetaDados dados = new ColetaDados();
 //        
 //        dados.getCpuUsage();
