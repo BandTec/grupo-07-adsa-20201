@@ -72,7 +72,10 @@ public class Maquina {
 
                 listProcs.add(String.format("%s\n", p.getName()));
                 
-//                insert.InserirProcessos(p.getName(), p.getProcessCpuLoadBetweenTicks(p) / cpu.getCpu().getLogicalProcessorCount(), p.getResidentSetSize(), this.hostname);
+                insert.InserirProcessos(p.getName(), 
+                        p.getProcessCpuLoadBetweenTicks(p) / cpu.getCpu().getLogicalProcessorCount(), 
+                        p.getResidentSetSize(), 
+                        this.getHostname());
     }
         return listProcs;
     }
