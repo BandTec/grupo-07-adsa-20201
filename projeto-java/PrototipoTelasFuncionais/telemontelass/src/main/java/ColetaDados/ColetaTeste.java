@@ -41,7 +41,7 @@ public class ColetaTeste {
         Maquina maquina = new Maquina();
 
         try {
-            System.out.println(Runtime.getRuntime().exec("hostname"));
+            System.out.println(Runtime.getRuntime().exec("cat /proc/sys/kernel/hostname"));
             System.out.println(maquina.getCpu().getDesc());
             System.out.println(maquina.getMem().getDesc());
         } catch (IOException ex) {
