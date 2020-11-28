@@ -12,7 +12,6 @@ Entities\Alerts.class
 Views\TelaLogin$3.class
 ColetaDados\Cpu.class
 ColetaDados\Mem.class
-ColetaDados\ColetaTeste.class
 Views\TelaLogin$2.class
 ColetaDados\Processos.class
 ColetaDados\Sessao.class

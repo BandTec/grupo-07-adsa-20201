@@ -24,14 +24,14 @@ public class TelaDetalhes extends javax.swing.JFrame {
     private Processos processos = new Processos();
 
     public TelaDetalhes() {
-        initComponents();
-        ApresentarDados();
         try {
+            initComponents();
+            ApresentarDados();
             alertProcs.enviarAlertaProcesso(alertProcs);
         } catch (Exception e) {
             Log log = new Log("ERROR_tela_detalhes", e.toString(), "Erro");
             log.logCriation();
-        }       
+        }
     }
 
     public void ApresentarDados() {
@@ -71,11 +71,10 @@ public class TelaDetalhes extends javax.swing.JFrame {
                             }
                         }
                     }
-                    
-                    inserir.InserirDadosComponente(maquina.getCpuUsage(), maquina.getCpu().getDesc(),  maquina.getHostname());
-//                    inserir.InserirDadosComponente(maquina.getDisco().espacoLivre(0),maquina.getDisco().diskName(0) , maquina.getHostname());
+                    inserir.InserirDadosComponente(maquina.getCpuUsage(), maquina.getCpu().getDesc(), maquina.getHostname());
+                    inserir.InserirDadosComponente(maquina.getDisco().espacoLivre(0),maquina.getDisco().diskName(0) , maquina.getHostname());
                     inserir.InserirDadosComponente(maquina.getMemUsage(), maquina.getMem().getDesc(), maquina.getHostname());
-                    
+
                 } catch (Exception e) {
                     Log log = new Log("ERROR_apresentar_dados", e.toString(), "Erro");
                     log.logCriation();

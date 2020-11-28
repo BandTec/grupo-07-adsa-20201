@@ -1,4 +1,3 @@
-package ColetaDados;
 
 import Banco.Insertbd;
 import ColetaDados.Componente;
@@ -40,14 +39,8 @@ public class ColetaTeste {
 //        System.out.println(disco.getComp());
         Maquina maquina = new Maquina();
 
-        try {
-            System.out.println(Runtime.getRuntime().exec("cat /proc/sys/kernel/hostname"));
-            System.out.println(maquina.getCpu().getDesc());
-            System.out.println(maquina.getMem().getDesc());
-            System.out.println(session.getSessionList());
-        } catch (IOException ex) {
-            Logger.getLogger(ColetaTeste.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        System.out.println(maquina.getHostname());
+
 //        ColetaDados dados = new ColetaDados();
 //        
 //        dados.getCpuUsage();
@@ -77,6 +70,5 @@ public class ColetaTeste {
 //        System.out.println(disco);
 //        System.out.println(users);
 //        System.out.println(procs);
-
     }
 }
