@@ -72,9 +72,9 @@ public class TelaDetalhes extends javax.swing.JFrame {
                         }
                     }
                     
-                    inserir.InserirDadosComponente(maquina.getCpuUsage());
-                    inserir.InserirDadosComponente(maquina.getDisco().espacoLivre(0));
-                    inserir.InserirDadosComponente(maquina.getMemUsage());
+                    inserir.InserirDadosComponente(maquina.getCpuUsage(), maquina.getCpu().getCpu().toString(),  maquina.getHostname());
+//                    inserir.InserirDadosComponente(maquina.getDisco().espacoLivre(0),maquina.getDisco().diskName(0) , maquina.getHostname());
+//                    inserir.InserirDadosComponente(maquina.getMemUsage(), maquina.getMem().getDesc(), maquina.getHostname());
                     
                 } catch (Exception e) {
                     Log log = new Log("ERROR_apresentar_dados", e.toString(), "Erro");
