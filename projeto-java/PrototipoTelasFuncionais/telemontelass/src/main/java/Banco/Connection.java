@@ -5,6 +5,7 @@
  */
 package Banco;
 
+import log.Log;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 /**
@@ -16,11 +17,16 @@ public class Connection {
     private BasicDataSource datasource;
 
     public Connection() {
-        this.datasource = new BasicDataSource();
-        this.datasource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        this.datasource.setUrl("jdbc:mysql://localhost:3306/bdTelemon");
-        this.datasource.setUsername("root");
-        this.datasource.setPassword("urubu100");
+        try {
+            this.datasource = new BasicDataSource();
+            this.datasource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+            this.datasource.setUrl("jdbc:mysql://localhost:3306/bdTelemon");
+            this.datasource.setUsername("root");
+            this.datasource.setPassword("urubu100");
+        } catch (Exception e) {
+            Log log = new Log("Fail_to_connect", e.toString(), "Erro");
+            log.logCriation();
+        }
 
 //        this.datasource = new BasicDataSource();
 //        this.datasource.setDriverClassName("org.h2.Driver");
