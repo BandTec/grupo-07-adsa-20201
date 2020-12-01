@@ -1,11 +1,14 @@
 package Entities;
 
+import ColetaDados.Maquina;
 import ColetaDados.Processos;
 import java.util.List;
 
 import javax.swing.JOptionPane;
 import log.Log;
+import org.json.JSONObject;
 import oshi.software.os.OSProcess;
+import slack.Slack;
 
 
 public class AlertHardware extends Alerts{
@@ -28,6 +31,10 @@ public class AlertHardware extends Alerts{
                     try {
                         Log log = new Log(alertaHardware.getTipoAlerta(), alertaHardware.getMensagemAlerta(), "Alerta");
                         log.logCriation();
+                        Slack slack = new Slack();                        
+                        JSONObject json = new JSONObject();
+                        json.put("text", String.format("%s na maquina do usuario %s", alertaHardware.getTipoAlerta(), maquina.getUsers()));
+                        slack.sendMessage(json);
                     } catch (Exception e) {
                         System.out.println("Erro: " + e);
                     }
@@ -37,12 +44,17 @@ public class AlertHardware extends Alerts{
     }
      
     public void enviarAlertaMemoria(AlertHardware alertaHardware){
-        alertaHardware.setTipoAlerta("Problema com Memória");
+        alertaHardware.setTipoAlerta("Problema com Memória RAM");
         alertaHardware.setMensagemAlerta("Sua memória está apresentando problemas, envie uma notificação ao seu gestor");
         JOptionPane.showMessageDialog(null, alertaHardware.getMensagemAlerta(), alertaHardware.getTipoAlerta(), JOptionPane.ERROR_MESSAGE);
         try {
             Log log = new Log(alertaHardware.getTipoAlerta(), alertaHardware.getMensagemAlerta(), "Alerta");
             log.logCriation();
+            Maquina maquina = new Maquina();
+            Slack slack = new Slack();                        
+            JSONObject json = new JSONObject();
+            json.put("text", String.format("%s na maquina do usuario %s", alertaHardware.getTipoAlerta(), maquina.getUsers()));
+            slack.sendMessage(json);
         } catch (Exception e) {
             System.out.println("Erro: " + e);
         }
@@ -55,6 +67,11 @@ public class AlertHardware extends Alerts{
          try {
             Log log = new Log(alertaHardware.getTipoAlerta(), alertaHardware.getMensagemAlerta(), "Alerta");
             log.logCriation();
+            Maquina maquina = new Maquina();
+            Slack slack = new Slack();                        
+            JSONObject json = new JSONObject();
+            json.put("text", String.format("%s na maquina do usuario %s", alertaHardware.getTipoAlerta(), maquina.getUsers()));
+            slack.sendMessage(json);
         } catch (Exception e) {
             System.out.println("Erro: " + e);
         }
