@@ -18,11 +18,23 @@ public class Registro {
     String dataFormatada = formatterData.format(agora);
     DateTimeFormatter formatterHora = DateTimeFormatter.ofPattern("HHmmss");
     String horaFormatada = formatterHora.format(agora);
+    String horaPlus1Hr = formatterHora.format(agora.plusHours(1));
+    String horaPlus7Hr = formatterHora.format(agora.plusHours(7));
 
     public LocalDateTime getAgora() {
         return agora;
     }
 
+    public String getHoraPlus1Hr() {
+        return horaPlus1Hr;
+    }
+
+    public String getHoraPlus7Hr() {
+        return horaPlus7Hr;
+    }
+
+    
+    
     public DateTimeFormatter getFormatterData() {
         return formatterData;
     }

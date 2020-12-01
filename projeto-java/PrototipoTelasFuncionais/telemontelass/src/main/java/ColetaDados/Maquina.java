@@ -1,6 +1,7 @@
 package ColetaDados;
 
 import Banco.Insertbd;
+import Banco.Registro;
 import java.util.ArrayList;
 import java.util.List;
 import oshi.software.os.OSProcess;
@@ -21,7 +22,7 @@ public class Maquina {
 
     public Maquina() {
         this.osMaquina = os.getOs().toString();
-        this.timeUp = os.getOsUpTime();
+        this.timeUp = Integer.valueOf(new Registro().getHoraFormatada());
     }
 
     public String getOsMaquina() {

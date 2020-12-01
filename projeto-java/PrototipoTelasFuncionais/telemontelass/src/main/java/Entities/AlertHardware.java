@@ -1,5 +1,6 @@
 package Entities;
 
+import Banco.Insertbd;
 import ColetaDados.Maquina;
 import ColetaDados.Processos;
 import java.util.List;
@@ -13,6 +14,7 @@ import slack.Slack;
 
 public class AlertHardware extends Alerts{
     
+    Insertbd select = new Insertbd();
     
     public void enviarAlertaCpu(AlertHardware alertaHardware){
         alertaHardware.setTipoAlerta("Problema com CPU");
@@ -23,8 +25,7 @@ public class AlertHardware extends Alerts{
      public void enviarAlertaProcesso(AlertHardware alertaHardware){
           ColetaDados.Maquina maquina = new ColetaDados.Maquina();
           for (String process : maquina.getProcessesName()) {
-                if (process.contains("Discord")) {
-                    System.out.println(process);
+                if (!select.selectProgramas().contains(process)) {
                     alertaHardware.setTipoAlerta("Programa não autorizado detectado");
                     alertaHardware.setMensagemAlerta("Você está usando programas não autorizados, uma notificação foi enviada ao seu gestor");
                     JOptionPane.showMessageDialog(null, alertaHardware.getMensagemAlerta(), alertaHardware.getTipoAlerta(), JOptionPane.WARNING_MESSAGE);
@@ -38,7 +39,6 @@ public class AlertHardware extends Alerts{
                     } catch (Exception e) {
                         System.out.println("Erro: " + e);
                     }
-                    
                 }
          }
     }

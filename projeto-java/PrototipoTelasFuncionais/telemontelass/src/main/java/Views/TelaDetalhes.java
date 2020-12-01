@@ -1,12 +1,14 @@
 package Views;
 
 import Banco.Insertbd;
+import Banco.Registro;
 import ColetaDados.Cpu;
 import ColetaDados.Maquina;
 import ColetaDados.Mem;
 import ColetaDados.Processos;
 import ColetaDados.Sessao;
 import Entities.AlertHardware;
+import Entities.AlertPausa;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +24,11 @@ public class TelaDetalhes extends javax.swing.JFrame {
     Maquina maquina = new Maquina();
     Sessao session = new Sessao();
     AlertHardware alertProcs = new AlertHardware();
+    AlertPausa alertPausa = new AlertPausa();
     Insertbd inserir = new Insertbd();
     private Processos processos = new Processos();
+    Registro reg = new Registro();
+    int contador = 1;
 
     public TelaDetalhes() {
         try {
@@ -37,9 +42,9 @@ public class TelaDetalhes extends javax.swing.JFrame {
     }
 
     public void ApresentarDados() {
-
         int delay = 500;   // tempo de espera antes da 1ª execução da tarefa.
         int interval = 1000;  // intervalo no qual a tarefa será executada.
+
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
@@ -78,9 +83,24 @@ public class TelaDetalhes extends javax.swing.JFrame {
                             }
                         }
                     }
+
                     inserir.InserirDadosComponente(maquina.getCpuUsage(), maquina.getCpu().getDesc(), maquina.getHostname());
-                    inserir.InserirDadosComponente(maquina.getDisco().espacoLivre(0),maquina.getDisco().diskName(0) , maquina.getHostname());
+                    inserir.InserirDadosComponente(maquina.getDisco().espacoLivre(0), maquina.getDisco().diskName(0), maquina.getHostname());
                     inserir.InserirDadosComponente(maquina.getMemUsage(), maquina.getMem().getDesc(), maquina.getHostname());
+
+                    System.out.println(new Registro().getHoraFormatada());
+                    System.out.println(reg.getHoraPlus1Hr());
+                    System.out.println(reg.getHoraPlus7Hr());
+                    System.out.println(contador);
+                    
+                    if (Integer.valueOf(new Registro().getHoraFormatada()) > Integer.valueOf(reg.getHoraPlus1Hr()) && contador == 1) {
+                        contador = 2;
+                        alertPausa.enviarAlertaPausa(alertPausa);}
+                    
+                        else if((Integer.valueOf(new Registro().getHoraFormatada())) > Integer.valueOf(reg.getHoraPlus1Hr()) && contador == 2) {
+                            contador = 0;
+                            alertPausa.enviarAlertaPausa(alertPausa);
+                        }
 
                 } catch (Exception e) {
                     Log log = new Log("ERROR_apresentar_dados", e.toString(), "Erro");

@@ -23,6 +23,7 @@ public class Insertbd {
     Connection con = new Connection();
     JdbcTemplate template = new JdbcTemplate(con.getDatasource());
     Integer contador = 0;
+    List programas;
 
     public void InserirDadosComponente(double valor, String componente, String hostname) {
         try {
@@ -70,6 +71,15 @@ public class Insertbd {
             Log log = new Log("Erro_insert_bd", e.toString(), "Erro");
             log.logCriation();
         }
-
+    }
+    
+        public List selectProgramas() {
+        try {
+            programas = template.queryForList("SELECT * FROM tbPrograma");
+        } catch (Exception e) {
+            Log log = new Log("Erro_select_bd", e.toString(), "Erro");
+            log.logCriation();
+        }
+        return programas;
     }
 }

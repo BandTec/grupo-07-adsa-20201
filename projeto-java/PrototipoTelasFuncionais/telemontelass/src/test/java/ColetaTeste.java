@@ -1,5 +1,6 @@
 
 import Banco.Insertbd;
+import Banco.Registro;
 import ColetaDados.Componente;
 import ColetaDados.Cpu;
 import ColetaDados.Disco;
@@ -39,7 +40,7 @@ public class ColetaTeste {
 //        System.out.println(disco.getComp());
         Maquina maquina = new Maquina();
 
-        System.out.println(maquina.getHostname());
+        System.out.println(new Registro().getAgora().plusHours(1));
 
 //        ColetaDados dados = new ColetaDados();
 //        
