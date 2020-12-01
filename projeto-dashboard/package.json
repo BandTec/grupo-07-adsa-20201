@@ -1,8 +1,11 @@
 {
   "name": "teste",
   "version": "1.0.0",
-  "description": "Api de teste",
+  "engines": {
+    "node": "12"
+  },
   "main": "index.js",
+  "description": "Api de teste",
   "dependencies": {
     "body-parse": "^0.1.0",
     "cors": "^2.8.5",
@@ -13,8 +16,9 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "author": "lucas",
-  "license": "ISC"
+  "license": "ISC",
+  "keywords": []
 }
