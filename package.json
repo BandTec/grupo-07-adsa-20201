@@ -7,7 +7,6 @@
   "description": "Api de teste",
   "main": "projeto-dashboard/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node projeto-dashboard/index.js"
   },
   "repository": {
@@ -22,7 +21,9 @@
     "mysqli": "^3.0.11",
     "nodemon": "^2.0.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    
+  },
   
   "author": "lucas",
   "license": "ISC",
