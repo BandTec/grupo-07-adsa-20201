@@ -233,6 +233,6 @@ app.post('/editarComponente',(req,res)=>{
 });
 
 
-app.listen(port, function(){
+app.listen(process.env.PORT || port, function(){
     console.log('Servidor rodando na porta '+port);
 });
