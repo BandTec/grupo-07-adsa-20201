@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/',(req,res)=>{
-    res.send('Você está na localhost:3000');
+    res.send(cliente/index.html);
 });
 
 app.post('/user',(req,res)=>{
