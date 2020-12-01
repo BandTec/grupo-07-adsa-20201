@@ -5,10 +5,10 @@
     "node": "12"
   },
   "description": "Api de teste",
-  "main": "index.js",
+  "main": "grupo-07-adsa-20201/projeto-dashboard/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon grupo-07-adsa-20201/projeto-dashboard/index.js"
   },
   "repository": {
     "type": "git",
