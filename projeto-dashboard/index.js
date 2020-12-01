@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/',(req,res)=>{
-    res.send('grupo-07-adsa-20201/projeto-dashboard/cliente/index.html');
+    res.send(grupo-07-adsa-20201/projeto-dashboard/cliente/index.html);
 });
 
 app.post('/user',(req,res)=>{
