@@ -20,7 +20,7 @@ public class Connection {
         try {
             this.datasource = new BasicDataSource();
             this.datasource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-            this.datasource.setUrl("jdbc:mysql://localhost:3306/bdTelemon");
+            this.datasource.setUrl("jdbc:mysql://54.157.41.111:3306/bdTelemon");
             this.datasource.setUsername("root");
             this.datasource.setPassword("urubu100");
         } catch (Exception e) {
