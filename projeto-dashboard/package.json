@@ -4,8 +4,17 @@
   "engines": {
     "node": "12"
   },
-  "main": "index.js",
   "description": "Api de teste",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BandTec/grupo-07-adsa-20201"
+  },
+  
   "dependencies": {
     "body-parse": "^0.1.0",
     "cors": "^2.8.5",
@@ -14,10 +23,7 @@
     "nodemon": "^2.0.4"
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
-  },
+  
   "author": "lucas",
   "license": "ISC",
   "keywords": []
