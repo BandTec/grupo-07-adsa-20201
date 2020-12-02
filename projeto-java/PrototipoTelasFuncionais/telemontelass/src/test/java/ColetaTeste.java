@@ -34,19 +34,20 @@ public class ColetaTeste {
 //        Mem mem = new Mem("ram");
 //        Disco disco = new Disco();
         Sessao session = new Sessao();
-
+        Maquina maquina = new Maquina();
         Insertbd inserir = new Insertbd();
 //
 //        System.out.println(cpu.getComp());
 //        System.out.println(mem.getComp());
 //        System.out.println(disco.getComp());
-        Maquina maquina = new Maquina();
 
-        List x = new ArrayList();
+            System.out.println(maquina.getHostname());
 
-        x.add("java");
-        x.add("firefox");
-        x.add("netbeans64");
+//        List x = new ArrayList();
+//
+//        x.add("java");
+//        x.add("firefox");
+//        x.add("netbeans64");
 
 //        for (Object elem : x) {
 //            System.out.println(elem);
@@ -54,7 +55,7 @@ public class ColetaTeste {
 //            System.out.println(!inserir.selectProgramas().contains(elem));
 //        }
 
-        System.out.println(new Registro().getDataFormatada() + new Registro().getHoraFormatada());
+//        System.out.println(new Registro().getDataFormatada() + new Registro().getHoraFormatada());
 
 //        ColetaDados dados = new ColetaDados();
 //        

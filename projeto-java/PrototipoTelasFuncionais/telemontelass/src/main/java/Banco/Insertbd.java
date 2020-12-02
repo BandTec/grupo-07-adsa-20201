@@ -26,19 +26,22 @@ public class Insertbd {
     Integer contador = 0;
     List programas = new ArrayList();
     Object y;
+    
+    public void programa(String nome){
+        template.update("INSERT INTO tbPrograma VALUES (?,?)",null, nome);
+    }
 
     public void InserirDadosComponente(double valor, String componente, String hostname) {
         try {
 
         Object consultaFkMaquina = template.queryForMap("SELECT codMaquina FROM tbMaquina WHERE userMaquina = ?", hostname).get("codMaquina");
-        System.out.println("FK MAQUINA:" + consultaFkMaquina);
+
         Object consultaFkComponente = template.queryForMap("SELECT codComponente FROM tbComponente WHERE descComponente = ?", componente).get("codComponente");
-        System.out.println("FK COMPONENTE:" + consultaFkComponente);
+
         Object fkComponenteMaquina = template.queryForMap("SELECT codComponenteMaquina FROM tbComponenteMaquina WHERE fkComponente = ? AND fkMaquina = ?",
                 consultaFkComponente, consultaFkMaquina).get("codComponenteMaquina");
-        System.out.println("FK COMPONENTEMAQUINA:" + fkComponenteMaquina);
 
-        template.update("INSERT INTO tbDadosComponente VALUES (?,?,?,?)", null, valor, reg.getDataFormatada() + reg.getHoraFormatada(), fkComponenteMaquina);
+        template.update("INSERT INTO tbDadosComponente VALUES (?,?,?,?)", null, valor, reg.getDataHora(), fkComponenteMaquina);
 
         List consulta = template.queryForList("SELECT * FROM tbDadosComponente");
         } catch (Exception e) {
