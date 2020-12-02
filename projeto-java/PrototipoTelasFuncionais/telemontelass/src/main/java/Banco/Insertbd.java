@@ -41,7 +41,7 @@ public class Insertbd {
         Object fkComponenteMaquina = template.queryForMap("SELECT codComponenteMaquina FROM tbComponenteMaquina WHERE fkComponente = ? AND fkMaquina = ?",
                 consultaFkComponente, consultaFkMaquina).get("codComponenteMaquina");
 
-        template.update("INSERT INTO tbDadosComponente VALUES (?,?,?,?)", null, valor, reg.getDataHora(), fkComponenteMaquina);
+        template.update("INSERT INTO tbDadosComponente VALUES (?,?,?,?)", null, valor, reg.getDataFormatada() + reg.getHoraFormatada(), fkComponenteMaquina);
 
         List consulta = template.queryForList("SELECT * FROM tbDadosComponente");
         } catch (Exception e) {
