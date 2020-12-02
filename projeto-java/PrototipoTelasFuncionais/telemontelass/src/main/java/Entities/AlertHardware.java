@@ -3,6 +3,7 @@ package Entities;
 import Banco.Insertbd;
 import ColetaDados.Maquina;
 import ColetaDados.Processos;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -24,8 +25,11 @@ public class AlertHardware extends Alerts{
     
      public void enviarAlertaProcesso(AlertHardware alertaHardware){
           ColetaDados.Maquina maquina = new ColetaDados.Maquina();
-          for (String process : maquina.getProcessesName()) {
-                if (!select.selectProgramas().contains(process)) {
+          List processos = new ArrayList();
+          processos = maquina.getProcessesName();
+          for (Object process : processos) {
+                if (!select.selectProgramas().contains(process.toString())) {
+                    System.out.println(process);
                     alertaHardware.setTipoAlerta("Programa não autorizado detectado");
                     alertaHardware.setMensagemAlerta("Você está usando programas não autorizados, uma notificação foi enviada ao seu gestor");
                     JOptionPane.showMessageDialog(null, alertaHardware.getMensagemAlerta(), alertaHardware.getTipoAlerta(), JOptionPane.WARNING_MESSAGE);

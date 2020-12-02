@@ -6,6 +6,7 @@
 package Banco;
 
 import ColetaDados.Maquina;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import log.Log;
@@ -23,7 +24,8 @@ public class Insertbd {
     Connection con = new Connection();
     JdbcTemplate template = new JdbcTemplate(con.getDatasource());
     Integer contador = 0;
-    List programas;
+    List programas = new ArrayList();
+    Object y;
 
     public void InserirDadosComponente(double valor, String componente, String hostname) {
         try {
@@ -47,16 +49,60 @@ public class Insertbd {
 
     public void InserirProcessos(String name, double usoCpu, double usoMem, String hostname) {
         try {
-        Object consultaFkMaquina = template.queryForMap("SELECT codMaquina FROM tbMaquina WHERE userMaquina = ?", hostname).get("codMaquina");
 
-        if (contador++ < 100) {
-            template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?)", null, name, usoCpu, usoMem, reg.dataFormatada + reg.horaFormatada, consultaFkMaquina);
-            List consulta = template.queryForList("SELECT * FROM tbProcessos");
-        } else {
-            contador = 0;
-            template.update("TRUNCATE TABLE tbProcessos;");
-            template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?)", null, name, usoCpu, usoMem, reg.dataFormatada + reg.horaFormatada, consultaFkMaquina);
-        }
+            Object consultaFkMaquina = template.queryForMap("SELECT codMaquina FROM tbMaquina WHERE userMaquina = ?", hostname).get("codMaquina");
+            Object count = template.queryForMap("SELECT COUNT(codProcesso) AS registros FROM tbProcessos; ").get("registros");
+            
+            if ((int) count < 100) {
+                
+                if (!selectProgramas().contains(name)) {
+                    
+                    template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)", 
+                            null, 
+                            name, 
+                            usoCpu, 
+                            usoMem, 
+                            reg.dataFormatada + reg.horaFormatada, 
+                            consultaFkMaquina,
+                            0);
+                }else{
+                    
+                template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)", 
+                        null, 
+                        name, 
+                        usoCpu, 
+                        usoMem, 
+                        reg.dataFormatada + reg.horaFormatada, 
+                        consultaFkMaquina,
+                        1);}
+                
+                List consulta = template.queryForList("SELECT * FROM tbProcessos");
+                
+            } else {
+
+                template.update("TRUNCATE TABLE tbProcessos;");
+                
+                if (!selectProgramas().contains(name)) {
+                    
+                    template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)", 
+                            null, 
+                            name, 
+                            usoCpu, 
+                            usoMem, 
+                            reg.dataFormatada + reg.horaFormatada, 
+                            consultaFkMaquina,
+                            0);
+                }else{
+                    
+                template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)", 
+                        null, 
+                        name, 
+                        usoCpu, 
+                        usoMem, 
+                        reg.dataFormatada + reg.horaFormatada, 
+                        consultaFkMaquina,
+                        1);}
+            }
         } catch (Exception e) {;
             Log log = new Log("Erro_insert_bd", e.toString(), "Erro");
             log.logCriation();
@@ -75,7 +121,12 @@ public class Insertbd {
     
         public List selectProgramas() {
         try {
-            programas = template.queryForList("SELECT * FROM tbPrograma");
+            programas.clear();
+            List x = template.queryForList("SELECT nomePrograma FROM tbPrograma;");
+            for (int i = 0; i < x.size(); i++) {
+                y = template.queryForList("SELECT nomePrograma FROM tbPrograma").get(i).get("nomePrograma");
+                programas.add(y);
+            }
         } catch (Exception e) {
             Log log = new Log("Erro_select_bd", e.toString(), "Erro");
             log.logCriation();

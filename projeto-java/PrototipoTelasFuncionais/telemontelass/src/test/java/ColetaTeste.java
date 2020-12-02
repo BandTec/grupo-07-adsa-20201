@@ -10,7 +10,9 @@ import ColetaDados.Processos;
 import ColetaDados.Sessao;
 import java.awt.Component;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import oshi.hardware.CentralProcessor;
@@ -34,13 +36,25 @@ public class ColetaTeste {
         Sessao session = new Sessao();
 
         Insertbd inserir = new Insertbd();
-//        
+//
 //        System.out.println(cpu.getComp());
 //        System.out.println(mem.getComp());
 //        System.out.println(disco.getComp());
         Maquina maquina = new Maquina();
 
-        System.out.println(new Registro().getAgora().plusHours(1));
+        List x = new ArrayList();
+
+        x.add("java");
+        x.add("firefox");
+        x.add("netbeans64");
+
+//        for (Object elem : x) {
+//            System.out.println(elem);
+//            System.out.println(inserir.selectProgramas());
+//            System.out.println(!inserir.selectProgramas().contains(elem));
+//        }
+
+        System.out.println(maquina.getProcessesName());
 
 //        ColetaDados dados = new ColetaDados();
 //        
