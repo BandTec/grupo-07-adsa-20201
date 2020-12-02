@@ -14,9 +14,9 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-//app.get('/',(req,res)=>{
-   // res.sendFile(path.join(__dirname, './projeto-dashboard/cliente', 'index.html'));
-//});
+app.get('/',(req,res)=>{
+    res.send("Conectado na porta 3000");
+});
 
 app.post('/user',(req,res)=>{
     let data = [req.body.login, req.body.senha];
