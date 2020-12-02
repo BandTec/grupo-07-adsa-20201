@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+
+
 const connection = require('./connection');
 const bodyParser = require('body-parser');
 
@@ -11,9 +13,10 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/',(req,res)=>{
-    res.sendFile(path.join(__dirname, '/cliente', 'index.html'));
-});
+
+//app.get('/',(req,res)=>{
+   // res.sendFile(path.join(__dirname, './projeto-dashboard/cliente', 'index.html'));
+//});
 
 app.post('/user',(req,res)=>{
     let data = [req.body.login, req.body.senha];
