@@ -42,17 +42,19 @@ public class TelaDetalhes extends javax.swing.JFrame {
     }
 
     public void ApresentarDados() {
+
+        System.out.println(session.getSessionList());
+        System.out.println(maquina.getHostname());
+        System.out.println(maquina.getUsers());
+        System.out.println(maquina.getCpu().getDesc());
+        System.out.println(maquina.getMem().getDesc());
+
         int delay = 500;   // tempo de espera antes da 1ª execução da tarefa.
         int interval = 1000;  // intervalo no qual a tarefa será executada.
 
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
-                System.out.println(session.getSessionList());
-                System.out.println(maquina.getHostname());
-                System.out.println(maquina.getUsers());
-                System.out.println(maquina.getCpu().getDesc());
-                System.out.println(maquina.getMem().getDesc());
                 try {
 
                     Object rowData[] = new Object[10];
@@ -88,19 +90,13 @@ public class TelaDetalhes extends javax.swing.JFrame {
                     inserir.InserirDadosComponente(maquina.getDisco().espacoLivre(0), maquina.getDisco().diskName(0), maquina.getHostname());
                     inserir.InserirDadosComponente(maquina.getMemUsage(), maquina.getMem().getDesc(), maquina.getHostname());
 
-                    System.out.println(new Registro().getHoraFormatada());
-                    System.out.println(reg.getHoraPlus1Hr());
-                    System.out.println(reg.getHoraPlus7Hr());
-                    System.out.println(contador);
-                    
-                    if (Integer.valueOf(new Registro().getHoraFormatada()) > Integer.valueOf(reg.getHoraPlus1Hr()) && contador == 1) {
+                    if (Integer.valueOf(new Registro().getHoraFormatada()) > Integer.valueOf(reg.getHoraPlus1hr()) && contador == 1) {
                         contador = 2;
-                        alertPausa.enviarAlertaPausa(alertPausa);}
-                    
-                        else if((Integer.valueOf(new Registro().getHoraFormatada())) > Integer.valueOf(reg.getHoraPlus1Hr()) && contador == 2) {
-                            contador = 0;
-                            alertPausa.enviarAlertaPausa(alertPausa);
-                        }
+                        alertPausa.enviarAlertaPausa(alertPausa);
+                    } else if ((Integer.valueOf(new Registro().getHoraFormatada())) > Integer.valueOf(reg.getHoraPlus1hr()) && contador == 2) {
+                        contador = 0;
+                        alertPausa.enviarAlertaPausa(alertPausa);
+                    }
 
                 } catch (Exception e) {
                     Log log = new Log("ERROR_apresentar_dados", e.toString(), "Erro");

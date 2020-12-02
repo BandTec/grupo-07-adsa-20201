@@ -54,7 +54,7 @@ public class ColetaTeste {
 //            System.out.println(!inserir.selectProgramas().contains(elem));
 //        }
 
-        System.out.println(maquina.getProcessesName());
+        System.out.println(new Registro().getDataFormatada() + new Registro().getHoraFormatada());
 
 //        ColetaDados dados = new ColetaDados();
 //        
