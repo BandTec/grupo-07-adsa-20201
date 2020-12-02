@@ -1,22 +1,26 @@
 const express = require('express');
+const path = require('path');
 const app = express();
-
-
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
 const connection = require('./connection');
 const bodyParser = require('body-parser');
 
 const cors = require ('cors');
-
 const port = 3000;
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'cliente')));
 
-
-app.get('/',(req,res)=>{
+ app.use('/',(req,res)=>{
     res.send("Conectado na porta 3000");
-});
+ });
 
 app.post('/user',(req,res)=>{
     let data = [req.body.login, req.body.senha];
