@@ -22,9 +22,9 @@ public class Insertbd {
 
     Registro reg = new Registro();
     Connection con = new Connection();
-    JdbcTemplate template = new JdbcTemplate(con.getDatasource());
+    JdbcTemplate template; 
     Integer contador = 0;
-    List programas = new ArrayList();
+    List<String> programas = new ArrayList();
     Object y;
     
     public void programa(String nome){
@@ -34,13 +34,16 @@ public class Insertbd {
     public void InserirDadosComponente(double valor, String componente, String hostname) {
         try {
 
+            template = new JdbcTemplate(con.getDatasource());
+            
         Object consultaFkMaquina = template.queryForMap("SELECT codMaquina FROM tbMaquina WHERE userMaquina = ?", hostname).get("codMaquina");
-
+            System.out.println("FKMAQUINA:" + consultaFkMaquina);
         Object consultaFkComponente = template.queryForMap("SELECT codComponente FROM tbComponente WHERE descComponente = ?", componente).get("codComponente");
-
+            System.out.println("FKCOMPONENTE:" + consultaFkComponente);
         Object fkComponenteMaquina = template.queryForMap("SELECT codComponenteMaquina FROM tbComponenteMaquina WHERE fkComponente = ? AND fkMaquina = ?",
                 consultaFkComponente, consultaFkMaquina).get("codComponenteMaquina");
-
+                System.out.println("FKCOMPMAQUINA:" + fkComponenteMaquina);
+        
         template.update("INSERT INTO tbDadosComponente VALUES (?,?,?,?)", null, valor, reg.getDataFormatada() + reg.getHoraFormatada(), fkComponenteMaquina);
 
         List consulta = template.queryForList("SELECT * FROM tbDadosComponente");
@@ -122,13 +125,17 @@ public class Insertbd {
         }
     }
     
-        public List selectProgramas() {
+        public List<String> selectProgramas() {
         try {
+            
+            template = new JdbcTemplate(con.getDatasource());
+            
             programas.clear();
-            List x = template.queryForList("SELECT nomePrograma FROM tbPrograma;");
+            List x = new ArrayList();
+            x = template.queryForList("SELECT nomePrograma FROM tbPrograma");
             for (int i = 0; i < x.size(); i++) {
                 y = template.queryForList("SELECT nomePrograma FROM tbPrograma").get(i).get("nomePrograma");
-                programas.add(y);
+                programas.add(y.toString());
             }
         } catch (Exception e) {
             Log log = new Log("Erro_select_bd", e.toString(), "Erro");
@@ -136,4 +143,5 @@ public class Insertbd {
         }
         return programas;
     }
+
 }

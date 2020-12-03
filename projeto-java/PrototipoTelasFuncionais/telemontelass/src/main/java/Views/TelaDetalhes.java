@@ -33,15 +33,28 @@ public class TelaDetalhes extends javax.swing.JFrame {
     int contador = 1;
 
     public TelaDetalhes() {
-        
+
         try {
             initComponents();
             ApresentarDados();
-//            alertProcs.enviarAlertaProcesso(alertProcs);
+            verificarProcessos();
             jLabel8.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/cancel.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
         } catch (Exception e) {
             Log log = new Log("ERROR_tela_detalhes", e.toString(), "Erro");
             log.logCriation();
+        }
+    }
+
+    public void verificarProcessos() {
+        List<String> processos = new ArrayList();
+        processos = maquina.getProcessesName();
+        List<String> programas = new ArrayList();
+        programas = inserir.selectProgramas();
+
+        for (int i = 0; i < processos.size(); i++) {
+            if (!programas.contains(processos.get(i).replaceAll("\n", ""))) {
+                alertProcs.enviarAlertaProcesso(alertProcs);
+            }
         }
     }
 
@@ -89,9 +102,10 @@ public class TelaDetalhes extends javax.swing.JFrame {
                             }
                         }
                     }
-
+//                    System.out.println("INSERINDO USO DE CPU...");
                     inserir.InserirDadosComponente(maquina.getCpuUsage(), maquina.getCpu().getDesc(), maquina.getHostname());
 //                    inserir.InserirDadosComponente(maquina.getDisco().DiskUsage(0), maquina.getDisco().diskName(0), maquina.getHostname());
+//                    System.out.println("INSERINDO USO DE RAM...\n");
                     inserir.InserirDadosComponente(maquina.getMemUsage(), maquina.getMem().getDesc(), maquina.getHostname());
 
                     if (Integer.valueOf(new Registro().getHoraFormatada()) > Integer.valueOf(reg.getHoraPlus1hr()) && contador == 1) {

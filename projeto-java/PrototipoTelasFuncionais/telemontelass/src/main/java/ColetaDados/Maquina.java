@@ -4,6 +4,7 @@ import Banco.Insertbd;
 import Banco.Registro;
 import java.util.ArrayList;
 import java.util.List;
+import log.Log;
 import oshi.software.os.OSProcess;
 
 public class Maquina {
@@ -28,19 +29,19 @@ public class Maquina {
     public String getOsMaquina() {
         return osMaquina;
     }
-    
-    public String getUsers(){
+
+    public String getUsers() {
         return sessao.getUser(0);
     }
-    
-    public String getHostname(){
+
+    public String getHostname() {
         return sessao.getHostname(0);
     }
 
     public long getTimeUp() {
         return timeUp;
     }
-    
+
     public double getCpuUsage() {
         return cpu.getCpuUsage();
     }
@@ -64,20 +65,27 @@ public class Maquina {
     public Disco getDisco() {
         return disco;
     }
-    
-    public List<String> getProcessesName(){
+
+    public List<String> getProcessesName() {
         List<String> listProcs = new ArrayList();
         for (int i = 0; i < processos.getOsProcesses().size(); i++) {
 
-                OSProcess p = processos.getOsProcesses().get(i);
+            OSProcess p = processos.getOsProcesses().get(i);
 
-                listProcs.add(String.format("%s\n", p.getName()));
-                
-                insert.InserirProcessos(p.getName(), 
-                        p.getProcessCpuLoadBetweenTicks(p) / cpu.getCpu().getLogicalProcessorCount(), 
-                        p.getResidentSetSize(), 
+            listProcs.add(String.format("%s\n", p.getName()));
+
+            try {
+//                System.out.println("\nINSERINDO PROCESSOS...");
+                insert.InserirProcessos(p.getName(),
+                        p.getProcessCpuLoadBetweenTicks(p) / cpu.getCpu().getLogicalProcessorCount(),
+                        p.getResidentSetSize(),
                         this.getHostname());
-    }
+            } catch (Exception e) {
+                Log log = new Log("Erro_insert_bd", e.toString(), "Erro");
+                log.logCriation();
+            }
+
+        }
         return listProcs;
     }
 
@@ -88,5 +96,5 @@ public class Maquina {
     public Mem getMem() {
         return mem;
     }
-    
+
 }
