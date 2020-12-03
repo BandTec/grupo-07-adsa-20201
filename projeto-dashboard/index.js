@@ -211,6 +211,17 @@ app.post('/excluirPrograma',(req,res)=>{
     
 });
 
+app.post('/listarDadosCpu',(req,res)=>{
+    let data=[req.body.codMaquina];
+
+    let sql = "SELECT avg(valorDadosComponente) FROM tbDadosComponente INNER JOIN tbComponenteMaquina ON tbDadosComponente.fkComponenteMaquina = tbComponenteMaquina.codComponenteMaquina INNER JOIN tbComponente ON tbComponenteMaquina.fkComponente = tbComponente.codComponente WHERE nomeComponente = 'cpu' AND fkMaquina = ?" 
+    connection.query(sql,data,function(err,result){
+        if(err) throw err;
+        res.send(result);
+    });
+    
+});
+
 app.post('/excluirMaquina',(req,res)=>{
     let data=[req.body.codMaquina];
 

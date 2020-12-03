@@ -25,7 +25,7 @@ public class AlertHardware extends Alerts{
     
      public void enviarAlertaProcesso(AlertHardware alertaHardware, String processo){
           ColetaDados.Maquina maquina = new ColetaDados.Maquina();
-                    alertaHardware.setTipoAlerta("Programa não autorizado detectado");
+                    alertaHardware.setTipoAlerta("Programa nao autorizado detectado");
                     alertaHardware.setMensagemAlerta(String.format("Você está usando programas não autorizados (Programa: %s), uma notificação foi enviada ao seu gestor", processo));
                     JOptionPane.showMessageDialog(null, alertaHardware.getMensagemAlerta(), alertaHardware.getTipoAlerta(), JOptionPane.WARNING_MESSAGE);
                     try {
@@ -41,7 +41,7 @@ public class AlertHardware extends Alerts{
     }
      
     public void enviarAlertaMemoria(AlertHardware alertaHardware){
-        alertaHardware.setTipoAlerta("Problema com Memória RAM");
+        alertaHardware.setTipoAlerta("Problema com Memoria RAM");
         alertaHardware.setMensagemAlerta("Sua memória está apresentando problemas, envie uma notificação ao seu gestor");
         JOptionPane.showMessageDialog(null, alertaHardware.getMensagemAlerta(), alertaHardware.getTipoAlerta(), JOptionPane.ERROR_MESSAGE);
         try {
