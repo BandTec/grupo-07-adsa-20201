@@ -56,10 +56,7 @@ public class Insertbd {
             Object consultaFkMaquina = template.queryForMap("SELECT codMaquina FROM tbMaquina WHERE userMaquina = ?", hostname).get("codMaquina");
             Object count = template.queryForMap("SELECT COUNT(codProcesso) AS registros FROM tbProcessos; ").get("registros");
 
-                System.out.println("ENTROU NO IF COUNT");
-
                 if (!selectProgramas().contains(name)) {
-                    System.out.println("N COMTEM");
                     template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)",
                             null,
                             name,
@@ -69,7 +66,6 @@ public class Insertbd {
                             consultaFkMaquina,
                             0);
                 } else {
-                    System.out.println("COMTEM");
                     template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)",
                             null,
                             name,
@@ -83,7 +79,6 @@ public class Insertbd {
                 List consulta = template.queryForList("SELECT * FROM tbProcessos");
 
         } catch (Exception e) {
-            System.out.println("TENTOU GERAR LOG");
             Log log = new Log("Erro_insert_bd", e.toString(), "Erro");
             log.logCriation();
         }
