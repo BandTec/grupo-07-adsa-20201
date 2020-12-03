@@ -77,7 +77,7 @@ public class Maquina {
             try {
 //                System.out.println("\nINSERINDO PROCESSOS...");
                 insert.InserirProcessos(p.getName(),
-                        p.getProcessCpuLoadBetweenTicks(p) / cpu.getCpu().getLogicalProcessorCount(),
+                        p.getProcessCpuLoadBetweenTicks(p),
                         p.getResidentSetSize(),
                         this.getHostname());
             } catch (Exception e) {

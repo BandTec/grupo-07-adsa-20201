@@ -55,6 +55,8 @@ public class Insertbd {
 
     public void InserirProcessos(String name, double usoCpu, double usoMem, String hostname) {
         try {
+            
+            template = new JdbcTemplate(con.getDatasource());
 
             Object consultaFkMaquina = template.queryForMap("SELECT codMaquina FROM tbMaquina WHERE userMaquina = ?", hostname).get("codMaquina");
             Object count = template.queryForMap("SELECT COUNT(codProcesso) AS registros FROM tbProcessos; ").get("registros");
