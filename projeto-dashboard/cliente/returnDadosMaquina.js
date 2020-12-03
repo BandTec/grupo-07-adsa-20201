@@ -189,4 +189,3 @@ function listarMaquina(){
     
 
    formMaquina.addEventListener("submit", addMaquina); 
-

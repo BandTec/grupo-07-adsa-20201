@@ -1,6 +1,6 @@
 
 
 function sair(){
-    window.location.assign("../../cliente/index.html");
+    window.location.assign('../../index.html');
 }
 

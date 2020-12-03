@@ -16,7 +16,7 @@
                     console.log(ajax.responseText);
                     var jsonString = JSON.parse(ajax.responseText);
                     if((jsonString[0].id) > 0){
-                        window.location.assign('../dash/examples/dashboard.html');
+                        window.location.assign('/dash/examples/dashboard.html');
                     }else {
                         msgErroLogin.innerHTML =  'Email ou login incorretos. Por favor, tente novamente';
                         msgErroLogin.style.color = 'red';
