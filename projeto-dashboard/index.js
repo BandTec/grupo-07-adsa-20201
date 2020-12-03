@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 const cors = require ('cors');
 const port = 3000;
 
+var today = `${new Date().getFullYear()}-${new Date().getMonth()+1}-${String(new Date().getDate()).padStart(2, '0')}`;
+
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
@@ -240,10 +242,20 @@ app.post('/editarComponente',(req,res)=>{
     connection.query(sql,data,function(err,result){
         if(err) throw err;
         res.send(result);
+
     });
     
 });
 
+app.get('/getProcessNamebyCount',(req,res)=>{
+
+    let sql = `select nomeProcesso, count(nomeProcesso) as count from tbProcessos where registroProcesso like '${today} %' group by nomeProcesso order by count desc limit 6;`
+    connection.query(sql,function(err,result){
+        if(err) throw err;
+        res.send(result);
+    });
+    
+});
 
 app.listen(process.env.PORT || port, function(){
     console.log('Servidor rodando na porta '+port);
