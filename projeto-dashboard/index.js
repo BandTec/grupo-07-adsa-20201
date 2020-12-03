@@ -14,9 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'cliente')));
 
- app.use('/',(req,res)=>{
-    res.send("Conectado na porta 3000");
- });
+
 
 app.post('/user',(req,res)=>{
     let data = [req.body.login, req.body.senha];
