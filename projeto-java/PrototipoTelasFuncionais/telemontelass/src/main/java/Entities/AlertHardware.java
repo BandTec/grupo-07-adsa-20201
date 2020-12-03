@@ -23,10 +23,10 @@ public class AlertHardware extends Alerts{
         JOptionPane.showMessageDialog(null, alertaHardware.getMensagemAlerta(), alertaHardware.getTipoAlerta(), JOptionPane.ERROR_MESSAGE);  
     }
     
-     public void enviarAlertaProcesso(AlertHardware alertaHardware){
+     public void enviarAlertaProcesso(AlertHardware alertaHardware, String processo){
           ColetaDados.Maquina maquina = new ColetaDados.Maquina();
                     alertaHardware.setTipoAlerta("Programa não autorizado detectado");
-                    alertaHardware.setMensagemAlerta("Você está usando programas não autorizados, uma notificação foi enviada ao seu gestor");
+                    alertaHardware.setMensagemAlerta(String.format("Você está usando programas não autorizados (Programa: %s), uma notificação foi enviada ao seu gestor", processo));
                     JOptionPane.showMessageDialog(null, alertaHardware.getMensagemAlerta(), alertaHardware.getTipoAlerta(), JOptionPane.WARNING_MESSAGE);
                     try {
                         Log log = new Log(alertaHardware.getTipoAlerta(), alertaHardware.getMensagemAlerta(), "Alerta");

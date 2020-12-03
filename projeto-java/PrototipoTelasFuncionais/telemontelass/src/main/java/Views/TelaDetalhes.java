@@ -53,7 +53,7 @@ public class TelaDetalhes extends javax.swing.JFrame {
 
         for (int i = 0; i < processos.size(); i++) {
             if (!programas.contains(processos.get(i).replaceAll("\n", ""))) {
-                alertProcs.enviarAlertaProcesso(alertProcs);
+                alertProcs.enviarAlertaProcesso(alertProcs, processos.get(i).replaceAll("\n", ""));
             }
         }
     }
