@@ -37,7 +37,7 @@ public class ColetaTeste {
         Maquina maquina = new Maquina();
         Insertbd banco = new Insertbd();
         
-        banco.inserirPrograma("bash");
+        banco.inserirPrograma("dockerd");
 //
 //        System.out.println(cpu.getComp());
 //        System.out.println(mem.getComp());
