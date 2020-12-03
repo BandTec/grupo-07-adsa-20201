@@ -59,7 +59,7 @@ public class Insertbd {
             System.out.println(consultaFkMaquina);
             Object count = template.queryForMap("SELECT COUNT(codProcesso) AS registros FROM tbProcessos; ").get("registros");
             System.out.println(count);
-            if ((int) count < 100) {
+
                 System.out.println("ENTROU NO IF COUNT");
 
                 if (!selectProgramas().contains(name)) {
@@ -86,32 +86,6 @@ public class Insertbd {
 
                 List consulta = template.queryForList("SELECT * FROM tbProcessos");
 
-            } else {
-                System.out.println("VAI DAR TRUNCATE");
-                template.update("TRUNCATE TABLE tbProcessos;");
-
-                if (!selectProgramas().contains(name)) {
-                    System.out.println("N COMTEM");
-                    template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)",
-                            null,
-                            name,
-                            usoCpu,
-                            usoMem,
-                            reg.getDataFormatada() + reg.getHoraFormatada(),
-                            consultaFkMaquina,
-                            0);
-                } else {
-                    System.out.println("COMTEM");
-                    template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)",
-                            null,
-                            name,
-                            usoCpu,
-                            usoMem,
-                            reg.getDataFormatada() + reg.getHoraFormatada(),
-                            consultaFkMaquina,
-                            1);
-                }
-            }
         } catch (Exception e) {
             System.out.println("TENTOU GERAR LOG");
             Log log = new Log("Erro_insert_bd", e.toString(), "Erro");
