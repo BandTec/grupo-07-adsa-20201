@@ -15,7 +15,7 @@ import log.Log;
  * @author Gabriel
  */
 public class Slack {
-    private String URL = "https://hooks.slack.com/services/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";
+    private String URL = "https://hooks.slack.com/services/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2"; //apagar o ultimo digito
     
     public void sendMessage(JSONObject message){
         try {
