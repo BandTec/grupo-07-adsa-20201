@@ -208,9 +208,9 @@ The above copyright notice and this permission notice shall be included in all c
               </div>
               
               <div class="card-body table-responsive">
-                <table class="table table-hover">
+                <table class="table table-hover" id="tableMaquina">
                   <form class="navbar-form">
-                    <div class="input-group no-border">
+                    <div class="input-group no-border" >
                       <input type="text" value="" class="form-control" placeholder="Pesquisar...">
                       <button type="submit" class="btn btn-white btn-round btn-just-icon">
                         <i class="material-icons">search</i>
@@ -218,167 +218,16 @@ The above copyright notice and this permission notice shall be included in all c
                       </button>
                     </div>
                   </form>
-                  <thead class="text-danger">
-                    <th>ID</th>
-                    <th>Máquina</th>
-                    <th>Status</th>
-                    <th>Ações</th>
+                  <thead class="text-danger" id="textDangerMaquina" name="textDangerMaquina">
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Maquina 1</td>
-                      <td><i class="material-icons text-danger" >fiber_manual_record</i></td>
-                      <td><button type="submit" class="btn btn-primary">Detalhes</button></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Maquina 2</td>
-                      <td><i class="material-icons text-danger" >fiber_manual_record</i></td>
-                      <td><button type="submit" class="btn btn-primary">Detalhes</button></td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Maquina 3</td>
-                      <td><i class="material-icons text-danger" >fiber_manual_record</i></td>
-                      <td><button type="submit" class="btn btn-primary">Detalhes</button></td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>Maquina 4</td>
-                      <td><i class="material-icons text-success" >fiber_manual_record</i></td>
-                      <td><button type="submit" class="btn btn-primary">Detalhes</button></td>
-                    </tr>
-                    <tr>
-                      <td>5</td>
-                      <td>Maquina 5</td>
-                      <td><i class="material-icons text-success" >fiber_manual_record</i></td>
-                      <td><button type="submit" class="btn btn-primary">Detalhes</button></td>
-                    </tr>
-                    <tr>
-                      <td>6</td>
-                      <td>Maquina 6</td>
-                      <td><i class="material-icons text-success" >fiber_manual_record</i></td>
-                      <td><button type="submit" class="btn btn-primary">Detalhes</button></td>
-                    </tr>
-                    <tr>
-                      <td>7</td>
-                      <td>Maquina 7</td>
-                      <td><i class="material-icons text-success" >fiber_manual_record</i></td>
-                      <td><button type="submit" class="btn btn-primary">Detalhes</button></td>
-                    </tr>
-                    <tr>
-                      <td>8</td>
-                      <td>Maquina 8</td>
-                      <td><i class="material-icons text-success" >fiber_manual_record</i></td>
-                      <td><button type="submit" class="btn btn-primary">Detalhes</button></td>
-                    </tr>
-                    <tr>
-                      <td>9</td>
-                      <td>Maquina 9</td>
-                      <td><i class="material-icons text-success" >fiber_manual_record</i></td>
-                      <td><button type="submit" class="btn btn-primary">Detalhes</button></td>
-                    </tr>
-                    <tr>
-                      <td>10</td>
-                      <td>Maquina 10</td>
-                      <td><i class="material-icons text-success" >fiber_manual_record</i></td>
-                      <td><button type="submit" class="btn btn-primary">Detalhes</button></td>
-                    </tr>
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card card-chart">
-                <div class="card-header card-header-success">
-                  
-                  <div class="ct-chart" id="dailySalesChart"></div>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Daily Sales</h4>
-                  <p class="card-category">
-                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">access_time</i> updated 4 minutes ago
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-chart">
-                <div class="card-header card-header-warning">
-                  <div class="ct-chart" id="websiteViewsChart"></div>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Email Subscriptions</h4>
-                  <p class="card-category">Last Campaign Performance</p>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">access_time</i> campaign sent 2 days ago
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card card-chart">
-                <div class="card-header card-header-danger">
-                  <div class="ct-chart" id="completedTasksChart"></div>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Completed Tasks</h4>
-                  <p class="card-category">Last Campaign Performance</p>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">access_time</i> campaign sent 2 days ago
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
-      <footer class="footer">
-        <div class="container-fluid" style="display: none;">
-          <nav class="float-left">
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com">
-                  Creative Tim
-                </a>
-              </li>
-              <li>
-                <a href="https://creative-tim.com/presentation">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="http://blog.creative-tim.com">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="https://www.creative-tim.com/license">
-                  Licenses
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright float-right">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
-          </div>
-        </div>
-      </footer>
     </div>
   </div>
   <div class="fixed-plugin">
@@ -666,6 +515,75 @@ The above copyright notice and this permission notice shall be included in all c
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
       md.initDashboardPageCharts();
+      let selectMaquina = document.querySelector('#tableMaquina');
+      let textDangerMaquina = document.querySelector('#textDangerMaquina');
+
+    selectMaquina.innerHTML = "";
+    textDangerMaquina.innerHTML = "";
+    let ajax = new XMLHttpRequest();
+    ajax.open("GET","http://localhost:3000/listarMaquina",true);
+    ajax.onreadystatechange =function(){
+        if(ajax.readyState==XMLHttpRequest.DONE){
+            
+            console.log(ajax.responseText);
+            jsonString = JSON.parse(ajax.responseText);
+            var th1 = document.createElement('th');
+            var th2 = document.createElement('th');
+            var th3 = document.createElement('th');
+            var th4 = document.createElement('th');
+            var th5 = document.createElement('th');
+        
+            th1.innerHTML = "Código";
+            th2.innerHTML = "Nome";
+            th3.innerHTML = "Status";
+            th4.innerHTML = "Cadastro";
+            th5.innerHTML = "Ação";
+            
+            textDangerMaquina.appendChild(th1);
+            textDangerMaquina.appendChild(th2);
+            textDangerMaquina.appendChild(th3);
+            textDangerMaquina.appendChild(th4);
+            textDangerMaquina.appendChild(th5);
+            selectMaquina.appendChild(textDangerMaquina);
+
+
+
+            for(let i=0;i<jsonString.length;i++){
+
+                var tr = document.createElement('tr');
+                var td = document.createElement('td');
+                td.innerHTML = jsonString[i].codMaquina;
+                var tr1 = document.createElement('tr');
+                var td1 = document.createElement('td');
+                td1.innerHTML = jsonString[i].userMaquina;
+                var tr2 = document.createElement('tr');
+                var td2 = document.createElement('td');
+                td2.innerHTML = '<i class="material-icons text-success" >fiber_manual_record</i>';
+                var tr3 = document.createElement('tr');
+                var td3 = document.createElement('td');
+                td3.innerHTML = jsonString[i].dataCadastradoMaquina;
+                var tr5 = document.createElement('tr');
+                var td5 = document.createElement('td');
+                
+                td5.innerHTML = `<td><button type="submit" onclick="verDetalhes(${jsonString[i].codMaquina})" class="btn btn-primary">Detalhes</button></td>`;
+                tr.appendChild(td);
+                selectMaquina.appendChild(tr);
+                tr.appendChild(td1);
+                selectMaquina.appendChild(tr1);
+                tr.appendChild(td2);
+                selectMaquina.appendChild(tr2);
+                tr.appendChild(td3);
+                selectMaquina.appendChild(tr3);
+                tr.appendChild(td5);
+                selectMaquina.appendChild(tr5);
+                
+               
+            }
+                
+            
+        }
+    }
+    ajax.send();
 
     });
   </script>
