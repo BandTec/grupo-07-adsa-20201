@@ -52,13 +52,9 @@ public class Insertbd {
 
     public void InserirProcessos(String name, double usoCpu, double usoMem, String hostname) {
         try {
-            System.out.println("ENTROU NO TRY");
             template = new JdbcTemplate(con.getDatasource());
-            System.out.println("CONECTOU");
             Object consultaFkMaquina = template.queryForMap("SELECT codMaquina FROM tbMaquina WHERE userMaquina = ?", hostname).get("codMaquina");
-            System.out.println(consultaFkMaquina);
             Object count = template.queryForMap("SELECT COUNT(codProcesso) AS registros FROM tbProcessos; ").get("registros");
-            System.out.println(count);
 
                 System.out.println("ENTROU NO IF COUNT");
 
@@ -120,6 +116,13 @@ public class Insertbd {
             log.logCriation();
         }
         return programas;
+    }
+    
+    public void inserirPrograma(String nome) {
+        
+        template = new JdbcTemplate(con.getDatasource());
+        
+        template.update("INSERT INTO tbPrograma VALUES (?,?)", null, nome);
     }
 
 }

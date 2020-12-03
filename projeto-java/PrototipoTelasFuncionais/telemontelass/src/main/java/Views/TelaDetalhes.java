@@ -73,6 +73,8 @@ public class TelaDetalhes extends javax.swing.JFrame {
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
                 try {
+                    
+                    verificarProcessos();
 
                     Object rowData[] = new Object[10];
 

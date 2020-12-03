@@ -37,7 +37,15 @@ public class ColetaTeste {
         Maquina maquina = new Maquina();
         Insertbd banco = new Insertbd();
         
-
+        banco.inserirPrograma("Xorg");
+        banco.inserirPrograma("xrdp");
+        banco.inserirPrograma("mysqld");
+        banco.inserirPrograma("systemd");
+        banco.inserirPrograma("x-terminal-emul");
+        banco.inserirPrograma("containerd");
+        banco.inserirPrograma("docker-proxy");
+        banco.inserirPrograma("amazon-ssm-agen");
+        banco.inserirPrograma("lxpanel");
 //
 //        System.out.println(cpu.getComp());
 //        System.out.println(mem.getComp());
