@@ -22,31 +22,28 @@ public class Insertbd {
 
     Registro reg = new Registro();
     Connection con = new Connection();
-    JdbcTemplate template; 
+    JdbcTemplate template;
     Integer contador = 0;
     List<String> programas = new ArrayList();
     Object y;
-    
-    public void programa(String nome){
-        template.update("INSERT INTO tbPrograma VALUES (?,?)",null, nome);
+
+    public void programa(String nome) {
+        template.update("INSERT INTO tbPrograma VALUES (?,?)", null, nome);
     }
 
     public void InserirDadosComponente(double valor, String componente, String hostname) {
         try {
 
             template = new JdbcTemplate(con.getDatasource());
-            
-        Object consultaFkMaquina = template.queryForMap("SELECT codMaquina FROM tbMaquina WHERE userMaquina = ?", hostname).get("codMaquina");
-            System.out.println("FKMAQUINA:" + consultaFkMaquina);
-        Object consultaFkComponente = template.queryForMap("SELECT codComponente FROM tbComponente WHERE descComponente = ?", componente).get("codComponente");
-            System.out.println("FKCOMPONENTE:" + consultaFkComponente);
-        Object fkComponenteMaquina = template.queryForMap("SELECT codComponenteMaquina FROM tbComponenteMaquina WHERE fkComponente = ? AND fkMaquina = ?",
-                consultaFkComponente, consultaFkMaquina).get("codComponenteMaquina");
-                System.out.println("FKCOMPMAQUINA:" + fkComponenteMaquina);
-        
-        template.update("INSERT INTO tbDadosComponente VALUES (?,?,?,?)", null, valor, reg.getDataFormatada() + reg.getHoraFormatada(), fkComponenteMaquina);
 
-        List consulta = template.queryForList("SELECT * FROM tbDadosComponente");
+            Object consultaFkMaquina = template.queryForMap("SELECT codMaquina FROM tbMaquina WHERE userMaquina = ?", hostname).get("codMaquina");
+            Object consultaFkComponente = template.queryForMap("SELECT codComponente FROM tbComponente WHERE descComponente = ?", componente).get("codComponente");
+            Object fkComponenteMaquina = template.queryForMap("SELECT codComponenteMaquina FROM tbComponenteMaquina WHERE fkComponente = ? AND fkMaquina = ?",
+                    consultaFkComponente, consultaFkMaquina).get("codComponenteMaquina");
+
+            template.update("INSERT INTO tbDadosComponente VALUES (?,?,?,?)", null, valor, reg.getDataFormatada() + reg.getHoraFormatada(), fkComponenteMaquina);
+
+            List consulta = template.queryForList("SELECT * FROM tbDadosComponente");
         } catch (Exception e) {
             Log log = new Log("Erro_insert_bd", e.toString(), "Erro");
             log.logCriation();
@@ -55,63 +52,68 @@ public class Insertbd {
 
     public void InserirProcessos(String name, double usoCpu, double usoMem, String hostname) {
         try {
-            
+            System.out.println("ENTROU NO TRY");
             template = new JdbcTemplate(con.getDatasource());
-
+            System.out.println("CONECTOU");
             Object consultaFkMaquina = template.queryForMap("SELECT codMaquina FROM tbMaquina WHERE userMaquina = ?", hostname).get("codMaquina");
+            System.out.println(consultaFkMaquina);
             Object count = template.queryForMap("SELECT COUNT(codProcesso) AS registros FROM tbProcessos; ").get("registros");
-            
+            System.out.println(count);
             if ((int) count < 100) {
-                
-                if (!selectProgramas().contains(name)) {
-                    
-                    template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)", 
-                            null, 
-                            name, 
-                            usoCpu, 
-                            usoMem, 
-                            reg.getDataFormatada() + reg.getHoraFormatada(), 
-                            consultaFkMaquina,
-                            0);
-                }else{
-                    
-                template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)", 
-                        null, 
-                        name, 
-                        usoCpu, 
-                        usoMem, 
-                        reg.getDataFormatada() + reg.getHoraFormatada(), 
-                        consultaFkMaquina,
-                        1);}
-                
-                List consulta = template.queryForList("SELECT * FROM tbProcessos");
-                
-            } else {
+                System.out.println("ENTROU NO IF COUNT");
 
-                template.update("TRUNCATE TABLE tbProcessos;");
-                
                 if (!selectProgramas().contains(name)) {
-                    
-                    template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)", 
-                            null, 
-                            name, 
-                            usoCpu, 
-                            usoMem, 
-                            reg.getDataFormatada() + reg.getHoraFormatada(), 
+                    System.out.println("N COMTEM");
+                    template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)",
+                            null,
+                            name,
+                            usoCpu,
+                            usoMem,
+                            reg.getDataFormatada() + reg.getHoraFormatada(),
                             consultaFkMaquina,
                             0);
-                }else{
-                    
-                template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)", 
-                        null, 
-                        name, 
-                        usoCpu, 
-                        usoMem, 
-                        reg.getDataFormatada() + reg.getHoraFormatada(), 
-                        consultaFkMaquina,
-                        1);}
+                } else {
+                    System.out.println("COMTEM");
+                    template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)",
+                            null,
+                            name,
+                            usoCpu,
+                            usoMem,
+                            reg.getDataFormatada() + reg.getHoraFormatada(),
+                            consultaFkMaquina,
+                            1);
+                }
+
+                List consulta = template.queryForList("SELECT * FROM tbProcessos");
+
+            } else {
+                System.out.println("VAI DAR TRUNCATE");
+                template.update("TRUNCATE TABLE tbProcessos;");
+
+                if (!selectProgramas().contains(name)) {
+                    System.out.println("N COMTEM");
+                    template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)",
+                            null,
+                            name,
+                            usoCpu,
+                            usoMem,
+                            reg.getDataFormatada() + reg.getHoraFormatada(),
+                            consultaFkMaquina,
+                            0);
+                } else {
+                    System.out.println("COMTEM");
+                    template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)",
+                            null,
+                            name,
+                            usoCpu,
+                            usoMem,
+                            reg.getDataFormatada() + reg.getHoraFormatada(),
+                            consultaFkMaquina,
+                            1);
+                }
             }
-        } catch (Exception e) {;
+        } catch (Exception e) {
+            System.out.println("TENTOU GERAR LOG");
             Log log = new Log("Erro_insert_bd", e.toString(), "Erro");
             log.logCriation();
         }
@@ -119,19 +121,19 @@ public class Insertbd {
 
     public void InserirComponente(String tipo, String desc) {
         try {
-        template.update("INSERT INTO tbComponente VALUES (?,?,?)", null, tipo, desc);
-        List consulta = template.queryForList("SELECT * FROM tbComponente");
+            template.update("INSERT INTO tbComponente VALUES (?,?,?)", null, tipo, desc);
+            List consulta = template.queryForList("SELECT * FROM tbComponente");
         } catch (Exception e) {
             Log log = new Log("Erro_insert_bd", e.toString(), "Erro");
             log.logCriation();
         }
     }
-    
-        public List<String> selectProgramas() {
+
+    public List<String> selectProgramas() {
         try {
-            
+
             template = new JdbcTemplate(con.getDatasource());
-            
+
             programas.clear();
             List x = new ArrayList();
             x = template.queryForList("SELECT nomePrograma FROM tbPrograma");
