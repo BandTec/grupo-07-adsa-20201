@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 C:\Users\Markz\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\slack\TesteSlack.java
 C:\Users\Markz\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Entities\Usuario.java
 C:\Users\Markz\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\Mem.java
@@ -26,32 +25,3 @@ C:\Users\Markz\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais
 C:\Users\Markz\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Views\TelaLogin.java
 C:\Users\Markz\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\slack\SendSlackMessage.java
 C:\Users\Markz\Desktop\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Banco\object.java
-=======
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Views\TelaLogin.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\Sessao.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Entities\AlertMensagemMotivadora.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Banco\Insertbd.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\Componente.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Entities\AlertRelatorio.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Entities\AlertHardware.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\slack\TesteSlack.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\Disco.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Banco\object.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\Rede.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Banco\Registro.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\slack\SlackMessage.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Views\TelaDetalhes.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Banco\Connection.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\slack\SlackUtils.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\slack\SendSlackMessage.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\slack\Slack.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\log\Log.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Entities\Alerts.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\Maquina.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\Mem.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Entities\AlertPausa.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\SistemaOperacional.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\Cpu.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\ColetaDados\Processos.java
-C:\Users\Pichau\Desktop\Projeto\grupo-07-adsa-20201\projeto-java\PrototipoTelasFuncionais\telemontelass\src\main\java\Entities\Usuario.java
->>>>>>> ce9742376de041ac5da9c74412bfa581baf418d2

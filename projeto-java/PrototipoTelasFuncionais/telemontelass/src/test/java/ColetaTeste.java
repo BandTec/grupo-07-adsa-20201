@@ -30,12 +30,15 @@ public class ColetaTeste {
 
     public static void main(String[] args) throws InterruptedException {
 
-        Cpu cpu = new Cpu("cpu");
+//        Cpu cpu = new Cpu("cpu");
 //        Mem mem = new Mem("ram");
 //        Disco disco = new Disco();
-        Sessao session = new Sessao();
-        Maquina maquina = new Maquina();
-        Insertbd banco = new Insertbd();
+//        Processos procs = new Processos();
+//        Sessao session = new Sessao();
+//        Maquina maquina = new Maquina();
+//        Insertbd banco = new Insertbd();
+        
+        System.out.println("hello world!");
         
 //        banco.inserirPrograma("opera");
 //        banco.inserirPrograma("audiodg");

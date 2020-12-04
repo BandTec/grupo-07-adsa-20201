@@ -13,6 +13,7 @@ import log.Log;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import log.Log;
+import oshi.software.os.OSProcess;
 
 /**
  *
@@ -20,6 +21,7 @@ import log.Log;
  */
 public class Insertbd {
 
+    Maquina maquina = new Maquina();
     Registro reg = new Registro();
     Connection con = new Connection();
     JdbcTemplate template;
@@ -33,61 +35,57 @@ public class Insertbd {
 
     public void InserirDadosComponente(double valor, String componente, String hostname) {
         try {
-            
-            System.out.println("ENTROU NO TRY");
+
 
             template = new JdbcTemplate(con.getDatasource());
-            
-            System.out.println("CONECTOU");
+
 
             Object consultaFkMaquina = template.queryForMap("SELECT codMaquina FROM tbMaquina WHERE userMaquina = ?", hostname).get("codMaquina");
-            System.out.println("MAQUINA:" + consultaFkMaquina);
-            
+
             Object consultaFkComponente = template.queryForMap("SELECT codComponente FROM tbComponente WHERE descComponente = ?", componente).get("codComponente");
-            System.out.println("COMPONENTE:" + consultaFkComponente);
-            
+
             Object fkComponenteMaquina = template.queryForMap("SELECT codComponenteMaquina FROM tbComponenteMaquina WHERE fkComponente = ? AND fkMaquina = ?",
                     consultaFkComponente, consultaFkMaquina).get("codComponenteMaquina");
-            System.out.println("COMPONENTEMAQUINA:" + fkComponenteMaquina);
-            
-            
 
             template.update("INSERT INTO tbDadosComponente VALUES (?,?,?,?)", null, valor, reg.getDataFormatada() + reg.getHoraFormatada(), fkComponenteMaquina);
 
-            List consulta = template.queryForList("SELECT * FROM tbDadosComponente");
         } catch (Exception e) {
             Log log = new Log("Erro_insert_bd", e.toString(), "Erro");
             log.logCriation();
         }
     }
 
+//    public void adquirirProcsssos(OSProcess p) {
+//        System.out.println("ADQUIRINDO PROCESSOS...");
+//        
+//    }
+
     public void InserirProcessos(String name, double usoCpu, double usoMem, String hostname) {
         try {
+            
             template = new JdbcTemplate(con.getDatasource());
             Object consultaFkMaquina = template.queryForMap("SELECT codMaquina FROM tbMaquina WHERE userMaquina = ?", hostname).get("codMaquina");
             Object count = template.queryForMap("SELECT COUNT(codProcesso) AS registros FROM tbProcessos; ").get("registros");
 
-                if (!selectProgramas().contains(name)) {
-                    template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)",
-                            null,
-                            name,
-                            usoCpu,
-                            usoMem,
-                            reg.getDataFormatada() + reg.getHoraFormatada(),
-                            consultaFkMaquina,
-                            0);
-                } else {
-                    template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)",
-                            null,
-                            name,
-                            usoCpu,
-                            usoMem,
-                            reg.getDataFormatada() + reg.getHoraFormatada(),
-                            consultaFkMaquina,
-                            1);
-                }
-
-                List consulta = template.queryForList("SELECT * FROM tbProcessos");
+            if (!selectProgramas().contains(name)) {
+                template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)",
+                        null,
+                        name,
+                        usoCpu,
+                        usoMem,
+                        reg.getDataFormatada() + reg.getHoraFormatada(),
+                        consultaFkMaquina,
+                        0);
+            } else {
+                template.update("INSERT INTO tbProcessos VALUES (?,?,?,?,?,?,?)",
+                        null,
+                        name,
+                        usoCpu,
+                        usoMem,
+                        reg.getDataFormatada() + reg.getHoraFormatada(),
+                        consultaFkMaquina,
+                        1);
+            }
 
         } catch (Exception e) {
             Log log = new Log("Erro_insert_bd", e.toString(), "Erro");
@@ -98,7 +96,6 @@ public class Insertbd {
     public void InserirComponente(String tipo, String desc) {
         try {
             template.update("INSERT INTO tbComponente VALUES (?,?,?)", null, tipo, desc);
-            List consulta = template.queryForList("SELECT * FROM tbComponente");
         } catch (Exception e) {
             Log log = new Log("Erro_insert_bd", e.toString(), "Erro");
             log.logCriation();
@@ -123,11 +120,11 @@ public class Insertbd {
         }
         return programas;
     }
-    
+
     public void inserirPrograma(String nome) {
-        
+
         template = new JdbcTemplate(con.getDatasource());
-        
+
         template.update("INSERT INTO tbPrograma VALUES (?,?)", null, nome);
     }
 

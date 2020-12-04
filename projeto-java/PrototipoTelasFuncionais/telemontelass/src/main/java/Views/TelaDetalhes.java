@@ -31,17 +31,14 @@ public class TelaDetalhes extends javax.swing.JFrame {
     private Processos processos = new Processos();
     Registro reg = new Registro();
     int contador = 1;
-    private TelaDetalhes detalhes;
     
     public TelaDetalhes() {
 
         try {
              initComponents();
-            if (detalhes.isVisible()) {
             ApresentarDados();
-            verificarProcessos();
+//            verificarProcessos();
             jLabel8.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/cancel.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
-            }
             
         } catch (Exception e) {
             Log log = new Log("ERROR_tela_detalhes", e.toString(), "Erro");
@@ -78,7 +75,7 @@ public class TelaDetalhes extends javax.swing.JFrame {
             public void run() {
                 try {
                     
-                    verificarProcessos();
+//                    verificarProcessos();
 
                     Object rowData[] = new Object[10];
 
@@ -108,6 +105,10 @@ public class TelaDetalhes extends javax.swing.JFrame {
                             }
                         }
                     }
+                    
+//                    System.out.println("ENVIANDO PROCESSOS...");
+//                    maquina.enviarProcessos();
+                    
                     System.out.println("INSERINDO USO DE CPU...");
                     inserir.InserirDadosComponente(maquina.getCpuUsage(), maquina.getCpu().getDesc(), maquina.getHostname());
 //                    inserir.InserirDadosComponente(maquina.getDisco().DiskUsage(0), maquina.getDisco().diskName(0), maquina.getHostname());

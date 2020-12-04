@@ -75,12 +75,14 @@ public class Maquina {
             listProcs.add(String.format("%s\n", p.getName()));
 
             try {
-//                System.out.println("\nINSERINDO PROCESSOS...");
+                System.out.println("ENTROU NO TRY");
+                System.out.println("\nINSERINDO PROCESSOS...");
                 insert.InserirProcessos(p.getName(),
                         p.getProcessCpuLoadBetweenTicks(p),
                         p.getResidentSetSize(),
                         this.getHostname());
             } catch (Exception e) {
+                System.out.println("GEROU LOG");
                 Log log = new Log("Erro_insert_bd", e.toString(), "Erro");
                 log.logCriation();
             }
@@ -89,6 +91,14 @@ public class Maquina {
         return listProcs;
     }
 
+//    public void enviarProcessos() {
+//        
+//        for (int i = 0; i < processos.getOsProcesses().size(); i++) {
+//            System.out.println("ENTROU NO FOR");
+//            OSProcess p = processos.getOsProcesses().get(i);
+//            insert.adquirirProcsssos(p);
+//        }
+//    }
     public Cpu getCpu() {
         return cpu;
     }
