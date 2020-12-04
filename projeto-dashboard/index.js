@@ -10,6 +10,8 @@ const port = 3000;
 
 var today = `${new Date().getFullYear()}-${new Date().getMonth()+1}-${String(new Date().getDate()).padStart(2, '0')}`;
 
+var today2 = `${new Date().getFullYear()}${new Date().getMonth()+1}${String(new Date().getDate()).padStart(2, '0')}`;
+
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
@@ -216,7 +218,18 @@ app.post('/excluirPrograma',(req,res)=>{
 app.post('/listarDadosCpu',(req,res)=>{
     let data=[req.body.codMaquina];
 
-    let sql = "SELECT avg(valorDadosComponente) FROM tbDadosComponente INNER JOIN tbComponenteMaquina ON tbDadosComponente.fkComponenteMaquina = tbComponenteMaquina.codComponenteMaquina INNER JOIN tbComponente ON tbComponenteMaquina.fkComponente = tbComponente.codComponente WHERE nomeComponente = 'cpu' AND fkMaquina = ?" 
+    let sql = `SELECT avg(valorDadosComponente) as 'mediaCpu' FROM tbDadosComponente INNER JOIN tbComponenteMaquina ON tbDadosComponente.fkComponenteMaquina = tbComponenteMaquina.codComponenteMaquina INNER JOIN tbComponente ON tbComponenteMaquina.fkComponente = tbComponente.codComponente WHERE nomeComponente = 'cpu' AND fkMaquina = ? AND registroDadosComponente like '${today2}%' `
+    connection.query(sql,data,function(err,result){
+        if(err) throw err;
+        res.send(result);
+    });
+    
+});
+
+app.post('/listarDadosMem',(req,res)=>{
+    let data=[req.body.codMaquina];
+
+    let sql = `SELECT avg(valorDadosComponente) as 'mediaMem' FROM tbDadosComponente INNER JOIN tbComponenteMaquina ON tbDadosComponente.fkComponenteMaquina = tbComponenteMaquina.codComponenteMaquina INNER JOIN tbComponente ON tbComponenteMaquina.fkComponente = tbComponente.codComponente WHERE nomeComponente = 'ram' AND fkMaquina = ? AND registroDadosComponente like '${today2}%' `
     connection.query(sql,data,function(err,result){
         if(err) throw err;
         res.send(result);

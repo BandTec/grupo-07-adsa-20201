@@ -4,22 +4,51 @@ function sair(){
     window.location.assign('../../index.html');
 }
 
-function verDetalhes(cod){
-    alert("chegou aqui");
-    let ajax = new XMLHttpRequest();
-    let params = "codMaquina=" + cod;
+function getAvgComponents(cod){
 
-    ajax.open("POST", "http://localhost:3000/listarDadosCpu");
-    ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    ajax.onreadystatechange = function () {
-        if (ajax.status == 200 & ajax.readyState == 4) {
+            tableMaquina.style.display = 'none';
+
+            fetch("http://localhost:3000/listarDadosMem", { 
+        
+            method: "POST", 
+
+            body: JSON.stringify({  
+                codMaquina: cod 
+            }), 
+
+            headers: { 
+                "Content-type": "application/json; charset=UTF-8"
+            } 
+        }).then(response =>
+
+            response.json().then(res => {
+                const processos = res
+                gerarGraficoMem(processos[0].mediaMem);
+            }))
+
+            fetch("http://localhost:3000/listarDadosCpu", { 
+                
+                method: "POST", 
+                
+                body: JSON.stringify({  
+                    codMaquina: cod 
+                }), 
+                
+                headers: { 
+                    "Content-type": "application/json; charset=UTF-8"
+                } 
+            }).then(response =>
             
-            var jsonString = JSON.parse(ajax.responseText);
-            console.log(jsonString);
-        }
+            response.json().then(res => {
+                const processos = res
+                gerarGraficoCpu(processos[0].mediaCpu);
+                
+            }))
 
-    }
-ajax.send(params);
+
 
 }
+
+
+
 

@@ -138,10 +138,6 @@ The above copyright notice and this permission notice shall be included in all c
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
-                    
-                    <a href="javascript:;">Ver mais</a>
-                  </div>
                 </div>
                
               </div>
@@ -158,10 +154,6 @@ The above copyright notice and this permission notice shall be included in all c
                   </h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons text-danger">warning</i>
-                    <a href="javascript:;">Ver detalhes</a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -175,9 +167,7 @@ The above copyright notice and this permission notice shall be included in all c
                   <h3 class="card-title">12 <small>programas</small></h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">local_offer</i> Ver mais
-                  </div>
+                  
                 </div>
               </div>
             </div>
@@ -191,9 +181,6 @@ The above copyright notice and this permission notice shall be included in all c
                   <h3 class="card-title">3 <small>pessoas</small></h3>
                 </div>
                 <div class="card-footer">
-                  <div class="stats">
-                    <i class="material-icons">update</i> Ver mais
-                  </div>
                 </div>
               </div>
             </div>
@@ -224,6 +211,8 @@ The above copyright notice and this permission notice shall be included in all c
                   </tbody>
                 </table>
               </div>
+              <canvas id="ChartCpu"></canvas>
+              <canvas id="ChartMem"></canvas>
             </div>
           </div>
         </div>
@@ -297,7 +286,9 @@ The above copyright notice and this permission notice shall be included in all c
     </div>
   </div>
   <!--   Core JS Files   -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="acoes.js"></script>
+  <script src="graficoDetalhes.js"></script>
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
@@ -525,7 +516,7 @@ The above copyright notice and this permission notice shall be included in all c
     ajax.onreadystatechange =function(){
         if(ajax.readyState==XMLHttpRequest.DONE){
             
-            console.log(ajax.responseText);
+            
             jsonString = JSON.parse(ajax.responseText);
             var th1 = document.createElement('th');
             var th2 = document.createElement('th');
@@ -565,7 +556,7 @@ The above copyright notice and this permission notice shall be included in all c
                 var tr5 = document.createElement('tr');
                 var td5 = document.createElement('td');
                 
-                td5.innerHTML = `<td><button type="submit" onclick="verDetalhes(${jsonString[i].codMaquina})" class="btn btn-primary">Detalhes</button></td>`;
+                td5.innerHTML = `<td><button type="submit" onclick="getAvgComponents(${jsonString[i].codMaquina})" class="btn btn-primary">Detalhes</button></td>`;
                 tr.appendChild(td);
                 selectMaquina.appendChild(tr);
                 tr.appendChild(td1);

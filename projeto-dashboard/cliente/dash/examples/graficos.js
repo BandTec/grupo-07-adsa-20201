@@ -1,7 +1,6 @@
 
-
+    
 var ctx = document.getElementById('myChart');
-
 fetch("http://localhost:3000/getProcessNamebyCount").then(response => {
     if(response.ok){
         response.json().then(res => {
@@ -56,4 +55,5 @@ fetch("http://localhost:3000/getProcessNamebyCount").then(response => {
 
         })
     }
-})
+});
+
