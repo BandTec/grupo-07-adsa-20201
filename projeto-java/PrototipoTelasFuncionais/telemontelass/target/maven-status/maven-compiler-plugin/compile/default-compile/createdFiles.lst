@@ -6,6 +6,7 @@ Views\TelaLogin$6.class
 Entities\AlertRelatorio.class
 Entities\Alerts.class
 Views\TelaLogin$3.class
+Entities\AlertMensagemMotivadora.class
 slack\TesteSlack.class
 ColetaDados\Sessao.class
 Views\TelaLogin.class
@@ -15,14 +16,17 @@ Entities\AlertPausa.class
 Views\TelaLogin$7.class
 Views\TelaDetalhes.class
 Views\TelaLogin$1.class
+slack\SlackUtils.class
 Views\TelaDetalhes$1.class
 slack\SlackMessage$Builder.class
 ColetaDados\Rede.class
 ColetaDados\Disco.class
 Banco\Insertbd.class
 Entities\Usuario.class
+slack\SlackMessage.class
 ColetaDados\Cpu.class
 ColetaDados\Mem.class
+slack\SendSlackMessage.class
 Views\TelaLogin$2.class
 Banco\object.class
 ColetaDados\Processos.class
