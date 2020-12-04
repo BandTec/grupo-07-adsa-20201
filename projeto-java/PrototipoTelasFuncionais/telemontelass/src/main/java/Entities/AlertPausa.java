@@ -15,7 +15,7 @@ public class AlertPausa extends Alerts{
     
         public void enviarAlertaPausa(Alerts alertaPausa){
             alertaPausa.setTipoAlerta("Pausa");
-            alertaPausa.setMensagemAlerta("Você tem direito a uma pausa de 10 minutos");
+            alertaPausa.setMensagemAlerta("Victoria, voce tem direito a uma pausa de 10 minutos");
             JOptionPane.showMessageDialog(null, alertaPausa.getMensagemAlerta(), alertaPausa.getTipoAlerta(), JOptionPane.INFORMATION_MESSAGE);  
     }
    

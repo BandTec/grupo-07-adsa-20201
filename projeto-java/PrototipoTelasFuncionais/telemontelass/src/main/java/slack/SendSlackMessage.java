@@ -8,6 +8,7 @@ package slack;
 import java.util.Timer;
 import java.util.TimerTask;
 import Entities.AlertMensagemMotivadora;
+import Entities.AlertPausa;
 
 /**
  *
@@ -17,7 +18,7 @@ public class SendSlackMessage {
     public static void main(String[] args) {
         Timer timer = new Timer();
         Integer delay = 5000;
-        Integer interval = 300000;
+        Integer interval = 30000;
            
         timer.scheduleAtFixedRate(new TimerTask() {
         public void run() {
@@ -38,4 +39,15 @@ public class SendSlackMessage {
               .build();
             SlackUtils.sendMessage(slackMessage);
         }
+    
+    public static void enviarNotificacoesPausa(){
+        AlertPausa pausa = new AlertPausa();
+        pausa.enviarAlertaPausa(pausa);
+           SlackMessage slackMessage = SlackMessage.builder()
+              .channel("#outros-assuntos")
+              .user("Telebot")
+              .text(pausa.getMensagemAlerta())
+              .build();
+            SlackUtils.sendMessage(slackMessage);
+    }
 }
