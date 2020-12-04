@@ -1,12 +1,14 @@
 
 
-var ctx = document.getElementById('myChart');
+const ctx = document.getElementById('myChart');
+const cpuAvg = document.getElementById('cpu-avg');
+const memAvg = document.getElementById('mem-avg');
 
 fetch("http://localhost:3000/getProcessNamebyCount").then(response => {
+
     if(response.ok){
         response.json().then(res => {
             const processos = res
-            console.log(processos[0].nomeProcesso)
 
             var myChart = new Chart(ctx, {
                 type: 'bar',
@@ -56,4 +58,28 @@ fetch("http://localhost:3000/getProcessNamebyCount").then(response => {
 
         })
     }
+})
+
+fetch("http://localhost:3000/getAvg?comp=cpu").then(response => {
+
+    if(response.ok){
+        response.json().then(res =>{
+            const avg = res
+            console.log(avg)
+            cpuAvg.innerHTML = `${Number(avg[0].media).toFixed(2)}%`
+        })
+    }
+
+})
+
+fetch("http://localhost:3000/getAvg?comp=ram").then(response => {
+
+    if(response.ok){
+        response.json().then(res =>{
+            const avg = res
+            console.log(avg)
+            memAvg.innerHTML = `${Number(avg[0].media).toFixed(2)}%`
+        })
+    }
+
 })
