@@ -104,10 +104,10 @@ public class TelaDetalhes extends javax.swing.JFrame {
                             }
                         }
                     }
-//                    System.out.println("INSERINDO USO DE CPU...");
+                    System.out.println("INSERINDO USO DE CPU...");
                     inserir.InserirDadosComponente(maquina.getCpuUsage(), maquina.getCpu().getDesc(), maquina.getHostname());
 //                    inserir.InserirDadosComponente(maquina.getDisco().DiskUsage(0), maquina.getDisco().diskName(0), maquina.getHostname());
-//                    System.out.println("INSERINDO USO DE RAM...\n");
+                    System.out.println("INSERINDO USO DE RAM...\n");
                     inserir.InserirDadosComponente(maquina.getMemUsage(), maquina.getMem().getDesc(), maquina.getHostname());
 
                     if (Integer.valueOf(new Registro().getHoraFormatada()) > Integer.valueOf(reg.getHoraPlus1hr()) && contador == 1) {

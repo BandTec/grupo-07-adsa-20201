@@ -33,13 +33,24 @@ public class Insertbd {
 
     public void InserirDadosComponente(double valor, String componente, String hostname) {
         try {
+            
+            System.out.println("ENTROU NO TRY");
 
             template = new JdbcTemplate(con.getDatasource());
+            
+            System.out.println("CONECTOU");
 
             Object consultaFkMaquina = template.queryForMap("SELECT codMaquina FROM tbMaquina WHERE userMaquina = ?", hostname).get("codMaquina");
+            System.out.println("MAQUINA:" + consultaFkMaquina);
+            
             Object consultaFkComponente = template.queryForMap("SELECT codComponente FROM tbComponente WHERE descComponente = ?", componente).get("codComponente");
+            System.out.println("COMPONENTE:" + consultaFkComponente);
+            
             Object fkComponenteMaquina = template.queryForMap("SELECT codComponenteMaquina FROM tbComponenteMaquina WHERE fkComponente = ? AND fkMaquina = ?",
                     consultaFkComponente, consultaFkMaquina).get("codComponenteMaquina");
+            System.out.println("COMPONENTEMAQUINA:" + fkComponenteMaquina);
+            
+            
 
             template.update("INSERT INTO tbDadosComponente VALUES (?,?,?,?)", null, valor, reg.getDataFormatada() + reg.getHoraFormatada(), fkComponenteMaquina);
 
