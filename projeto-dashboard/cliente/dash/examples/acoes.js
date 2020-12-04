@@ -23,7 +23,7 @@ function getAvgComponents(cod){
 
             response.json().then(res => {
                 const processos = res
-                gerarGraficoMem(processos[0].mediaMem);
+                gerarGraficoMem(Math.round(processos[0].mediaMem));
             }))
 
             fetch("http://localhost:3000/listarDadosCpu", { 
@@ -41,7 +41,7 @@ function getAvgComponents(cod){
             
             response.json().then(res => {
                 const processos = res
-                gerarGraficoCpu(processos[0].mediaCpu);
+                gerarGraficoCpu(Math.round(processos[0].mediaCpu));
                 
             }))
 

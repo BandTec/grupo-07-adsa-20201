@@ -102,7 +102,7 @@ app.post('/getValuesFuncionario',(req,res)=>{
 app.post('/addMaquina',(req,res)=>{
     let data=[req.body.nomeMaquina, req.body.modeloMaquina, req.body.dataCadastro];
 
-    let sql = "INSERT INTO tbMaquina (nomeMaquina, modeloMaquina, dataCadastroMaquina) values (?, ?, ?)"; 
+    let sql = "INSERT INTO tbMaquina (userMaquina, modeloMaquina, dataCadastradoMaquina) values (?, ?, ?)"; 
     connection.query(sql,data,function(err,result){
         if(err) throw err;
         res.send(result);
