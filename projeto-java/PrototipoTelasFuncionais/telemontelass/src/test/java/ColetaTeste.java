@@ -37,10 +37,7 @@ public class ColetaTeste {
         Maquina maquina = new Maquina();
         Insertbd banco = new Insertbd();
         
-//        banco.inserirPrograma("opera");
-//        banco.inserirPrograma("audiodg");
-//        banco.inserirPrograma("dwm");
-//        banco.inserirPrograma("Idle");
+//        banco.inserirPrograma("");
 //
 //        System.out.println(cpu.getComp());
 //        System.out.println(mem.getComp());

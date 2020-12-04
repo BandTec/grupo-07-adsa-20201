@@ -31,13 +31,14 @@ public class TelaDetalhes extends javax.swing.JFrame {
     private Processos processos = new Processos();
     Registro reg = new Registro();
     int contador = 1;
+    List<String> listProcessos = new ArrayList();
     
     public TelaDetalhes() {
 
         try {
              initComponents();
             ApresentarDados();
-            verificarProcessos();
+//            verificarProcessos();
             jLabel8.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/cancel.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
         } catch (Exception e) {
             Log log = new Log("ERROR_tela_detalhes", e.toString(), "Erro");
@@ -46,16 +47,16 @@ public class TelaDetalhes extends javax.swing.JFrame {
     }
 
     public void verificarProcessos() {
-        List<String> processos = new ArrayList();
-        processos = maquina.getProcessesName();
+        
+        listProcessos = maquina.getProcessesName();
         List<String> programas = new ArrayList();
         programas = inserir.selectProgramas();
 
-        for (int i = 0; i < processos.size(); i++) {
-            if (!programas.contains(processos.get(i).replaceAll("\n", ""))) {
-                alertProcs.enviarAlertaProcesso(alertProcs, processos.get(i).replaceAll("\n", ""));
-            }
-        }
+//        for (int i = 0; i < listProcessos.size(); i++) {
+//            if (!programas.contains(listProcessos.get(i).replaceAll("\n", ""))) {
+//                alertProcs.enviarAlertaProcesso(alertProcs, listProcessos.get(i).replaceAll("\n", ""));
+//            }
+//        }
     }
 
     public void ApresentarDados() {
@@ -92,7 +93,6 @@ public class TelaDetalhes extends javax.swing.JFrame {
                     lblUser.setText(maquina.getUsers());
 
                     DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-                    List<String> listProcessos = maquina.getProcessesName();
 
                     for (String processo : listProcessos) {
 

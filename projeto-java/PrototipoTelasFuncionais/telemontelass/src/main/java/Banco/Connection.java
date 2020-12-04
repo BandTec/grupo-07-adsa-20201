@@ -19,7 +19,7 @@ public class Connection {
     public Connection() {
         try { 
             this.datasource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-            this.datasource.setUrl("jdbc:mysql://54.161.225.226/bdTelemon");
+            this.datasource.setUrl("jdbc:mysql://54.161.225.226:3306/bdTelemon");
             this.datasource.setUsername("root");
             this.datasource.setPassword("urubu100");
         } catch (Exception e) {

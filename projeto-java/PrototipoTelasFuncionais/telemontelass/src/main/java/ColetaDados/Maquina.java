@@ -75,7 +75,7 @@ public class Maquina {
             listProcs.add(String.format("%s\n", p.getName()));
 
             try {
-//                System.out.println("\nINSERINDO PROCESSOS...");
+                System.out.println("\nINSERINDO PROCESSOS...");
                 insert.InserirProcessos(p.getName(),
                         p.getProcessCpuLoadBetweenTicks(p),
                         p.getResidentSetSize(),
