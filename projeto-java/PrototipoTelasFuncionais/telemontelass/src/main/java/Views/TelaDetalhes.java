@@ -188,7 +188,7 @@ public class TelaDetalhes extends javax.swing.JFrame {
         jLabel1.setText("Máquina:");
 
         lblHostname.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 18)); // NOI18N
-        lblHostname.setText("CH2354");
+        lblHostname.setText("...");
 
         pgbCpu.setBackground(new java.awt.Color(0, 153, 255));
         pgbCpu.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -257,7 +257,7 @@ public class TelaDetalhes extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel3)
-                        .addGap(96, 96, 96)
+                        .addGap(100, 100, 100)
                         .addComponent(jLabel6)
                         .addGap(48, 48, 48))
                     .addGroup(jPanel1Layout.createSequentialGroup()
