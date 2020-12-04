@@ -14,18 +14,6 @@ import Entities.AlertMensagemMotivadora;
  * @author Pichau
  */
 public class SendSlackMessage { 
-    public static void main(String[] args) {
-        Timer timer = new Timer();
-        Integer delay = 5000;
-        Integer interval = 300000;
-           
-        timer.scheduleAtFixedRate(new TimerTask() {
-        public void run() {
-           enviarFrasesMotivadoras();
-        }
-    }, delay, interval);
-
-    }
     
     public static void enviarFrasesMotivadoras(){
             AlertMensagemMotivadora mensagem = new AlertMensagemMotivadora();
