@@ -36,7 +36,7 @@ public class TelaDetalhes extends javax.swing.JFrame {
     public TelaDetalhes() {
 
         try {
-            initComponents();
+             initComponents();
             ApresentarDados();
 //            verificarProcessos();
             jLabel8.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/cancel.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
