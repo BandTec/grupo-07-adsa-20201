@@ -31,18 +31,14 @@ public class TelaDetalhes extends javax.swing.JFrame {
     private Processos processos = new Processos();
     Registro reg = new Registro();
     int contador = 1;
-    private TelaDetalhes detalhes;
     
     public TelaDetalhes() {
 
         try {
              initComponents();
-            if (detalhes.isVisible()) {
             ApresentarDados();
             verificarProcessos();
             jLabel8.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/cancel.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
-            }
-            
         } catch (Exception e) {
             Log log = new Log("ERROR_tela_detalhes", e.toString(), "Erro");
             log.logCriation();
