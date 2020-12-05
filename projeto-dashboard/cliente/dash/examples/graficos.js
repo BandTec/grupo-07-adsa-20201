@@ -3,6 +3,10 @@
 let ctx = document.getElementById('myChart');
 let cpuAvg = document.getElementById('cpu-avg');
 let memAvg = document.getElementById('mem-avg');
+let memBellow = document.getElementById('ram_bellow');
+let memAbove = document.getElementById('ram_above');
+let cpuBellow = document.getElementById('cpu_bellow');
+let cpuAbove = document.getElementById('cpu_above');
 
 fetch("http://localhost:3000/getProcessNamebyCount").then(response => {
 
@@ -82,4 +86,47 @@ fetch("http://localhost:3000/getAvg?comp=ram").then(response => {
         })
     }
 
+})
+
+fetch("http://localhost:3000/getBellowAvg?comp=ram").then(response => {
+
+    if(response.ok){
+        response.json().then(res =>{
+            let listDados = res
+            let qtdBellow = 0
+            let qtdAbove = 0
+            
+            for(let i = 0; i < listDados.length; i++){
+                if(listDados[i].media < Number(String(memAvg.innerHTML).substring(0,4))){
+                    qtdBellow++
+                }
+                else if(listDados[i].media > Number(String(memAvg.innerHTML).substring(0,4))){
+                    qtdAbove++
+                }                
+            }          
+            memBellow.innerHTML = `<b>Máquinas abaixo da média:</b> ${qtdBellow}`
+            memAbove.innerHTML = `<b>Máquinas acima da média:</b> ${qtdAbove}`            
+        })
+    }
+})
+fetch("http://localhost:3000/getBellowAvg?comp=cpu").then(response => {
+
+    if(response.ok){
+        response.json().then(res =>{
+            let listDados = res
+            let qtdBellow = 0
+            let qtdAbove = 0
+            
+            for(let i = 0; i < listDados.length; i++){
+                if(listDados[i].media < Number(String(cpuAvg.innerHTML).substring(0,4))){
+                    qtdBellow++
+                }
+                else if(listDados[i].media > Number(String(cpuAvg.innerHTML).substring(0,4))){
+                    qtdAbove++
+                }                
+            }          
+            cpuBellow.innerHTML = `<b>Máquinas abaixo da média:</b> ${qtdBellow}`
+            cpuAbove.innerHTML = `<b>Máquinas acima da média:</b> ${qtdAbove}`            
+        })
+    }
 })
