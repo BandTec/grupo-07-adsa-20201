@@ -268,18 +268,6 @@ app.get('/getProcessNamebyCount',(req,res)=>{
     
 });
 
-app.get('/getCpuAvg',(req,res)=>{
-
-    let sql = `SELECT avg(valorDadosComponente) as 'media' FROM tbDadosComponente 
-    INNER JOIN tbComponenteMaquina ON tbDadosComponente.fkComponenteMaquina = tbComponenteMaquina.codComponenteMaquina 
-    INNER JOIN tbComponente ON tbComponenteMaquina.fkComponente = tbComponente.codComponente WHERE nomeComponente = 'cpu' AND registroDadosComponente like '20201203%';`
-
-    connection.query(sql,function(err,result){
-        if(err) throw err;
-        res.send(result);
-    });
-    
-});
 
 app.get('/getAvg',(req,res)=>{
 
@@ -287,7 +275,7 @@ app.get('/getAvg',(req,res)=>{
 
     let sql = `SELECT avg(valorDadosComponente) as 'media' FROM tbDadosComponente 
     INNER JOIN tbComponenteMaquina ON tbDadosComponente.fkComponenteMaquina = tbComponenteMaquina.codComponenteMaquina 
-    INNER JOIN tbComponente ON tbComponenteMaquina.fkComponente = tbComponente.codComponente WHERE nomeComponente = '${comp}' AND registroDadosComponente like '20201203%';`
+    INNER JOIN tbComponente ON tbComponenteMaquina.fkComponente = tbComponente.codComponente WHERE nomeComponente = '${comp}' AND registroDadosComponente like '${today2}%';`
 
     connection.query(sql,function(err,result){
         if(err) throw err;
@@ -300,9 +288,10 @@ app.get('/getBellowAvg',(req,res)=>{
 
     let comp = req.query.comp;
 
-    let sql = `SELECT avg(valorDadosComponente) as 'media' FROM tbDadosComponente 
-    INNER JOIN tbComponenteMaquina ON tbDadosComponente.fkComponenteMaquina = tbComponenteMaquina.codComponenteMaquina 
-    INNER JOIN tbComponente ON tbComponenteMaquina.fkComponente = tbComponente.codComponente WHERE nomeComponente = '${comp}' AND registroDadosComponente like '20201203%';`
+    let sql = `SELECT fkMaquina as maquina, avg(valorDadosComponente) as media FROM tbMaquina, tbDadosComponente
+        INNER JOIN tbComponenteMaquina ON tbDadosComponente.fkComponenteMaquina = tbComponenteMaquina.codComponenteMaquina
+        INNER JOIN tbComponente ON tbComponenteMaquina.fkComponente = tbComponente.codComponente WHERE nomeComponente = '${comp}' 
+        AND registroDadosComponente like '${today2}%' group by fkMaquina;`
 
     connection.query(sql,function(err,result){
         if(err) throw err;

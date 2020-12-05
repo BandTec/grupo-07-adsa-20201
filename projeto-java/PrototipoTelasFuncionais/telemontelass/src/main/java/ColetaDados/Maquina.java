@@ -31,11 +31,11 @@ public class Maquina {
     }
 
     public String getUsers() {
-        return sessao.getUser(0);
+        return sessao.getUser(2);
     }
 
     public String getHostname() {
-        return sessao.getHostname(0);
+        return sessao.getHostname(2);
     }
 
     public long getTimeUp() {
@@ -75,7 +75,7 @@ public class Maquina {
             listProcs.add(String.format("%s\n", p.getName()));
 
             try {
-//                System.out.println("\nINSERINDO PROCESSOS...");
+                System.out.println("\nINSERINDO PROCESSOS...");
                 insert.InserirProcessos(p.getName(),
                         p.getProcessCpuLoadBetweenTicks(p),
                         p.getResidentSetSize(),

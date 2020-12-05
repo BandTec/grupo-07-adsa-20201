@@ -37,8 +37,7 @@ public class ColetaTeste {
         Maquina maquina = new Maquina();
         Insertbd banco = new Insertbd();
         
-        banco.inserirPrograma("docker");
-        banco.inserirPrograma("mysql");
+//        banco.inserirPrograma("");
 //
 //        System.out.println(cpu.getComp());
 //        System.out.println(mem.getComp());
