@@ -5,8 +5,10 @@ function sair(){
 }
 
 function getAvgComponents(cod){
-
-            tableMaquina.style.display = 'none';
+            
+            rowMaquinas.style.display = 'none';
+            col1.style.display = 'block';
+            col2.style.display = 'block';
 
             fetch("http://localhost:3000/listarDadosMem", { 
         
@@ -23,7 +25,14 @@ function getAvgComponents(cod){
 
             response.json().then(res => {
                 const processos = res
-                gerarGraficoMem(Math.round(processos[0].mediaMem));
+                console.log(processos);
+                if(processos[0][0].mediaMem < processos[1][0].mediaMemTotal){
+                    memMedia.innerHTML = "Abaixo da média geral ("+ processos[1][0].mediaMemTotal.toFixed(2)+"%)";
+                }else {
+                    memMedia.innerHTML = "Acima da média geral ("+processos[1][0].mediaMemTotal.toFixed(2)+"%)";
+                }
+                gerarGraficoMem(processos[0][0].mediaMem, processos[1][0].mediaMemTotal);
+                
             }))
 
             fetch("http://localhost:3000/listarDadosCpu", { 
@@ -31,7 +40,8 @@ function getAvgComponents(cod){
                 method: "POST", 
                 
                 body: JSON.stringify({  
-                    codMaquina: cod 
+                    codMaquina: cod,
+                    cod1: cod
                 }), 
                 
                 headers: { 
@@ -41,13 +51,19 @@ function getAvgComponents(cod){
             
             response.json().then(res => {
                 const processos = res
-                gerarGraficoCpu(Math.round(processos[0].mediaCpu));
+                console.log(processos);
+                if(processos[0][0].mediaCpu < processos[1][0].mediaCpuTotal){
+                    cpuMedia.innerHTML = "Abaixo da média geral ("+ processos[1][0].mediaCpuTotal.toFixed(2)+"%)";
+                }else {
+                    cpuMedia.innerHTML = "Acima da média geral ("+ processos[1][0].mediaCpuTotal.toFixed(2)+"%)";
+                }
+                gerarGraficoCpu(processos[0][0].mediaCpu, processos[1][0].mediaCpuTotal);
                 
             }))
 
-
-
 }
+
+
 
 
 

@@ -216,24 +216,22 @@ app.post('/excluirPrograma',(req,res)=>{
 });
 
 app.post('/listarDadosCpu',(req,res)=>{
-    let data=[req.body.codMaquina];
-
-    let sql = `SELECT avg(valorDadosComponente) as 'mediaCpu' FROM tbDadosComponente INNER JOIN tbComponenteMaquina ON tbDadosComponente.fkComponenteMaquina = tbComponenteMaquina.codComponenteMaquina INNER JOIN tbComponente ON tbComponenteMaquina.fkComponente = tbComponente.codComponente WHERE nomeComponente = 'cpu' AND fkMaquina = ? AND registroDadosComponente like '${today2}%' `
-    connection.query(sql,data,function(err,result){
-        if(err) throw err;
-        res.send(result);
-    });
+    let data1=[req.body.codMaquina,req.body.cod1];
+ 
+    connection.query(`SELECT avg(valorDadosComponente) as 'mediaCpu' FROM tbDadosComponente INNER JOIN tbComponenteMaquina ON tbDadosComponente.fkComponenteMaquina = tbComponenteMaquina.codComponenteMaquina INNER JOIN tbComponente ON tbComponenteMaquina.fkComponente = tbComponente.codComponente WHERE nomeComponente = 'cpu' AND fkMaquina = ? AND registroDadosComponente like '${today2}%'; SELECT avg(valorDadosComponente) as 'mediaCpuTotal' FROM tbDadosComponente INNER JOIN tbComponenteMaquina ON tbDadosComponente.fkComponenteMaquina = tbComponenteMaquina.codComponenteMaquina INNER JOIN tbComponente ON tbComponenteMaquina.fkComponente = tbComponente.codComponente WHERE nomeComponente = 'cpu' AND registroDadosComponente like '${today2}%';`, data1, function(err, results, fields) {
+        if (err) throw err;
+        res.send(results);
+      });
     
 });
 
 app.post('/listarDadosMem',(req,res)=>{
-    let data=[req.body.codMaquina];
-
-    let sql = `SELECT avg(valorDadosComponente) as 'mediaMem' FROM tbDadosComponente INNER JOIN tbComponenteMaquina ON tbDadosComponente.fkComponenteMaquina = tbComponenteMaquina.codComponenteMaquina INNER JOIN tbComponente ON tbComponenteMaquina.fkComponente = tbComponente.codComponente WHERE nomeComponente = 'ram' AND fkMaquina = ? AND registroDadosComponente like '${today2}%' `
-    connection.query(sql,data,function(err,result){
-        if(err) throw err;
-        res.send(result);
-    });
+    let data1=[req.body.codMaquina,req.body.cod1];
+ 
+    connection.query(`SELECT avg(valorDadosComponente) as 'mediaMem' FROM tbDadosComponente INNER JOIN tbComponenteMaquina ON tbDadosComponente.fkComponenteMaquina = tbComponenteMaquina.codComponenteMaquina INNER JOIN tbComponente ON tbComponenteMaquina.fkComponente = tbComponente.codComponente WHERE nomeComponente = 'ram' AND fkMaquina = ? AND registroDadosComponente like '${today2}%'; SELECT avg(valorDadosComponente) as 'mediaMemTotal' FROM tbDadosComponente INNER JOIN tbComponenteMaquina ON tbDadosComponente.fkComponenteMaquina = tbComponenteMaquina.codComponenteMaquina INNER JOIN tbComponente ON tbComponenteMaquina.fkComponente = tbComponente.codComponente WHERE nomeComponente = 'ram' AND registroDadosComponente like '${today2}%';`, data1, function(err, results, fields) {
+        if (err) throw err;
+        res.send(results);
+      });
     
 });
 

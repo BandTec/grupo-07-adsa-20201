@@ -186,6 +186,7 @@ The above copyright notice and this permission notice shall be included in all c
             </div>
           </div>
           
+          <div class="row" id="rowMaquinas">
           <div class="col-lg-6 col-md-12">
             <div class="card">
               
@@ -196,29 +197,61 @@ The above copyright notice and this permission notice shall be included in all c
               
               <div class="card-body table-responsive">
                 <table class="table table-hover" id="tableMaquina">
-                  <form class="navbar-form">
-                    <div class="input-group no-border" >
-                      <input type="text" value="" class="form-control" placeholder="Pesquisar...">
-                      <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                        <i class="material-icons">search</i>
-                        <div class="ripple-container"></div>
-                      </button>
-                    </div>
-                  </form>
                   <thead class="text-danger" id="textDangerMaquina" name="textDangerMaquina">
                   </thead>
                   <tbody>
                   </tbody>
                 </table>
-              </div>
-              <canvas id="ChartCpu"></canvas>
-              <canvas id="ChartMem"></canvas>
             </div>
           </div>
+          </div>
+        </div>
+
+        <div class="row" id="rowDetalhes">
+
+              <div class="col" id="col1" style="display: none;">
+                <div class="card card-stats" style="height: 500px;">
+                  <div class="card-header card-header-dange card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">sim_card</i>
+                    </div>
+                    <p class="card-category">Média diária de CPU</p>
+                    <h3 id="cpuMedia" class="card-title">. . .
+                    </h3>
+                  </div>
+                  <div class="card-footer" >
+                    
+                  </div>
+                  <canvas id="ChartCpu" style="height: 200px;"></canvas>
+                  <p id="statusCpu"></p>
+                </div>
+                
+            </div>
+
+            <div class="col" id="col2" style="display: none;">
+                <div class="card card-stats" style="height: 500px;">
+                  <div class="card-header card-header-dange card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">memory</i>
+                    </div>
+                    <p class="card-category">Média diária de RAM</p>
+                    <h3 id="memMedia" class="card-title">. . .
+                    </h3>
+                  </div>
+                  <div class="card-footer">
+                  </div>
+                  <canvas id="ChartMem" style=" height: 200px;"></canvas>
+                  <p id="statusMem"></p>
+                </div>
+              </div>
+      
+        
+        </div>
         </div>
       </div>
     </div>
   </div>
+
   <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
       

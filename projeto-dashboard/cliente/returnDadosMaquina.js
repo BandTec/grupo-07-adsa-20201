@@ -156,13 +156,13 @@ function listarMaquina(){
                 td.innerHTML = jsonString[i].codMaquina;
                 var tr1 = document.createElement('tr');
                 var td1 = document.createElement('td');
-                td1.innerHTML = jsonString[i].nomeMaquina;
+                td1.innerHTML = jsonString[i].userMaquina;
                 var tr2 = document.createElement('tr');
                 var td2 = document.createElement('td');
                 td2.innerHTML = jsonString[i].modeloMaquina;
                 var tr3 = document.createElement('tr');
                 var td3 = document.createElement('td');
-                td3.innerHTML = jsonString[i].dataCadastroMaquina;
+                td3.innerHTML = jsonString[i].dataCadastradoMaquina;
                 var tr5 = document.createElement('tr');
                 var td5 = document.createElement('td');
                 

@@ -1,28 +1,28 @@
 
 var ctx = document.getElementById('ChartCpu');
 var ctz = document.getElementById('ChartMem');
+function gerarGraficoCpu(valorCpu, valorTotalCpu){
 
-function gerarGraficoCpu(valorCpu){
-
-var myPieChart = new Chart(ctx, {
-    type: 'pie',
+var myBarChart = new Chart(ctx, {
+    type: 'bar',
     data: {
         labels: 
-
         [
-        "Utilizado",
-        "Não utilizado"
+        "Média (usuario)", "Média Geral"
         ],
 
         datasets: [{
-            label: 'Quantidade de uso',
+            label: ['Utilização (usuario)','Utilização (grupo)'],
             data: [ 
-            valorCpu, 100 - valorCpu
+            valorCpu.toFixed(2), valorTotalCpu.toFixed(2)
         ],
             backgroundColor: [
-                'yellow',
-                'blue'
-                
+                '#d63031',
+                '#3c6382'
+            ],
+            borderColor: [
+                '#d63031',
+                '#3c6382'
             ],
             borderWidth: 1
         }]
@@ -44,31 +44,28 @@ var myPieChart = new Chart(ctx, {
 
 
 
-function gerarGraficoMem(valorMem){
+function gerarGraficoMem(valorMem, valorMemTotal){
 
-    var myPieChart = new Chart(ctz, {
-        type: 'pie',
+    var myBarChart = new Chart(ctz, {
+        type: 'bar',
         data: {
             labels: 
-    
             [
-            "Utilizado",
-            "Não utilizado"
+            "Média (usuario)", "Média Geral"
             ],
     
             datasets: [{
-                label: 'Quantidade de uso',
+                label: ['Utilização (usuario)','Utilização (grupo)'],
                 data: [ 
-                valorMem, 100 - valorMem
+                valorMem.toFixed(2), valorMemTotal.toFixed(2)
             ],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)'
-                    
+                    '#d63031',
+                    '#3c6382'
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)'
+                    '#d63031',
+                    '#3c6382'
                 ],
                 borderWidth: 1
             }]
