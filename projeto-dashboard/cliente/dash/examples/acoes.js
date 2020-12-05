@@ -1,8 +1,19 @@
-
+let improperProcess = document.getElementById("improper-process");
 
 function sair(){
     window.location.assign('../../index.html');
 }
+
+fetch("http://localhost:3000/getImproperProcess").then(response => {
+
+    if(response.ok){
+        response.json().then(res =>{
+            let count = res[0].count
+            improperProcess.innerHTML = `${count}  <small>programas</small>`
+        })
+    }
+
+})
 
 function getAvgComponents(cod){
             

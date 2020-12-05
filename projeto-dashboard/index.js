@@ -260,7 +260,16 @@ app.post('/editarComponente',(req,res)=>{
 
 app.get('/getProcessNamebyCount',(req,res)=>{
 
-    let sql = `select nomeProcesso, count(nomeProcesso) as count from tbProcessos where registroProcesso like '${today} %' group by nomeProcesso order by count desc limit 6;`
+    let procName = req.query.proc;
+    let limit = req.query.limit;
+    let sql;
+
+    if(procName == undefined){
+        sql = `select nomeProcesso, count(nomeProcesso) as count from tbProcessos where registroProcesso like '${today} %' group by nomeProcesso order by count desc limit ${Number(limit)};` 
+    }else{
+        sql = `select nomeProcesso, count(nomeProcesso) as count from tbProcessos where registroProcesso like '${today} %' and nomeProcesso = '${procName}' group by nomeProcesso order by count desc limit ${Number(limit)};` 
+    }
+
     connection.query(sql,function(err,result){
         if(err) throw err;
         res.send(result);
@@ -292,6 +301,21 @@ app.get('/getBellowAvg',(req,res)=>{
         INNER JOIN tbComponenteMaquina ON tbDadosComponente.fkComponenteMaquina = tbComponenteMaquina.codComponenteMaquina
         INNER JOIN tbComponente ON tbComponenteMaquina.fkComponente = tbComponente.codComponente WHERE nomeComponente = '${comp}' 
         AND registroDadosComponente like '${today2}%' group by fkMaquina;`
+
+    connection.query(sql,function(err,result){
+        if(err) throw err;
+        res.send(result);
+    });
+    
+});
+
+app.get('/getImproperProcess',(req,res)=>{
+
+    let sql = `select count(count) as count from 
+    (select count(nomeProcesso) as count from tbProcessos 
+    where permitido = 0
+    and 
+    registroProcesso like '${today}%' group by nomeProcesso) as A;`
 
     connection.query(sql,function(err,result){
         if(err) throw err;
