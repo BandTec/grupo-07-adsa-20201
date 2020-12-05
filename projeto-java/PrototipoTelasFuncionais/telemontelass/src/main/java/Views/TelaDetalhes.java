@@ -143,7 +143,6 @@ public class TelaDetalhes extends javax.swing.JFrame {
                         alertPausa.enviarAlertaPausa(alertPausa);
                     }
             Double cpu = maquina.getCpuUsage();
-            System.out.println(cpu);
             inserir.InserirDadosComponente(cpu, maquina.getCpu().getDesc(), maquina.getHostname());
             inserir.InserirDadosComponente(maquina.getMemUsage(), maquina.getMem().getDesc(), maquina.getHostname());              
         }
