@@ -37,6 +37,7 @@ public class ColetaTeste {
         Maquina maquina = new Maquina();
         Insertbd banco = new Insertbd();
         
+        System.out.println(maquina.getCpuUsage());
 //        banco.inserirPrograma("");
 //
 //        System.out.println(cpu.getComp());

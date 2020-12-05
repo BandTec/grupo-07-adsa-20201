@@ -2,9 +2,7 @@ package Views;
 
 import Banco.Insertbd;
 import Banco.Registro;
-import ColetaDados.Cpu;
 import ColetaDados.Maquina;
-import ColetaDados.Mem;
 import ColetaDados.Processos;
 import ColetaDados.Sessao;
 import Entities.AlertHardware;
@@ -18,7 +16,7 @@ import java.util.TimerTask;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import log.Log;
-import oshi.software.os.OSProcess;
+import Entities.AlertMensagemMotivadora;
 
 public class TelaDetalhes extends javax.swing.JFrame {
 
@@ -32,13 +30,19 @@ public class TelaDetalhes extends javax.swing.JFrame {
     Registro reg = new Registro();
     int contador = 1;
     List<String> listProcessos = new ArrayList();
+    AlertMensagemMotivadora alertaMotivador = new AlertMensagemMotivadora();
+    Integer horaPlusComeco = Integer.valueOf(reg.getHoraPlus1hr());
+    Integer horaPlusFinal = Integer.valueOf(reg.getHoraPlus7hr());
     
     public TelaDetalhes() {
 
         try {
-             initComponents();
+            initComponents();
             ApresentarDados();
-//            verificarProcessos();
+//            inserirDadosComponentes();
+            verificarProcessos();
+            fraseMotivadora();
+            alertaPausa();
             jLabel8.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/cancel.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
         } catch (Exception e) {
             Log log = new Log("ERROR_tela_detalhes", e.toString(), "Erro");
@@ -52,20 +56,14 @@ public class TelaDetalhes extends javax.swing.JFrame {
         List<String> programas = new ArrayList();
         programas = inserir.selectProgramas();
 
-//        for (int i = 0; i < listProcessos.size(); i++) {
-//            if (!programas.contains(listProcessos.get(i).replaceAll("\n", ""))) {
-//                alertProcs.enviarAlertaProcesso(alertProcs, listProcessos.get(i).replaceAll("\n", ""));
-//            }
-//        }
+        for (int i = 0; i < listProcessos.size(); i++) {
+            if (!programas.contains(listProcessos.get(i).replaceAll("\n", ""))) {
+                alertProcs.enviarAlertaProcesso(alertProcs, listProcessos.get(i).replaceAll("\n", ""));
+            }
+        }
     }
 
     public void ApresentarDados() {
-
-        System.out.println(session.getSessionList());
-        System.out.println(maquina.getHostname());
-        System.out.println(maquina.getUsers());
-        System.out.println(maquina.getCpu().getDesc());
-        System.out.println(maquina.getMem().getDesc());
 
         int delay = 500;   // tempo de espera antes da 1ª execução da tarefa.
         int interval = 1000;  // intervalo no qual a tarefa será executada.
@@ -75,11 +73,11 @@ public class TelaDetalhes extends javax.swing.JFrame {
             public void run() {
                 try {
                     
-                    verificarProcessos();
 
                     Object rowData[] = new Object[10];
-
-                    pgbCpu.setValue((int) maquina.getCpuUsage());
+                    
+                    
+                    pgbCpu.setValue((int)maquina.getCpuUsage());
                     pgbRam.setValue((int) maquina.getMemUsage());
 
                     pgbCpu.setStringPainted(true);
@@ -104,19 +102,7 @@ public class TelaDetalhes extends javax.swing.JFrame {
                             }
                         }
                     }
-//                    System.out.println("INSERINDO USO DE CPU...");
-                    inserir.InserirDadosComponente(maquina.getCpuUsage(), maquina.getCpu().getDesc(), maquina.getHostname());
-//                    inserir.InserirDadosComponente(maquina.getDisco().DiskUsage(0), maquina.getDisco().diskName(0), maquina.getHostname());
-//                    System.out.println("INSERINDO USO DE RAM...\n");
-                    inserir.InserirDadosComponente(maquina.getMemUsage(), maquina.getMem().getDesc(), maquina.getHostname());
-
-                    if (Integer.valueOf(new Registro().getHoraFormatada()) > Integer.valueOf(reg.getHoraPlus1hr()) && contador == 1) {
-                        contador = 2;
-                        alertPausa.enviarAlertaPausa(alertPausa);
-                    } else if ((Integer.valueOf(new Registro().getHoraFormatada())) > Integer.valueOf(reg.getHoraPlus1hr()) && contador == 2) {
-                        contador = 0;
-                        alertPausa.enviarAlertaPausa(alertPausa);
-                    }
+                    
 
                 } catch (Exception e) {
                     Log log = new Log("ERROR_apresentar_dados", e.toString(), "Erro");
@@ -126,6 +112,60 @@ public class TelaDetalhes extends javax.swing.JFrame {
         }, delay, interval);
 
     }
+    
+    public void fraseMotivadora(){
+        
+        Timer timer = new Timer();
+        Integer delay = 500;
+        Integer interval = 120000;
+           
+        timer.scheduleAtFixedRate(new TimerTask() {
+        public void run() {
+           alertaMotivador.enviarMensagem(alertaMotivador);
+        }
+    }, delay, interval);
+    }
+    
+    public void alertaPausa(){
+        Timer timer = new Timer();
+        Integer delay = 500;
+        Integer interval = 1000;
+        timer.scheduleAtFixedRate(new TimerTask() {
+        public void run() {
+           if (Integer.valueOf(new Registro().getHoraFormatada()) > horaPlusComeco && contador == 1) {
+                        contador = 2;
+                        alertPausa.enviarAlertaPausa(alertPausa);
+                    } else if ((Integer.valueOf(new Registro().getHoraFormatada())) > horaPlusFinal && contador == 2) {
+                        contador = 0;
+                        alertPausa.enviarAlertaPausa(alertPausa);
+                    }
+            Double cpu = maquina.getCpuUsage();
+            System.out.println(cpu);
+            inserir.InserirDadosComponente(cpu, maquina.getCpu().getDesc(), maquina.getHostname());
+            inserir.InserirDadosComponente(maquina.getMemUsage(), maquina.getMem().getDesc(), maquina.getHostname());              
+        }
+    }, delay, interval);  
+    }
+    
+//    public void inserirDadosComponentes(){
+//        Timer timer = new Timer();
+//        Integer delay = 500;
+//        Integer interval = 3000;
+//        timer.scheduleAtFixedRate(new TimerTask() {
+//        public void run() {
+//            Double cpu = maquina.getCpuUsage();
+//            System.out.println(cpu);
+//                    inserir.InserirDadosComponente(cpu, maquina.getCpu().getDesc(), maquina.getHostname());
+//
+//                    inserir.InserirDadosComponente(maquina.getMemUsage(), maquina.getMem().getDesc(), maquina.getHostname());
+//                          
+//        }
+//    }, delay, interval);  
+//        
+//        
+//       
+//    }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

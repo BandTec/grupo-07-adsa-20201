@@ -1,10 +1,7 @@
 package Entities;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 import javax.swing.JOptionPane;
 
 public class AlertMensagemMotivadora extends Alerts{ 
@@ -27,7 +24,7 @@ public class AlertMensagemMotivadora extends Alerts{
         Integer numeroAleatorio = random.nextInt(totalItensArray);
        // alertaMensagem.setTipoAlerta("Vai uma motivação ai?");
         alertaMensagem.setMensagemAlerta(frasesAleatorias.get(numeroAleatorio));
-        //JOptionPane.showMessageDialog(null, alertaMensagem.getMensagemAlerta(), alertaMensagem.getTipoAlerta(), JOptionPane.INFORMATION_MESSAGE);  
+        JOptionPane.showMessageDialog(null, alertaMensagem.getMensagemAlerta(), alertaMensagem.getTipoAlerta(), JOptionPane.INFORMATION_MESSAGE);  
         
     }
     

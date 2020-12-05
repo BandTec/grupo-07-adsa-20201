@@ -43,7 +43,7 @@ public class Mem extends Componente{
         verificarLista();
         return memUsage;
     }
-    //ESTÁ EM DESENVOLVIMENTO
+
     public List<Double> gerarLista() {
 
         if (memList.size() < 10) {
@@ -53,9 +53,9 @@ public class Mem extends Componente{
             memList.add(memUsage);
         }
         return memList;
-    //ESTÁ EM DESENVOLVIMENTO
+
     }
-    //ESTÁ EM DESENVOLVIMENTO
+
     public void verificarLista() {
         Integer i = 0;
         for (Double mem : memList) {
@@ -66,7 +66,7 @@ public class Mem extends Componente{
                 }
             }
         }
-    //ESTÁ EM DESENVOLVIMENTO
+
     }
 
     public GlobalMemory getMem() {

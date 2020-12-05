@@ -3,15 +3,10 @@ package Views;
 import Entities.Usuario;
 import java.awt.Color;
 import java.awt.Image;
-import java.awt.Insets;
-import java.awt.image.BufferedImage;
 import java.util.Timer;
 import java.util.TimerTask;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.border.Border;
-import static slack.SendSlackMessage.enviarFrasesMotivadoras;
 
 /**
  *
@@ -212,15 +207,7 @@ public class TelaLogin extends javax.swing.JFrame {
         
         Usuario usuario = new Usuario(txtLogin.getText(),txtSenha.getText(), "Funcionario");
         
-        Timer timer = new Timer();
-        Integer delay = 5000;
-        Integer interval = 300000;
-           
-        timer.scheduleAtFixedRate(new TimerTask() {
-        public void run() {
-           enviarFrasesMotivadoras();
-        }
-    }, delay, interval);
+    ;
         
         if(usuario.fazerLogin()){
             TelaDetalhes telauser = new TelaDetalhes();

@@ -1,6 +1,9 @@
 package Entities;
 
 import javax.swing.JOptionPane;
+import org.json.JSONObject;
+import slack.Slack;
+import ColetaDados.Maquina;
 
 public class AlertPausa extends Alerts{
 
@@ -13,10 +16,16 @@ public class AlertPausa extends Alerts{
         */
     
     
-        public void enviarAlertaPausa(Alerts alertaPausa){
+        public void enviarAlertaPausa(Alerts alertaPausa){  
+            Maquina maquina = new Maquina();
             alertaPausa.setTipoAlerta("Pausa");
-            alertaPausa.setMensagemAlerta("Victoria, voce tem direito a uma pausa de 10 minutos");
+            alertaPausa.setMensagemAlerta("Você tem direito a uma pausa de 10 minutos");
             JOptionPane.showMessageDialog(null, alertaPausa.getMensagemAlerta(), alertaPausa.getTipoAlerta(), JOptionPane.INFORMATION_MESSAGE);  
+              Slack slack = new Slack();                        
+                        JSONObject json = new JSONObject();
+                        json.put("text", String.format("%s estara em pausa pelos proximos 10 minutos.", maquina.getUsers()));
+                        slack.sendMessage(json);
+            
     }
    
     

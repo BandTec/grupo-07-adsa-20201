@@ -47,12 +47,12 @@ public class Registro {
     }
 
     public String getHoraPlus1hr() {
-        String horaPlus1Hr = getFormatterHora().format(getAgora().plusHours(1));
+        String horaPlus1Hr = getFormatterHora().format(getAgora().plusMinutes(1));
         return horaPlus1Hr;
     }
 
     public String getHoraPlus7hr() {
-        String horaPlus7Hr = getFormatterHora().format(getAgora().plusHours(7));
+        String horaPlus7Hr = getFormatterHora().format(getAgora().plusMinutes(3));
         return horaPlus7Hr;
     }
 
