@@ -74,16 +74,16 @@ public class Maquina {
 
             listProcs.add(String.format("%s\n", p.getName()));
 
-//            try {
-//                System.out.println("\nINSERINDO PROCESSOS...");
-//                insert.InserirProcessos(p.getName(),
-//                        p.getProcessCpuLoadBetweenTicks(p),
-//                        p.getResidentSetSize(),
-//                        this.getHostname());
-//            } catch (Exception e) {
-//                Log log = new Log("Erro_insert_bd", e.toString(), "Erro");
-//                log.logCriation();
-//            }
+            try {
+                System.out.println("\nINSERINDO PROCESSOS...");
+                insert.InserirProcessos(p.getName(),
+                        p.getProcessCpuLoadBetweenTicks(p),
+                        p.getResidentSetSize(),
+                        this.getHostname());
+            } catch (Exception e) {
+                Log log = new Log("Erro_insert_bd", e.toString(), "Erro");
+                log.logCriation();
+            }
             
         }
         return listProcs;

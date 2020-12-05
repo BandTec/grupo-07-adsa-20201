@@ -1,11 +1,11 @@
 Banco\Connection.class
-slack\SendSlackMessage$1.class
 Views\TelaDetalhes$3.class
 ColetaDados\Componente.class
 Views\TelaLogin$6.class
 Entities\AlertRelatorio.class
 Entities\Alerts.class
 Views\TelaLogin$3.class
+Views\TelaDetalhes$5.class
 Entities\AlertMensagemMotivadora.class
 slack\TesteSlack.class
 ColetaDados\Sessao.class
@@ -26,7 +26,6 @@ Entities\Usuario.class
 slack\SlackMessage.class
 ColetaDados\Cpu.class
 ColetaDados\Mem.class
-slack\SendSlackMessage.class
 Views\TelaLogin$2.class
 Banco\object.class
 ColetaDados\Processos.class
@@ -36,4 +35,5 @@ Views\TelaLogin$5.class
 ColetaDados\SistemaOperacional.class
 Entities\AlertHardware.class
 log\Log.class
+Views\TelaDetalhes$4.class
 Banco\Registro.class

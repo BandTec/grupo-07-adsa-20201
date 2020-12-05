@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Banco;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-/**
- *
- * @author markz
- */
+
 public class Registro {
 
     LocalDateTime agora;
@@ -47,12 +39,12 @@ public class Registro {
     }
 
     public String getHoraPlus1hr() {
-        String horaPlus1Hr = getFormatterHora().format(getAgora().plusMinutes(1));
+        String horaPlus1Hr = getFormatterHora().format(getAgora().plusMinutes(2));
         return horaPlus1Hr;
     }
 
     public String getHoraPlus7hr() {
-        String horaPlus7Hr = getFormatterHora().format(getAgora().plusMinutes(3));
+        String horaPlus7Hr = getFormatterHora().format(getAgora().plusMinutes(4));
         return horaPlus7Hr;
     }
 

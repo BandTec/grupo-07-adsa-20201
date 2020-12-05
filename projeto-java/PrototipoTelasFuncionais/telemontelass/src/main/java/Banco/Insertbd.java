@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Banco;
 
 import ColetaDados.Maquina;
@@ -14,10 +9,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import log.Log;
 
-/**
- *
- * @author markz
- */
 public class Insertbd {
 
     Registro reg = new Registro();

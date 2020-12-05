@@ -7,6 +7,8 @@ import ColetaDados.Processos;
 import ColetaDados.Sessao;
 import Entities.AlertHardware;
 import Entities.AlertPausa;
+import ColetaDados.Mem;
+import ColetaDados.Cpu;
 import java.awt.Color;
 import java.awt.Image;
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.ImageIcon;
+import oshi.software.os.OSProcess;
 import javax.swing.table.DefaultTableModel;
 import log.Log;
 import Entities.AlertMensagemMotivadora;
@@ -40,7 +43,7 @@ public class TelaDetalhes extends javax.swing.JFrame {
             initComponents();
             ApresentarDados();
 //            inserirDadosComponentes();
-            verificarProcessos();
+//            verificarProcessos();
             fraseMotivadora();
             alertaPausa();
             jLabel8.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/cancel.png")).getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH)));
@@ -73,7 +76,7 @@ public class TelaDetalhes extends javax.swing.JFrame {
             public void run() {
                 try {
                     
-
+                    verificarProcessos();
                     Object rowData[] = new Object[10];
                     
                     
