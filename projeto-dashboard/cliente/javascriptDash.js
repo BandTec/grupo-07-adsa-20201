@@ -40,7 +40,7 @@ function listarFuncionarioMaquina(){
 
               divCheckMaquina.innerHTML += `<label class="form-check-label">
                 <input class="form-check-input" type="checkbox" value="${jsonString[i].codMaquina}" name="pacoteMaquina" id="pacoteMaquina">
-                ${jsonString[i].nomeMaquina} - ${jsonString[i].modeloMaquina}
+                ${jsonString[i].userMaquina} - ${jsonString[i].modeloMaquina}
                   <span class="form-check-sign">
                   <span class="check"></span>
                 </span>

@@ -8,14 +8,15 @@ fetch("http://localhost:3000/getImproperProcess").then(response => {
 
     if(response.ok){
         response.json().then(res =>{
-            let count = res[0].count
-            improperProcess.innerHTML = `${count}  <small>programas</small>`
+            let count = res[0].count;
+            
+            improperProcess.innerHTML = `${count}  <small>programas</small>`;
         })
     }
 
 })
 
-function getAvgComponents(cod){
+function getAvgComponents(cod, nome){
             
             rowMaquinas.style.display = 'none';
             col1.style.display = 'block';
@@ -38,11 +39,28 @@ function getAvgComponents(cod){
                 const processos = res
                 console.log(processos);
                 if(processos[0][0].mediaMem < processos[1][0].mediaMemTotal){
+                    if(processos[1][0].mediaMemTotal - processos[0][0].mediaMem < 10){
+                    memMedia.innerHTML = "Dentro da média geral ("+ processos[1][0].mediaMemTotal.toFixed(2)+"%)";
+                    document.getElementById("corCardStatusMem").className = "card-header card-header-icon card-header-success";
+                    iconCardStatusMem.innerHTML = "check";
+                    }else{
                     memMedia.innerHTML = "Abaixo da média geral ("+ processos[1][0].mediaMemTotal.toFixed(2)+"%)";
+                    document.getElementById("corCardStatusMem").className += "card-header-danger";
+                    iconCardStatusMem.innerHTML = "arrow_downward";
+                    }
+                    
                 }else {
-                    memMedia.innerHTML = "Acima da média geral ("+processos[1][0].mediaMemTotal.toFixed(2)+"%)";
+                    if(processos[0][0].mediaMem - processos[1][0].mediaMemTotal < 10){
+                    memMedia.innerHTML = "Dentro da média geral ("+ processos[1][0].mediaMemTotal.toFixed(2)+"%)";
+                    document.getElementById("corCardStatusMem").className = "card-header card-header-icon card-header-success";
+                    iconCardStatusMem.innerHTML = "check";
+                    }else {
+                    memMedia.innerHTML = "Acima da média geral ("+ processos[1][0].mediaMemTotal.toFixed(2)+"%)";
+                    document.getElementById("corCardStatusMem").className = "card-header card-header-icon card-header-danger";
+                    iconCardStatusMem.innerHTML = "arrow_upward";
+                    }
                 }
-                gerarGraficoMem(processos[0][0].mediaMem, processos[1][0].mediaMemTotal);
+                gerarGraficoMem(processos[0][0].mediaMem, processos[1][0].mediaMemTotal, nome);
                 
             }))
 
@@ -64,11 +82,28 @@ function getAvgComponents(cod){
                 const processos = res
                 console.log(processos);
                 if(processos[0][0].mediaCpu < processos[1][0].mediaCpuTotal){
-                    cpuMedia.innerHTML = "Abaixo da média geral ("+ processos[1][0].mediaCpuTotal.toFixed(2)+"%)";
+                    if(processos[1][0].mediaCpuTotal - processos[0][0].mediaCpu < 10){
+                        cpuMedia.innerHTML = "Dentro da média geral ("+ processos[1][0].mediaCpuTotal.toFixed(2)+"%)";
+                        document.getElementById("corCardStatusCpu").className = "card-header card-header-icon card-header-success";
+                        iconCardStatusCpu.innerHTML = "check";
+                        }else{
+                        cpuMedia.innerHTML = "Abaixo da média geral ("+ processos[1][0].mediaCpuTotal.toFixed(2)+"%)";
+                        document.getElementById("corCardStatusCpu").className += "card-header card-header-icon card-header-danger";
+                        iconCardStatusCpu.innerHTML = "arrow_downward";
+                        }
                 }else {
-                    cpuMedia.innerHTML = "Acima da média geral ("+ processos[1][0].mediaCpuTotal.toFixed(2)+"%)";
+                    if(processos[0][0].mediaCpu - processos[1][0].mediaCpuTotal < 10){
+                        cpuMedia.innerHTML = "Dentro da média geral ("+ processos[1][0].mediaCpuTotal.toFixed(2)+"%)";
+                        document.getElementById("corCardStatusCpu").className = "card-header card-header-icon card-header-success";
+                        iconCardStatusCpu.innerHTML = "check";
+                        }else{
+                        cpuMedia.innerHTML = "Acima da média geral ("+ processos[1][0].mediaCpuTotal.toFixed(2)+"%)";
+                        document.getElementById("corCardStatusCpu").className += "card-header card-header-icon card-header-danger";
+                        iconCardStatusCpu.innerHTML = "arrow_upward";
+                        }
+                    
                 }
-                gerarGraficoCpu(processos[0][0].mediaCpu, processos[1][0].mediaCpuTotal);
+                gerarGraficoCpu(processos[0][0].mediaCpu, processos[1][0].mediaCpuTotal, nome);
                 
             }))
 

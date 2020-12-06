@@ -57,23 +57,12 @@ The above copyright notice and this permission notice shall be included in all c
             </a>
           </li>
           <li class="nav-item active  ">
-            <a class="nav-link" href="./typography.html">
+            <a class="nav-link" href="./tools.html">
               <i class="material-icons">library_books</i>
               <p>Consultar</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
-              <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./notifications.html">
-              <i class="material-icons">notifications</i>
-              <p>Notifications</p>
-            </a>
-          </li>
+          
         </ul>
       </div>
     </div>
@@ -82,7 +71,7 @@ The above copyright notice and this permission notice shall be included in all c
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;" style="color: #f44336;">Olá fulano!</a>
+            <a class="navbar-brand" href="javascript:;" style="color: #f44336;">Consultas</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -166,16 +155,7 @@ The above copyright notice and this permission notice shall be included in all c
                   <div class="tab-content">
                     <div class="tab-pane active" id="maquina" onload="listarMaquina()">
                       <table class="table table-hover" id="tableMaquina" name="tableMaquina">
-                        <form class="navbar-form">
-                          <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="Pesquisar...">
-                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                              <i class="material-icons">search</i>
-                              <div class="ripple-container"></div>
-                            </button>
-                          </div>
-                          
-                        </form>
+                        
                         <div class="nav-tabs-navigation">
                             <ul class="nav nav-tabs" data-tabs="tabs">
                               <li class="nav-item">
@@ -198,15 +178,7 @@ The above copyright notice and this permission notice shall be included in all c
                     </div>
                     <div class="tab-pane" id="funcionario">
                       <table class="table table-hover" id="tableFuncionario">
-                        <form class="navbar-form">
-                          <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="Pesquisar...">
-                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                              <i class="material-icons">search</i>
-                              <div class="ripple-container"></div>
-                            </button>
-                          </div>
-                        </form>
+                        
                         <div class="nav-tabs-navigation">
                           <ul class="nav nav-tabs" data-tabs="tabs">
                             <li class="nav-item">
@@ -229,15 +201,7 @@ The above copyright notice and this permission notice shall be included in all c
                     </div>
                     <div class="tab-pane" id="programas">
                       <table class="table table-hover" id="tablePrograma">
-                        <form class="navbar-form">
-                          <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="Pesquisar...">
-                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                              <i class="material-icons">search</i>
-                              <div class="ripple-container"></div>
-                            </button>
-                          </div>
-                        </form>
+                       
                         <div class="nav-tabs-navigation">
                           <ul class="nav nav-tabs" data-tabs="tabs">
                             <li class="nav-item">
@@ -260,15 +224,7 @@ The above copyright notice and this permission notice shall be included in all c
 
                     <div class="tab-pane" id="components">
                       <table class="table table-hover" id="tableComponentes">
-                        <form class="navbar-form">
-                          <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" placeholder="Pesquisar...">
-                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                              <i class="material-icons">search</i>
-                              <div class="ripple-container"></div>
-                            </button>
-                          </div>
-                        </form>
+                       
                         <div class="nav-tabs-navigation">
                           <ul class="nav nav-tabs" data-tabs="tabs">
                             <li class="nav-item">
@@ -820,6 +776,8 @@ let textDangerMaquina = document.querySelector('#textDangerMaquina');
 
 
             for(let i=0;i<jsonString.length;i++){
+                data = new Date(jsonString[i].dataCadastradoMaquina);
+                var dataFormatada = ("0" + data.getDate()).substr(-2) + "/" + ("0" + (data.getMonth() + 1)).substr(-2) + "/" + data.getFullYear();
 
                 var tr = document.createElement('tr');
                 var td = document.createElement('td');
@@ -832,7 +790,7 @@ let textDangerMaquina = document.querySelector('#textDangerMaquina');
                 td2.innerHTML = jsonString[i].modeloMaquina;
                 var tr3 = document.createElement('tr');
                 var td3 = document.createElement('td');
-                td3.innerHTML = jsonString[i].dataCadastradoMaquina;
+                td3.innerHTML = dataFormatada;
                 var tr5 = document.createElement('tr');
                 var td5 = document.createElement('td');
                 

@@ -14,7 +14,12 @@ function addMaquina(evento) {
         ('00' + date.getUTCHours()).slice(-2) + ':' + 
         ('00' + date.getUTCMinutes()).slice(-2) + ':' + 
         ('00' + date.getUTCSeconds()).slice(-2);
+
+        if(nomeMaquina.value == "" || modeloMaquina.value == ""){
+            alert("Preencha os campos corretamente.");
         
+    }else {
+
         let params = "nomeMaquina=" + nomeMaquina.value + "&modeloMaquina=" + modeloMaquina.value + "&dataCadastro=" + date;
     
             ajax.open("POST", "http://localhost:3000/addMaquina");
@@ -25,9 +30,8 @@ function addMaquina(evento) {
                     var jsonString = JSON.parse(ajax.responseText);
                     if((jsonString.affectedRows) > 0){
                         alert("Máquina cadastrada com sucesso");
-                        //window.location.assign('../examples/tools.html');
                         buscarUltimaMaquina();
-                       
+                        window.location.assign('../examples/tools.html');
                     }else {
                         alert("alert");
                         
@@ -39,6 +43,9 @@ function addMaquina(evento) {
     
         
         ajax.send(params);
+        
+    }
+
 }
 
 
@@ -151,6 +158,9 @@ function listarMaquina(){
 
             for(let i=0;i<jsonString.length;i++){
 
+                data = new Date(jsonString[i].dataCadastradoMaquina);
+                var dataFormatada = ("0" + data.getDate()).substr(-2) + "/" + ("0" + (data.getMonth() + 1)).substr(-2) + "/" + data.getFullYear();
+
                 var tr = document.createElement('tr');
                 var td = document.createElement('td');
                 td.innerHTML = jsonString[i].codMaquina;
@@ -162,9 +172,12 @@ function listarMaquina(){
                 td2.innerHTML = jsonString[i].modeloMaquina;
                 var tr3 = document.createElement('tr');
                 var td3 = document.createElement('td');
-                td3.innerHTML = jsonString[i].dataCadastradoMaquina;
+                td3.innerHTML = dataFormatada;
                 var tr5 = document.createElement('tr');
                 var td5 = document.createElement('td');
+
+                
+
                 
                 td5.innerHTML = `<td class="td-actions" id="tdClassAction" value=""><button type="button" rel="tooltip" title="Editar" class="btn btn-just-icon btn-link btn-sm" onclick="editarMaquina(${jsonString[i].codMaquina})"><i class="material-icons">edit</i></button><button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm" onclick="excluirMaquina(${jsonString[i].codMaquina})"><i class="material-icons">close</i></button></td>`;
                 tr.appendChild(td);

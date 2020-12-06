@@ -4,6 +4,7 @@ let formPrograma = document.querySelector("#form-programa");
 function addPrograma(evento) {
     evento.preventDefault();
     let ajax = new XMLHttpRequest();
+        if(nomePrograma.value != ""){
         let params = "nomePrograma=" + nomePrograma.value;
 
         ajax.open("POST", "http://localhost:3000/addPrograma");
@@ -22,6 +23,9 @@ function addPrograma(evento) {
 
         }
         ajax.send(params);
+    }else {
+        alert("Preencha o campo corretamente");
+    }
 }
 
 let selectPrograma = document.querySelector('#tablePrograma');

@@ -15,6 +15,8 @@ function addFuncionario(evento) {
         ('00' + date.getUTCHours()).slice(-2) + ':' + 
         ('00' + date.getUTCMinutes()).slice(-2) + ':' + 
         ('00' + date.getUTCSeconds()).slice(-2); 
+
+        if(nomeFunc.value != ""){
         
         let params = "nomeFuncionario=" + nomeFunc.value + "&loginFuncionario=" + loginFuncionario + "&senhaFuncionario=" + senhaFuncionario + "&dataCadastro=" + date;
 
@@ -40,6 +42,10 @@ function addFuncionario(evento) {
     
         
         ajax.send(params);
+
+        }else {
+            alert("Preencha o campo corretamente.");
+        }
 }
 
 function textoAleatorio(tamanho)
