@@ -5,6 +5,10 @@ let formComponente = document.querySelector("#form-componente");
 function addComponente(evento) {
     evento.preventDefault();
 let ajax = new XMLHttpRequest();
+
+    if(nomeComponente.value != "" && descComponente.value != ""){
+
+    
     let params = "nomeComponente=" + nomeComponente.value + "&descComponente=" + descComponente.value;
 
     ajax.open("POST", "http://localhost:3000/addComponente");
@@ -23,6 +27,10 @@ let ajax = new XMLHttpRequest();
 
     }    
     ajax.send(params);
+
+    }else {
+        alert("Preencha os campos corretamente.");
+    }
 }
 
 //let btnProdutos = document.querySelector('#textorecado');

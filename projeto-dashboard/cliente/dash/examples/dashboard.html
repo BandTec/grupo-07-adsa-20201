@@ -61,18 +61,6 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Consultar</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
-              <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./notifications.html">
-              <i class="material-icons">notifications</i>
-              <p>Notifications</p>
-            </a>
-          </li>
         </ul>
       </div>
     </div>
@@ -81,7 +69,7 @@ The above copyright notice and this permission notice shall be included in all c
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;" style="color: #f44336;">Olá fulano!</a>
+            <a class="navbar-brand" href="javascript:;" style="color: #f44336;">Bem Vindo(a)!</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -192,7 +180,7 @@ The above copyright notice and this permission notice shall be included in all c
               
               <div class="card-header card-header-dange">
                 <h4 class="card-title">Dados de conexão</h4>
-                <p class="card-category">horário da ultima consulta 14/11/2020 às 01:13</p>
+                
               </div>
               
               <div class="card-body table-responsive">
@@ -211,11 +199,11 @@ The above copyright notice and this permission notice shall be included in all c
 
               <div class="col" id="col1" style="display: none;">
                 <div class="card card-stats" style="height: 500px;">
-                  <div class="card-header card-header-dange card-header-icon">
+                  <div class="card-header card-header-icon" id="corCardStatusCpu">
                     <div class="card-icon">
-                      <i class="material-icons">sim_card</i>
+                      <i class="material-icons" id="iconCardStatusCpu"></i>
                     </div>
-                    <p class="card-category">Média diária de CPU</p>
+                    <p class="card-category">STATUS</p>
                     <h3 id="cpuMedia" class="card-title">. . .
                     </h3>
                   </div>
@@ -230,11 +218,12 @@ The above copyright notice and this permission notice shall be included in all c
 
             <div class="col" id="col2" style="display: none;">
                 <div class="card card-stats" style="height: 500px;">
-                  <div class="card-header card-header-dange card-header-icon">
+                  <div class="card-header card-header-icon card-header-dange" id="corCardStatusMem">
+                    <div class="card-header card-header-dange card-header-icon">
                     <div class="card-icon">
-                      <i class="material-icons">memory</i>
+                      <i class="material-icons" id="iconCardStatusMem"></i>
                     </div>
-                    <p class="card-category">Média diária de RAM</p>
+                    <p class="card-category">STATUS</p>
                     <h3 id="memMedia" class="card-title">. . .
                     </h3>
                   </div>
@@ -574,6 +563,9 @@ The above copyright notice and this permission notice shall be included in all c
 
             for(let i=0;i<jsonString.length;i++){
 
+              data = new Date(jsonString[i].dataCadastradoMaquina);
+                var dataFormatada = ("0" + data.getDate()).substr(-2) + "/" + ("0" + (data.getMonth() + 1)).substr(-2) + "/" + data.getFullYear();
+
                 var tr = document.createElement('tr');
                 var td = document.createElement('td');
                 td.innerHTML = jsonString[i].codMaquina;
@@ -585,11 +577,11 @@ The above copyright notice and this permission notice shall be included in all c
                 td2.innerHTML = '<i class="material-icons text-success" >fiber_manual_record</i>';
                 var tr3 = document.createElement('tr');
                 var td3 = document.createElement('td');
-                td3.innerHTML = jsonString[i].dataCadastradoMaquina;
+                td3.innerHTML = dataFormatada;
                 var tr5 = document.createElement('tr');
                 var td5 = document.createElement('td');
-                
-                td5.innerHTML = `<td><button type="submit" onclick="getAvgComponents(${jsonString[i].codMaquina})" class="btn btn-primary">Detalhes</button></td>`;
+                var nome = jsonString[i].userMaquina;
+                td5.innerHTML = `<td><button type="submit" onclick="getAvgComponents('${jsonString[i].codMaquina}', '${nome}')" class="btn btn-primary">Detalhes</button></td>`;
                 tr.appendChild(td);
                 selectMaquina.appendChild(tr);
                 tr.appendChild(td1);

@@ -1,28 +1,28 @@
 
 var ctx = document.getElementById('ChartCpu');
 var ctz = document.getElementById('ChartMem');
-function gerarGraficoCpu(valorCpu, valorTotalCpu){
+function gerarGraficoCpu(valorCpu, valorTotalCpu, nome){
 
 var myBarChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: 
         [
-        "Média (usuario)", "Média Geral"
+        nome, "Média geral"
         ],
 
         datasets: [{
-            label: ['Utilização (usuario)','Utilização (grupo)'],
+            label: ['Média diária utilização de CPU (%)'],
             data: [ 
             valorCpu.toFixed(2), valorTotalCpu.toFixed(2)
         ],
             backgroundColor: [
-                '#d63031',
-                '#3c6382'
+                '#596275',
+                '#c8d6e5'
             ],
             borderColor: [
-                '#d63031',
-                '#3c6382'
+                '#596275',
+                '#c8d6e5'
             ],
             borderWidth: 1
         }]
@@ -44,28 +44,28 @@ var myBarChart = new Chart(ctx, {
 
 
 
-function gerarGraficoMem(valorMem, valorMemTotal){
+function gerarGraficoMem(valorMem, valorMemTotal, nome){
 
     var myBarChart = new Chart(ctz, {
         type: 'bar',
         data: {
             labels: 
             [
-            "Média (usuario)", "Média Geral"
+            nome, "Média Geral"
             ],
     
             datasets: [{
-                label: ['Utilização (usuario)','Utilização (grupo)'],
+                label: ['Média diária utilização de memória (%)'],
                 data: [ 
                 valorMem.toFixed(2), valorMemTotal.toFixed(2)
             ],
                 backgroundColor: [
-                    '#d63031',
-                    '#3c6382'
+                    '#596275',
+                    '#c8d6e5'
                 ],
                 borderColor: [
-                    '#d63031',
-                    '#3c6382'
+                    '#596275',
+                    '#c8d6e5'
                 ],
                 borderWidth: 1
             }]
