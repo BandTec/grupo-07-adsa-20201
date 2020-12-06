@@ -38,6 +38,8 @@ public class TelaDetalhes extends javax.swing.JFrame {
     Integer horaPlusFinal = Integer.valueOf(reg.getHoraPlus7hr());
     
     public TelaDetalhes() {
+        
+        System.out.println(session.getSessionList());
 
         try {
             initComponents();
