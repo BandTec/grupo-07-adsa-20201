@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 const cors = require ('cors');
 const port = 3000;
 
+var agoraM2 = `${new Date().getHours()}:${new Date().getMinutes - 2}`;
+
 var today = `${new Date().getFullYear()}-${new Date().getMonth()+1}-${String(new Date().getDate()).padStart(2, '0')}`;
 
 var today2 = `${new Date().getFullYear()}${new Date().getMonth()+1}${String(new Date().getDate()).padStart(2, '0')}`;
@@ -66,7 +68,7 @@ app.post('/addPrograma',(req,res)=>{
 app.post('/addFuncionario',(req,res)=>{
     let data=[req.body.nomeFuncionario, req.body.loginFuncionario, req.body.senhaFuncionario, req.body.dataCadastro];
 
-    let sql = "INSERT INTO tbUsuario (nomeUsuario, loginUsuario, senhaUsuario, dataCadastroUsuario) values (?,?,?,?)";
+    let sql = "INSERT INTO tbUsuario (nomeUsuario, loginUsuario, senhaUsuario, registroUsuario) values (?,?,?,?)";
     connection.query(sql,data,function(err,result){
         if(err) throw err;
         res.send(result);
@@ -322,6 +324,16 @@ app.get('/getImproperProcess',(req,res)=>{
         res.send(result);
     });
     
+});
+
+app.get('/getMaquinasAtivas', (req,res)=> {
+    let sql = `select count(distinct (fkMaquina)) as count, fkMaquina as maquina from tbProcessos where registroProcesso > '2020-12-07 18:55:00' group by maquina; `
+    
+    connection.query(sql,function(err,result){
+        if(err) throw err;
+        res.send(result);
+    });
+
 });
 
 app.listen(process.env.PORT || port, function(){

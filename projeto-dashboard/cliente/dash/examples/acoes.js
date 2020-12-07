@@ -1,4 +1,7 @@
 let improperProcess = document.getElementById("improper-process");
+window.onload = function() {
+    maquinasAtivas();
+  };
 
 function sair(){
     window.location.assign('../../index.html');
@@ -9,12 +12,35 @@ fetch("http://localhost:3000/getImproperProcess").then(response => {
     if(response.ok){
         response.json().then(res =>{
             let count = res[0].count;
-            
+
             improperProcess.innerHTML = `${count}  <small>programas</small>`;
         })
     }
 
 })
+function maquinasAtivas (){
+
+    let maquinasAtivas = [];
+
+    fetch("http://localhost:3000/getMaquinasAtivas").then(response => {
+
+        if(response.ok){
+            response.json().then(res =>{
+                
+                let ativas = res.length;
+                
+                res.forEach(elem => {
+                    maquinasAtivas.push(elem.maquina)
+                });
+    
+            })
+        }
+    
+    })
+    console.log(maquinasAtivas)
+    return maquinasAtivas;
+}
+
 
 function getAvgComponents(cod, nome){
             
