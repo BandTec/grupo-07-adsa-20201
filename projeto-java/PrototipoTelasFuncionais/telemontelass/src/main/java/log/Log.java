@@ -31,7 +31,7 @@ public class Log {
     public void logCriation() {
         try {
             //PARA A EC2, ABAIXO:
-            RandomAccessFile logErro = new RandomAccessFile(".\\logs\\" + maquina.getHostname() + reg.getDataFormatada() + ".txt", "rw");
+            RandomAccessFile logErro = new RandomAccessFile("/home/ubuntu/Documents/grupo-07-adsa-20201/projeto-java/PrototipoTelasFuncionais/telemontelass/logs" + maquina.getHostname() + reg.getDataFormatada() + ".txt", "rw");
             
             //PARA WINDOWS, ABAIXO:
 //            RandomAccessFile logErro = new RandomAccessFile(".\\logs\\" + maquina.getHostname() + reg.getDataFormatada() + ".txt", "rw");
