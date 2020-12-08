@@ -8,11 +8,8 @@ import java.net.URL;
 import org.json.JSONObject;
 import log.Log;
 
-
-
-
 public class Slack {
-    private String URL = "https://hooks.slack.com/services/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"; //apagar o ultimo digito
+    private String URL = "https://hooks.slack.com/services/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222222"; //apagar o ultimo digito
     
     public void sendMessage(JSONObject message){
         try {
