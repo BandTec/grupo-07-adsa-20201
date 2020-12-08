@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const cors = require ('cors');
 const port = 3000;
 
-var agoraM2 = `${new Date().getHours()}:${new Date().getMinutes - 2}`;
+var agoraM2 = `${new Date().getHours()}:${new Date(new Date() - 120000).getMinutes()}`;
 
 var today = `${new Date().getFullYear()}-${new Date().getMonth()+1}-${String(new Date().getDate()).padStart(2, '0')}`;
 
@@ -327,8 +327,8 @@ app.get('/getImproperProcess',(req,res)=>{
 });
 
 app.get('/getMaquinasAtivas', (req,res)=> {
-    let sql = `select count(distinct (fkMaquina)) as count, fkMaquina as maquina from tbProcessos where registroProcesso > '2020-12-07 18:55:00' group by maquina; `
-    
+    let sql = `select count(distinct (fkMaquina)) as count, fkMaquina as maquina from tbProcessos where registroProcesso > '${today} ${agoraM2}:00'  group by maquina; `
+    console.log(agoraM2);
     connection.query(sql,function(err,result){
         if(err) throw err;
         res.send(result);

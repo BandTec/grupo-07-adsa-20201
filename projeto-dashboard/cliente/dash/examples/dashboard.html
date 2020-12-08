@@ -121,8 +121,7 @@ The above copyright notice and this permission notice shall be included in all c
                     <i class="material-icons">signal_wifi_4_bar</i>
                   </div>
                   <p class="card-category">Conectados</p>
-                  <h3 class="card-title">50
-                    <small>pessoas</small>
+                  <h3 class="card-title" id="qtdConectados">
                   </h3>
                 </div>
                 <div class="card-footer">
@@ -137,7 +136,7 @@ The above copyright notice and this permission notice shall be included in all c
                     <i class="material-icons">signal_wifi_off</i>
                   </div>
                   <p class="card-category">Desconectados</p>
-                  <h3 class="card-title">3
+                  <h3 class="card-title" id="qtdDesconectados">
                     <small>pessoas</small>
                   </h3>
                 </div>
@@ -540,6 +539,8 @@ The above copyright notice and this permission notice shall be included in all c
             
             
             jsonString = JSON.parse(ajax.responseText);
+            qtdDesconectados.innerHTML = jsonString.length +  "<small>pessoas</small>";
+                   
             var th1 = document.createElement('th');
             var th2 = document.createElement('th');
             var th3 = document.createElement('th');
@@ -559,9 +560,8 @@ The above copyright notice and this permission notice shall be included in all c
             textDangerMaquina.appendChild(th5);
             selectMaquina.appendChild(textDangerMaquina);
 
-
-
             for(let i=0;i<jsonString.length;i++){
+
 
               data = new Date(jsonString[i].dataCadastradoMaquina);
                 var dataFormatada = ("0" + data.getDate()).substr(-2) + "/" + ("0" + (data.getMonth() + 1)).substr(-2) + "/" + data.getFullYear();
@@ -574,7 +574,7 @@ The above copyright notice and this permission notice shall be included in all c
                 td1.innerHTML = jsonString[i].userMaquina;
                 var tr2 = document.createElement('tr');
                 var td2 = document.createElement('td');
-                td2.innerHTML = '<i class="material-icons text-success" >fiber_manual_record</i>';
+                td2.innerHTML = `<i class="material-icons text-danger" id="${jsonString[i].codMaquina}">fiber_manual_record</i>`;
                 var tr3 = document.createElement('tr');
                 var td3 = document.createElement('td');
                 td3.innerHTML = dataFormatada;

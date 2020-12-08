@@ -18,7 +18,7 @@ fetch("http://localhost:3000/getImproperProcess").then(response => {
     }
 
 })
-function maquinasAtivas (){
+function maquinasAtivas(){
 
     let maquinasAtivas = [];
 
@@ -28,16 +28,27 @@ function maquinasAtivas (){
             response.json().then(res =>{
                 
                 let ativas = res.length;
-                
+                qtdConectados.innerHTML = ativas + " <small>pessoas</small>";
                 res.forEach(elem => {
-                    maquinasAtivas.push(elem.maquina)
+                   maquinasAtivas.push(elem.maquina);
+                   console.log(document.getElementById(String(elem.maquina)));
+                   try {
+                    document.getElementById(String(elem.maquina));
+
+                        document.getElementById(String(elem.maquina)).className = 'material-icons text-success';
+                     
+                } catch (error) {
+                    console.log(document.getElementById(String(elem.maquina)))
+                }
+
+
                 });
     
             })
         }
     
     })
-    console.log(maquinasAtivas)
+    //console.log(maquinasAtivas)
     return maquinasAtivas;
 }
 
