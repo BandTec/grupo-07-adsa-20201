@@ -18,7 +18,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mysqli": "^3.0.11",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.6"
   },
   "author": "lucas",
   "license": "ISC",
